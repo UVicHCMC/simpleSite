@@ -1,2 +1,2 @@
-# brecht
-Repository for the 2026 Les Francais d'ici conference
+# simpleSite
+This is a repository for a simple ant build process for HCMC websites that do not have large datasets. 
