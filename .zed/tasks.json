@@ -1,9 +1,0 @@
-[
-  {
-    "label": "Ant: fullBuild",
-    "command": "ant",
-    "args": ["fullBuild"],
-    "use_new_terminal": false,
-    "reveal": "never",
-  },
-]
