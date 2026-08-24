@@ -54,16 +54,17 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12" />
                                 </svg>
                             </button>
-
+                            
+                            <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
                             <div class="popover-group-container">
                                 <div class="popover-header">
                                     <img src="images/logo-popover.svg" class="logo-internal" alt="" />
 
                                     <p class="popover-text">
-                                        <span class="site-title">Les français d’ici</span>
-                                        <span class="location">Victoria, Colombie-Britannique, Canada</span>
+                                        <span class="site-title"><?siteTitle?></span>
+                                        <span class="location"><?place?> <?location?></span>
                                         <span class="date">
-                                            <time datetime="2026-06-15/2026-06-17">15–17 juin 2026</time>
+                                            <time datetime="{?dateIso}"><?date?></time>
                                         </span>
                                     </p>
                                 </div>
@@ -94,25 +95,26 @@
 
                 <div class="top-logo-container-splash">
                     <!-- <img src="images/logo-splash.svg" class="logo-splash" alt="" /> -->
-
+                    
+                    <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
                     <header class="splash-header-stack">
-                        <p class="pre-title">Colloque international</p>
-                        <h1 class="site-title">Les français d’ici</h1>
-                        <p class="location-one">Université de Victoria, Victoria</p>
-                        <p class="location-two">Colombie-Britannique, Canada</p>
+                        <p class="pre-title"><?preTitle?></p>
+                        <h1 class="site-title"><?siteTitle?></h1>
+                        <p class="location-one"><?place?></p>
+                        <p class="location-two"><?location?></p>
                         <p class="date">
-                            <time datetime="2026-06-15/2026-06-17">du 15–17 juin 2026</time>
+                            <time datetime="{?dateIso}"><?date?></time>
                         </p>
-                        <p class="contact-us"> Contact : <a href="mailto:lfdi2026@uvic.ca ">lfdi2026@uvic.ca</a>
+                        <p class="contact-us">
+                            Contact&#160;: <a href="mailto:{?contactEmail}"><?contactEmail?></a>
                         </p>
-
                     </header>
                 </div>
 
             </main>
             <footer class="site-footer">
                 <div class="footer-container">
-                    <a class="thank-you button-style" href="about.html#partenaires">Merci à nos partenaires</a>
+                    <a class="thank-you button-style" href="about.html">With thanks to our partners</a>
                 </div>
             </footer>
         </div>

@@ -20,11 +20,11 @@
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
     <languages>
-        <lang code="fr" label="Français" default="true" />
+        <lang code="en" label="English" default="true" />
     </languages>
 
     <files>
-        <cssFile>css/fina.css</cssFile>
+        <cssFile>css/simpleSite.css</cssFile>
         <jsFile>js/pux.js</jsFile>
         <faviconIco>images/favicon.ico</faviconIco>
         <faviconSvg>images/favicon.svg</faviconSvg>
@@ -33,21 +33,28 @@
 
     <metadata>
         <siteTitle>
-            <fr>Les français d’ici 2026</fr>
+            <en>Site Title</en>
         </siteTitle>
+        <preTitle>
+            <en>Pre-title text in splash header stack, if any</en>
+        </preTitle>
         <organizationName>
-            <fr>Organization Name</fr>
+            <en>Organization Name</en>
         </organizationName>
+        <contactEmail>
+            contact@example.com
+        </contactEmail>
 
         <WhereWhen>
             <place>
-                <fr>Event Venue/Host</fr>
+                <en>Event Venue/Host</en>
             </place>
             <date>
-                <fr>June 15-17, 2026</fr>
+                <en>DATE</en>
             </date>
+            <dateIso>YYYY-MM-DD</dateIso>
             <location>
-                <fr>Victoria, BC</fr>
+                <en>Victoria, BC</en>
             </location>
         </WhereWhen>
     </metadata>
@@ -57,7 +64,7 @@
     <!-- For language selector page -->
     <!--<languageSelector>
         <heading>
-            <fr>Select your language</fr>
+            <en>Select your language</en>
             <de>Wählen Sie Ihre Sprache</de>
         </heading>
     </languageSelector>-->
@@ -66,15 +73,14 @@
 
     <!-- For nav.aria-label-->
     <nav-aria-label>
-        <fr>Language Selection</fr>
+        <en>Language Selection</en>
     </nav-aria-label>
 
     <!--For img.splash-logo-->
     <splash-logo>
         <class>splash-logo</class>
-        <src>images/logo-splash-brecht.webp</src>
-        <fr>Brecht in the anthropocene, 18th symposium of the International Brecht Society. University of Victoria, Victoria, BC, Canada: July 22-26, 2026.</fr>
-
+        <src>images/logo-splash.webp</src>
+        <en>Alt text for main site logo, if any</en>
     </splash-logo>
 
     <!--For img.uvic-logo-->
@@ -82,7 +88,7 @@
         <href>https://hcmc.uvic.ca</href>
         <src>images/logo-uvic.svg</src>
         <alt>
-            <fr>University of Victoria Humanities Computing and Media Centre</fr>
+            <en>University of Victoria Humanities Computing and Media Centre</en>
         </alt>
     </uvic-logo>
 
@@ -91,7 +97,7 @@
         <class>mobile-header-splash</class>
         <src>images/logo-mobile-header.webp</src>
         <alt>
-            <fr />
+            <en />
 
         </alt>
     </mobile-header-splash>
@@ -101,12 +107,11 @@
         <class>mobile-header-internal</class>
         <src>images/logo-mobile-header.webp</src>
         <alt>
-            <fr />
-
+            <en>Alt text for mobile header logo, if any. Change language element as needed.</en>
         </alt>
     </mobile-header-internal>
 
-    <!--For popover.splash-icon-->
+    <!--For popover.splash-icon. Assuming no alt text for this.-->
     <popover-splash-icon>
         <src>images/logo-mobile-popover.webp</src>
         <alt />
@@ -114,27 +119,27 @@
 
     <!-- For a.skip-link-->
     <skip-link>
-        <fr>Skip to Content</fr>
+        <en>Skip to Content</en>
     </skip-link>
 
     <!-- For nav.aria-label-->
     <site-navigation-label>
-        <fr>Primary</fr>
+        <en>Primary</en>
     </site-navigation-label>
 
     <!-- For subnav.aria-label-->
     <subnav-aria-label>
-        <fr>Sous-navigation</fr>
+        <en>Secondary</en>
     </subnav-aria-label>
 
     <!--For button.aria-label-->
     <popover-close-label>
-        <fr>Fermer</fr>
+        <en>Close</en>
     </popover-close-label>
 
     <!--For span.nav-toggle-label-->
     <nav-toggle-label>
-        <fr>Menu du site</fr>
+        <en>Site Menu</en>
     </nav-toggle-label>
 
     <!--For div.footer-container-->
@@ -146,34 +151,26 @@
         </items>
     </footer-content>
 
-    <!-- For div.popover-nav-items-->
+    <!-- For div.popover-nav-items. Replace these with your actual navigation items. 
+         If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
     <navigation>
         <item href="index.html">
-            <fr>Accueil</fr>
+            <en>Accueil</en>
         </item>
         <item href="cfp.html">
-            <fr>Appel à communications</fr>
+            <en>Call for Papers</en>
         </item>
         <item href="program.html">
-            <fr>Programme</fr>
+            <en>Program</en>
         </item>
         <item href="registration.html">
-            <fr>Inscriptions</fr>
+            <en>Registration</en>
         </item>
         <item href="practical-info.html">
-            <fr>Renseignements pratiques</fr>
-        </item>
-        <item href="accommodations.html">
-            <fr>Hébergement</fr>
-        </item>
-        <item href="activity.html">
-            <fr>Activité/visite</fr>
-        </item>
-        <item href="to-do.html">
-            <fr>À voir et à faire à Victoria</fr>
+            <en>Practical Information</en>
         </item>
         <item href="about.html">
-            <fr>À propos</fr>
+            <en>About</en>
         </item>
     </navigation>
 
