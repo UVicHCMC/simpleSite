@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <h1>About</h1><!--Page title-->
+  <h1>About the Commons</h1><!--Page title-->
 
-  <section id="organization">
-    <h2>Organization</h2>
+  <section id="about">
+
+    <p>The Critical Humanities Commons (CHC) has been a priority for the Faculty of Humanities since 2018 when a Taskforce on Knowledge and Place in the Humanities (TKPH) was appointed by the Dean’s Office to create a new, ethically driven mission for Humanities. In its final report, the TKPH recommended guidelines for facilitating campus-wide conversations with Humanities grounded in a commitment to social justice, through the creation of a “Critical Humanities Institute.”</p>
+
+    <p>The eventual shift to the Critical Humanities <em>Commons</em> reflects the practice of decolonialization in action, through programming and space-sharing that center a porous and collaborative approach to collective learning—a move away from the exclusive hierarchy of an “Institute” that tends to be rigid and less accessible. By centering democratic and participatory forms of knowledge-making rooted in the principles of Disability Justice, the CHC advocates for openness to all: everyone belongs in the Commons, and all can shape its direction.</p>
+
+    <p>The Commons is directed by three guiding principles:</p>
 
     <ul>
-      <li>John Smith (Campus University)</li>
-      <li>Jane Doe (Campus University)</li>
+      <li>EQUITY: reject extractive research practices and center marginalized epistemologies. Integrate undergraduate and graduate students as co-organizers, researchers, and decision makers, rather than passive learners.</li>
+      <li>ACCESSIBILITY: uphold disability justice as a core dimension of social integrity and to foster inclusive participation, particularly for community members whose knowledge contributions are undervalued.</li>
+      <li>COMMUNITY: include non-academic collaborators as co-creators and partners in knowledge production.</li>
     </ul>
 
-    <h2>Recognition</h2>
+    <h2>The Director</h2>
 
-    <p>Land Acknowledgment Text</p>
+    <figure class="headshot">
+      <img src="images/BLANK" alt="A smiling South Asian woman with long dark hair. She is wearing a beige sweater and large hoop earrings, and is positioned in front of a blue background." />
+      <figcaption>Jaipreet Virdi and Lizzie</figcaption>
+    </figure>
 
-  </section>
+    <p><a href="https://www.uvic.ca/humanities/history/people/faculty/profiles/virdijaipreet.php">Jaipreet Virdi</a> (she/her/hers) is a historian of science, technology, and medicine who specializes in disability. As a scholar activist, she uses research as a tool for influencing public discourse and policy and has produced numerous interdisciplinary works in public humanities. As a deaf person with chronic pain, she relies on her service dog, Lizzie, who loves to meet new people. Jai can be reached at <a href="mailto:dirchc@uvic.ca">dirchc@uvic.ca</a>.</p>
 
-  <section id="partners" class="highlight">
+    <h2>Administrative Assistant</h2>
 
-    <h2>Partners</h2>
+    <figure class="headshot">
+      <img src="images/BLANK" alt="A South Asian woman with dark hair pulled back. She is wearing a black blazer and posed in front of a studio background." />
+      <figcaption>Sarah Lawrence</figcaption>
+    </figure>
 
-    <ul class="logo-container">
-      <a href="https://www.uvic.ca/humanities/index.php">
-        <img class="logo humanities" src="images/logo-humanities.webp" alt="" />
-      </a>
-      <a href="https://www.uvic.ca/humanities/hcmc/index.php">
-        <img class="logo hcmc" src="images/logo-hcmc.webp" alt="" />
-      </a>
-    </ul>
+    <p>Sarah Lawrence joined the Critical Humanities Commons as the new Administrative Assistant in January 2026. As a part of the Commons team, she aims to advance the unit forward collaboratively within the Faculty of Humanities. Sarah can be reached at <a href="mailto:muktalawrence@uvic.ca">muktalawrence@uvic.ca</a>.</p>
 
   </section>
 

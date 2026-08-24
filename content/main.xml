@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
+
+  <h1>About</h1><!--Page title-->
+
+  <section id="organization">
+    <h2>Organization</h2>
+
+    <ul>
+      <li>John Smith (Campus University)</li>
+      <li>Jane Doe (Campus University)</li>
+    </ul>
+
+    <h2>Recognition</h2>
+
+    <p>Land Acknowledgment Text</p>
+
+  </section>
+
+  <section id="partners" class="highlight">
+
+    <h2>Partners</h2>
+
+    <ul class="logo-container">
+      <a href="https://www.uvic.ca/humanities/index.php">
+        <img class="logo humanities" src="images/logo-humanities.webp" alt="" />
+      </a>
+      <a href="https://www.uvic.ca/humanities/hcmc/index.php">
+        <img class="logo hcmc" src="images/logo-hcmc.webp" alt="" />
+      </a>
+    </ul>
+
+  </section>
+
+</div>
+<!--end of root-->
