@@ -4,7 +4,7 @@
 
 The build reads site-wide configuration from `properties.xml`, combines well-formed XML content with XHTML boilerplate templates, compiles SCSS, and writes the finished site to the `site/` directory. It is written to support both monolingual and multilingual output.
 
-** For internal (HCMC) users, please create a new branch for each new site developed using this repo. External users are welcome to fork the repository and use it for their needs **
+**For internal (HCMC) users, please create a new branch for each new site developed using this repo. External users are welcome to fork the repository and use it for their needs**
 
 ## Requirements
 
