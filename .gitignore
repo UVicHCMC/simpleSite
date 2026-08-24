@@ -27,6 +27,5 @@ site/
 utilities/imageDimensions.txt
 
 #Ignore Pat's stuff
-.nova/
-.zed/
+
 .idea/
