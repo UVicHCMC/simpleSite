@@ -1,87 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <h1>À propos</h1><!--Page title-->
+  <h1>About</h1><!--Page title-->
 
-  <section id="organisation">
-    <h2>Organisation</h2>
-
-    <h3>Organisateurs</h3>
+  <section id="organization">
+    <h2>Organization</h2>
 
     <ul>
-      <li>Catherine Léger, Université de Victoria (Colombie-Britannique, Canada)</li>
-      <li>Pierre-Don Giancarli, Université de Victoria (Colombie-Britannique, Canada)</li>
+      <li>John Smith (Campus University)</li>
+      <li>Jane Doe (Campus University)</li>
     </ul>
 
-    <h3>Comité scientifique</h3>
+    <h2>Recognition</h2>
 
-    <ul>
-      <li>Myriam Bergeron-Maguire, Université Sorbonne Nouvelle Paris 3 (France)</li>
-      <li>Philip Comeau, Université Sainte-Anne (Nouvelle-Écosse, Canada)</li>
-      <li>Mireille Elchacar, Université TÉLUQ (Québec, Canada)</li>
-      <li>Sandrine Hallion, Université de Saint-Boniface (Manitoba, Canada)</li>
-      <li>Oliver Mayeux, University of Cambridge (Angleterre)</li>
-      <li>Wim Remysen, Université de Sherbrooke (Québec, Canada)</li>
-      <li>Basile Roussel, Université de Moncton, campus de Shippagan (Nouveau-Brunswick, Canada)</li>
-      <li>André Thibault, Sorbonne Université (France)</li>
-      <li>Émilie Urbain, Carleton University (Ontario, Canada)</li>
-    </ul>
+    <p>Land Acknowledgment Text</p>
 
   </section>
 
-  <section id="partenaires" class="highlight">
+  <section id="partners" class="highlight">
 
-    <h2>Partenaires</h2>
+    <h2>Partners</h2>
 
     <ul class="logo-container">
-
-      <a href="https://www2.gov.bc.ca/gov/content/governments/organizational-structure/office-of-the-premier/intergovernmental-relations-secretariat/en-francais/affaires-francophones">
-        <img class="logo bc-gov" src="images/logo-bcgov.webp" alt="" />
-      </a>
-      <a href="https://cla-acl.ca/">
-        <img class="logo accla" src="images/logo-accla.webp" alt="" />
-      </a>
-      <a href="https://afls.net/">
-        <img class="logo afls" src="images/logo-afls.webp" alt="" />
-      </a>
-      <a href="https://aieq.qc.ca/">
-        <img class="logo aieq" src="images/logo-aieq.webp" alt="" />
-      </a>
-      <a href="https://ustboniface.ca/cefco/accueil">
-        <img class="logo cefco" src="images/logo-cefco.webp" alt="" />
-      </a>
-      <a href="https://www.csf.bc.ca/">
-        <img class="logo csf" src="images/logo-csf.webp" alt="" />
-      </a>
-      <a href="https://www.uvic.ca/humanities/research/critical-humanities-commons/index.php">
-        <img class="logo commons" src="images/logo-commons.webp" alt="" />
-      </a>
       <a href="https://www.uvic.ca/humanities/index.php">
         <img class="logo humanities" src="images/logo-humanities.webp" alt="" />
-      </a>
-      <a href="https://www.canada.ca/fr/patrimoine-canadien.html">
-        <img class="logo patrimoine" src="images/logo-patrimoine.webp" alt="" />
-      </a>
-      <a href="https://fondationricard.com/">
-        <img class="logo ricard" src="images/logo-fondation-ricard.webp" alt="" />
       </a>
       <a href="https://www.uvic.ca/humanities/hcmc/index.php">
         <img class="logo hcmc" src="images/logo-hcmc.webp" alt="" />
       </a>
-      <a href="https://onlineacademiccommunity.uvic.ca/reseaufranco/">
-        <img class="logo reseau-franco" src="images/logo-reseau-franco.svg" alt="" />
-      </a>
-      <a href="https://www.sdecb.com/">
-        <img class="logo sdecb" src="images/logo-sdecb.svg" alt="" />
-      </a>
-      <div class="logo-stack">
-        <a href="https://sshrc-crsh.canada.ca/fr.aspx">
-          <img class="logo sshrc" src="images/logo-sshrc.svg" alt="" />
-        </a>
-        <span class="logo-stack-text">
-         Le colloque <i>Les français d’ici</i> est en partie financé par le Conseil de recherches en sciences humaines du Canada
-        </span>
-      </div>
     </ul>
 
   </section>

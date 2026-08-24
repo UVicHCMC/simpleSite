@@ -54,7 +54,7 @@
             </date>
             <dateIso>YYYY-MM-DD</dateIso>
             <location>
-                <en>Victoria, BC</en>
+                <en>Event Location/Host</en>
             </location>
         </WhereWhen>
     </metadata>
@@ -155,19 +155,7 @@
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
     <navigation>
         <item href="index.html">
-            <en>Accueil</en>
-        </item>
-        <item href="cfp.html">
-            <en>Call for Papers</en>
-        </item>
-        <item href="program.html">
-            <en>Program</en>
-        </item>
-        <item href="registration.html">
-            <en>Registration</en>
-        </item>
-        <item href="practical-info.html">
-            <en>Practical Information</en>
+            <en>Home</en>
         </item>
         <item href="about.html">
             <en>About</en>

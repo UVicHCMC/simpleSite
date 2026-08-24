@@ -44,12 +44,12 @@
                 </a>
                 <div class="top-logo-container-internal">
                     <img src="images/logo-internal.svg" class="logo-internal" alt="" />
-
+                    <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
                     <p class="internal-header-text">
-                        <span class="site-title">Les français d’ici</span>
-                        <span class="location">Victoria, Colombie-Britannique, Canada</span>
+                        <span class="site-title"><?siteTitle?></span>
+                        <span class="location"><?place?> <?location?></span>
                         <span class="date">
-                            <time datetime="2026-06-15/2026-06-17">15–17 juin 2026</time>
+                            <time datetime="{?dateIso}"><?date?></time>
                         </span>
                     </p>
                 </div>
@@ -82,12 +82,12 @@
                             <div class="popover-group-container">
                                 <div class="popover-header">
                                     <img src="images/logo-popover.svg" class="logo-internal" alt="" />
-
+                                    <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
                                     <p class="popover-text">
-                                        <span class="site-title">Les français d’ici</span>
-                                        <span class="location">Victoria, Colombie-Britannique, Canada</span>
+                                        <span class="site-title"><?siteTitle?></span>
+                                        <span class="location"><?place?> <?location?></span>
                                         <span class="date">
-                                            <time datetime="2026-06-15/2026-06-17">15–17 juin 2026</time>
+                                            <time datetime="{?dateIso}"><?date?></time>
                                         </span>
                                     </p>
                                 </div>
@@ -143,7 +143,7 @@
             -->
             <footer class="site-footer">
                 <div class="footer-container">
-                    <a class="thank-you button-style" href="about.html#partenaires">Merci à nos partenaires</a>
+                    <a class="thank-you button-style" href="about.html">With thanks to our partners</a>
                 </div>
             </footer>
         </div>
