@@ -24,7 +24,7 @@
     </languages>
 
     <files>
-        <cssFile>css/simpleSite.css</cssFile>
+        <cssFile>css/commons.css</cssFile>
         <jsFile>js/pux.js</jsFile>
         <faviconIco>images/favicon.ico</faviconIco>
         <faviconSvg>images/favicon.svg</faviconSvg>
@@ -33,7 +33,7 @@
 
     <metadata>
         <siteTitle>
-            <en>Site Title</en>
+            <en>Critical Humanities Commons @ UVic</en>
         </siteTitle>
         <preTitle>
             <en>Pre-title text in splash header stack, if any</en>
@@ -42,7 +42,7 @@
             <en>Organization Name</en>
         </organizationName>
         <contactEmail>
-            contact@example.com
+            muktalawrence@uvic.ca
         </contactEmail>
 
         <WhereWhen>
@@ -156,6 +156,21 @@
     <navigation>
         <item href="index.html">
             <en>Home</en>
+        </item>
+        <item href="critical-encounters.html">
+            <en>Critical encounters</en>
+        </item>
+        <item href="our-space.html">
+            <en>Our space</en>
+        </item>
+        <item href="public-hums-grants.html">
+            <en>Grants</en>
+        </item>
+        <item href="calendar.html">
+            <en>Calendar</en>
+        </item>
+        <item href="resources.html">
+            <en>Resources</en>
         </item>
         <item href="about.html">
             <en>About</en>
