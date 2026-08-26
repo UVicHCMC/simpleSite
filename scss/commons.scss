@@ -1,5 +1,3 @@
-//Imported
-@use "typography" as *;
 @use "reset" as *;
 @use "hcmc-table" as *;
 @use "popover-nav-fullscreen" as *;
@@ -591,4 +589,18 @@ span.affil {
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+//Fades headings
+.fade-up-init {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+  opacity 450ms ease-out,
+  transform 450ms ease-out;
+}
+
+.fade-up-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
