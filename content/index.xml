@@ -1,45 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <!--Page title<h1>Main</h1>-->
-
-  <section id="main">
-
+  <div class="text-column">
+    <!--Page title<h1>Main</h1>-->
     <p>
       <em>Rooted in care. Driven by ideas.</em>
     </p>
 
     <p>The Critical Humanities Commons is a space where interdisciplinary scholarship unfolds through creativity, conversation, and commitment to social justice. Located at the heart of the Faculty of Humanities, the Commons brings people together to think, learn, and teach across disciplines to create new approaches for public dialogue.</p>
 
-  </section>
+    <section id="pillars">
 
-  <section id="pillars">
+      <p>Four pillars animate the Commons mission:</p>
 
-    <p>Four pillars animate the Commons mission:</p>
+      <h2>Expertise</h2>
+      <p>We deepen scholarly inquiry and challenge the boundaries of disciplinary knowledge.</p>
 
-    <h2>Expertise</h2>
-    <p>We deepen scholarly inquiry and challenge the boundaries of disciplinary knowledge.</p>
+      <h2>Collaboration</h2>
+      <p>We work across fields to build sustained, trans-disciplinary research and relationships.</p>
 
-    <h2>Collaboration</h2>
-    <p>We work across fields to build sustained, trans-disciplinary research and relationships.</p>
+      <h2>Exchange</h2>
+      <p>We foster reciprocal learning and critical dialogue with diverse stakeholders.</p>
 
-    <h2>Exchange</h2>
-    <p>We foster reciprocal learning and critical dialogue with diverse stakeholders.</p>
+      <h2>Dissemination</h2>
+      <p>We ensure scholarship and dialogue have a tangible impact on wider publics.</p>
 
-    <h2>Dissemination</h2>
-    <p>We ensure scholarship and dialogue have a tangible impact on wider publics.</p>
+      <p>With care at the center of creative inquiry, these pillars frame a joyful space where humanist ideas are encouraged to engage with the urgent questions of our time and gesture towards a more equitable and accessed-centered world.</p>
 
-    <p>With care at the center of creative inquiry, these pillars frame a joyful space where humanist ideas are encouraged to engage with the urgent questions of our time and gesture towards a more equitable and accessed-centered world.</p>
+    </section>
 
-  </section>
+    <section id="subscsribe">
 
-  <section id="subscsribe">
+      <p>Subscribe to the Commons listserve.</p>
 
-    <p>Subscribe to the Commons listserve.</p>
+      <!--Add in a subscription button-->
 
-    <!--Add in a subscription button-->
-
-  </section>
-
+    </section>
+  </div>
 </div>
 <!--end of root-->

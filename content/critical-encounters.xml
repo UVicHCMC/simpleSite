@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div xmlns="http://www.w3.org/1999/xhtml" id="root">
   <!--gets removed-->
+
   <div class="text-column">
     <h1>Critical Encounters</h1>
     <!--Page title-->
-   
-      <p>A free monthly speaker series curating encounters that apply humanistic thinking beyond the academy. The aim is to underscore the public relevance of the humanities in responding to uncertainty and possibility, through programming that appeals to a broad range of interests on campus and community. These events will be accompanied with modest refreshments to foster informal exchange.</p>
-      <p>All events are in the Commons Hub and on Zoom or otherwise specified.</p>
-      <h2>2026-2027 Schedule (Current)</h2>
-      <h2>2025-2026 Schedule (Past)</h2>
-      <!--link to png poster-->
-      <!--also addin photos from Estes event-->
-      <section>
-      <h2>Event Recordings</h2>
-      <p>Nick Estes Lansdowne Lecture: <a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Indigenous Resistance &amp; the Colonialism of our Times</a>.</p>
-    </section>
+
+    <p>A free monthly speaker series curating encounters that apply humanistic thinking beyond the academy. The aim is to underscore the public relevance of the humanities in responding to uncertainty and possibility, through programming that appeals to a broad range of interests on campus and community. These events will be accompanied with modest refreshments to foster informal exchange.</p>
+
+    <p>All events are in the Commons Hub and on Zoom or otherwise specified.</p>
+
+    <h2>2026-2027 Schedule (Current)</h2>
+    <!--schedule to be sent (not sure what format - also a png?)-->
+
+    <h2>2025-2026 Schedule (Past)</h2>
+    <!--link to png poster-->
+    <!--also addin photos from Estes event-->
+
+    <h2>Event Recordings</h2>
+    <p>Nick Estes Lansdowne Lecture: <a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Indigenous Resistance &amp; the Colonialism of our Times</a>.</p>
+
   </div>
 </div>
 <!--end of root-->

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <h1>Contact</h1><!--Page title-->
+  <div class="text-column">
+    <h1>Contact</h1><!--Page title-->
 
-  <section id="contact">
     <p>For all email queries, please contact Sarah Lawrence, Commons Administrative Assistant at: <a href="mailto:muktalawrence@uvic.ca">muktalawrence@uvic.ca</a>.</p>
 
     <p>Courier or in-person address:<br /> CHC - Critical Humanities Commons<br /> University of Victoria<br /> Clearihue C305<br /> 3800 Finnerty Rd.<br /> Victoria BC V8P 5C2</p>
 
     <p>Mailing address:<br /> CHC - Critical Humanities Commons<br /> University of Victoria<br /> PO Box 1700 STN CSC<br /> Victoria BC V8W 2Y2<br /> Canada</p>
 
-  </section>
-
+  </div>
 </div>
 <!--end of root-->

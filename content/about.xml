@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <h1>About the Commons</h1><!--Page title-->
-
-  <section id="about">
+  <div class="text-column">
+    <h1>About the Commons</h1><!--Page title-->
 
     <p>The Critical Humanities Commons (CHC) has been a priority for the Faculty of Humanities since 2018 when a Taskforce on Knowledge and Place in the Humanities (TKPH) was appointed by the Dean’s Office to create a new, ethically driven mission for Humanities. In its final report, the TKPH recommended guidelines for facilitating campus-wide conversations with Humanities grounded in a commitment to social justice, through the creation of a “Critical Humanities Institute.”</p>
 
@@ -17,25 +16,27 @@
       <li>COMMUNITY: include non-academic collaborators as co-creators and partners in knowledge production.</li>
     </ul>
 
-    <h2>The Director</h2>
+    <section id="staff">
 
-    <figure class="headshot">
-      <img src="images/jai-virdi-lizzie.webp" alt="A smiling South Asian woman with long dark hair. She is wearing a beige sweater and large hoop earrings, and is positioned in front of a blue background." />
-      <figcaption>Jaipreet Virdi and Lizzie</figcaption>
-    </figure>
+      <h2>The Director</h2>
 
-    <p><a href="https://www.uvic.ca/humanities/history/people/faculty/profiles/virdijaipreet.php">Jaipreet Virdi</a> (she/her/hers) is a historian of science, technology, and medicine who specializes in disability. As a scholar activist, she uses research as a tool for influencing public discourse and policy and has produced numerous interdisciplinary works in public humanities. As a deaf person with chronic pain, she relies on her service dog, Lizzie, who loves to meet new people. Jai can be reached at <a href="mailto:dirchc@uvic.ca">dirchc@uvic.ca</a>.</p>
+      <figure class="headshot">
+        <img src="images/jai-virdi-lizzie.webp" alt="A smiling South Asian woman with long dark hair. She is wearing a beige sweater and large hoop earrings, and is positioned in front of a blue background." />
+        <figcaption>Jaipreet Virdi and Lizzie</figcaption>
+      </figure>
 
-    <h2>Administrative Assistant</h2>
+      <p><a href="https://www.uvic.ca/humanities/history/people/faculty/profiles/virdijaipreet.php">Jaipreet Virdi</a> (she/her/hers) is a historian of science, technology, and medicine who specializes in disability. As a scholar activist, she uses research as a tool for influencing public discourse and policy and has produced numerous interdisciplinary works in public humanities. As a deaf person with chronic pain, she relies on her service dog, Lizzie, who loves to meet new people. Jai can be reached at <a href="mailto:dirchc@uvic.ca">dirchc@uvic.ca</a>.</p>
 
-    <figure class="headshot">
-      <img src="images/sarah-lawrence.webp" alt="A South Asian woman with dark hair pulled back. She is wearing a black blazer and posed in front of a studio background." />
-      <figcaption>Sarah Lawrence</figcaption>
-    </figure>
+      <h2>Administrative Assistant</h2>
 
-    <p>Sarah Lawrence joined the Critical Humanities Commons as the new Administrative Assistant in January 2026. As a part of the Commons team, she aims to advance the unit forward collaboratively within the Faculty of Humanities. Sarah can be reached at <a href="mailto:muktalawrence@uvic.ca">muktalawrence@uvic.ca</a>.</p>
+      <figure class="headshot">
+        <img src="images/sarah-lawrence.webp" alt="A South Asian woman with dark hair pulled back. She is wearing a black blazer and posed in front of a studio background." />
+        <figcaption>Sarah Lawrence</figcaption>
+      </figure>
 
-  </section>
+      <p>Sarah Lawrence joined the Critical Humanities Commons as the new Administrative Assistant in January 2026. As a part of the Commons team, she aims to advance the unit forward collaboratively within the Faculty of Humanities. Sarah can be reached at <a href="mailto:muktalawrence@uvic.ca">muktalawrence@uvic.ca</a>.</p>
 
+    </section>
+  </div>
 </div>
 <!--end of root-->
