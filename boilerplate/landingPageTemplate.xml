@@ -1,123 +1,85 @@
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
-    <head>
-        <title>
-            <?siteTitle?>
-        </title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-        <link rel="stylesheet" href="{?cssFile}" />
-        <link
-            rel="icon"
-            href="{?faviconSvg}"
-            sizes="any"
-            type="image/svg+xml"
-        />
-
-        <link rel="icon" href="{?faviconIco}" sizes="48x48" />
-        <link rel="manifest" href="{?siteManifest}" />
-        <?fontPreloads?>
-        <script src="{?jsFile}" />
-        <meta name="description" content="{?metaDescription}" />
-    </head>
-
-    <body class="splash">
-        <!-- Global safe-area wrapper -->
-        <div class="page-wrapper">
-
-            <!-- Site chrome -->
-            <header id="site-header" class="site-masthead">
-                <a href="#content" class="skip-link">
-                    <?skip-link?>
+<?xml version="1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head xmlns="http://www.w3.org/1999/xhtml">
+    <title>
+      <?siteTitle?>
+    </title>
+    <!-- Core metadata -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Compiled styles (includes page grid + layout system) -->
+    <link rel="stylesheet" href="{?cssFile}"/>
+    <!-- Script -->
+    <script src="{?jsFile}"/>
+    <!-- Favicons / PWA -->
+    <link rel="icon" href="{?faviconIco}" sizes="48x48"/>
+    <link rel="icon" href="{?faviconSvg}" sizes="any" type="image/svg+xml"/>
+    <link rel="manifest" href="{?siteManifest}"/>
+  </head>
+  <body id="top">
+    <div class="content-wrapper">
+      <div class="top-wrapper full-bleed">
+        <header>
+          <nav id="mainMenu" aria-label="{?site-navigation-label}">
+            <button class="mobile-menu-close">
+              Close
+              <svg xmlns="http://www.w3.org/2000/svg" class="x-closer" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+            <ul>
+              <li class="top-bar-logo">
+                <a href="index.html">
+                  <img class="site-logo-top" src="images/site-logo-internal.webp" alt="{?siteTitle}"/>
+                  <span class="siteTitle">
+                    <?siteTitle?>
+                  </span>
                 </a>
+              </li>
+              <?navigation?>
+            </ul>
+          </nav>
+          <nav class="mobile-top-nav">
+            <ul>
+              <li>
+                <a href="index.html">
+                  <img class="site-logo-mobile" src="images/site-logo-internal.webp" width="100" height="38" alt="{?siteTitle}"/>
+                </a>
+              </li>
+              <li>
+                <a class="search-link" href="search.html">
+                  Search
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" class="magnifying-glass"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m14 14-4-4m1.333-3.333a4.667 4.667 0 1 1-9.333 0 4.667 4.667 0 0 1 9.333 0">
+                                  </path></svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <button class="mobile-menu-open" aria-controls="mainMenu" aria-expanded="false">
+            Menu
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18" class="menu-burger"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 9h13.5M2.25 4.5h13.5m-13.5 9h13.5"/></svg>
+          </button>
+        </header>
+      </div>
+      <div class="hero">
+        <p>Hello</p>
+      </div>
+      <main id="content">
+        <div class="main-wrapper">
 
-                <div class="nav-wrapper">
-                    <!--Insert instruction for mobile header logo-->
-                    <img class="mobile-header" src="{?mobile-header}" />
-
-                    <div class="button-wrapper">
-                        <!-- Primary navigation toggle (mobile) -->
-                        <button id="site-menu-toggle" class="popover-nav-open" type="button" popovertarget="site-navigation" popovertargetaction="toggle" aria-controls="site-navigation" aria-haspopup="true">
-                            <span class="nav-toggle-label">
-                                <?nav-toggle-label?>
-                            </span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="menu-burger" width="24" height="24" fill="none">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18" />
-                            </svg>
-                        </button>
-
-                        <nav id="site-navigation" class="main-menu" aria-label="{?site-navigation-label}" popover="auto">
-
-                            <button type="button" class="popover-nav-close" aria-label="{?popover-close-label}" popovertarget="site-navigation" popovertargetaction="hide">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="close-x" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12" />
-                                </svg>
-                            </button>
-                            
-                            <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
-                            <div class="popover-group-container">
-                                <div class="popover-header">
-                                    <img src="images/logo-popover.svg" class="logo-internal" alt="" />
-
-                                    <p class="popover-text">
-                                        <span class="site-title"><?siteTitle?></span>
-                                        <span class="location"><?place?> <?location?></span>
-                                        <span class="date">
-                                            <time datetime="{?dateIso}"><?date?></time>
-                                        </span>
-                                    </p>
-                                </div>
-
-                                <ul class="popover-nav-items">
-                                    <?navigation?>
-                                </ul>
-                            </div>
-                        </nav>
-                        <nav aria-label="{?nav-aria-label}">
-                            <!-- The attributes here will be programmatically replaced by the XSLT based on the values of the languages parameter in properties.xml -->
-                            <!-- We've left the empty elements here so that the XSLT knows which ones we want and so that it is clear which attributes to expect in the output HTML -->
-                            <!-- Any element with class="lang-chooser" will be transformed in this way. So if you want to change the anchor to a button (or something else), you can do so -->
-                            <a
-                                class="lang-chooser"
-                                aria-label=""
-                                lang=""
-                                hreflang=""
-                                href=""
-                            />
-                        </nav>
-                    </div>
-                </div>
-
-            </header>
-
-            <main>
-
-                <div class="top-logo-container-splash">
-                    <!-- <img src="images/logo-splash.svg" class="logo-splash" alt="" /> -->
-                    
-                    <!-- This currently pulls parameters from the properties.xml file. If you prefer, you can simply replace the placeholders with static content -->
-                    <header class="splash-header-stack">
-                        <p class="pre-title"><?preTitle?></p>
-                        <h1 class="site-title"><?siteTitle?></h1>
-                        <p class="location-one"><?place?></p>
-                        <p class="location-two"><?location?></p>
-                        <p class="date">
-                            <time datetime="{?dateIso}"><?date?></time>
-                        </p>
-                        <p class="contact-us">
-                            Contact&#160;: <a href="mailto:{?contactEmail}"><?contactEmail?></a>
-                        </p>
-                    </header>
-                </div>
-
-            </main>
-            <footer class="site-footer">
-                <div class="footer-container">
-                    <a class="thank-you button-style" href="about.html">With thanks to our partners</a>
-                </div>
-            </footer>
         </div>
-    </body>
-
+      </main>
+      <footer class="full-bleed">
+        <div class="footer-wrapper inline">
+          <ul class="footer-list">
+            <?navigation?>
+          </ul>
+        </div>
+        <div class="footer-accent-container">
+          <a href="index.html">
+            <img class="logo-footer" src="images/logo-footer.webp" alt=""/>
+          </a>
+        </div>
+      </footer>
+    </div>
+    <script src="js/ux.js"/>
+  </body>
 </html>

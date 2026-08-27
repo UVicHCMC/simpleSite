@@ -64,7 +64,7 @@ html {
 
 .content-wrapper {
     --content-gutter: 1rem;
-    --content-gutter-desktop: 3rem;
+    --content-gutter-desktop: 2rem;
     --container-max-width: 80rem;
 
     display: grid;
@@ -1855,4 +1855,7 @@ h1 > span > span {
             }
         }
     }
+}
+.subnav {
+    display: none;
 }
