@@ -41,7 +41,7 @@
             <ul>
               <li>
                 <a href="index.html">
-                  <img class="site-logo-mobile" src="images/site-logo.png" width="100" height="38" alt="{?siteTitle}"/>
+                  <img class="site-logo-mobile" src="images/site-logo-internal.webp" width="100" height="38" alt="{?siteTitle}"/>
                 </a>
               </li>
               <li>
@@ -68,41 +68,15 @@
       </main>
       <footer class="full-bleed">
         <div class="footer-wrapper inline">
-          <p id="buildInfo"/>
-          <p id="acknow">
-            <a href="credits.html">
-              <span lang="en">Credits/Acknowledgements</span>
-              <span lang="ja">&#x30AF;&#x30EC;&#x30B8;&#x30C3;&#x30C8;&#x30FB;&#x8B1D;&#x8F9E;</span>
-            </a>
-          </p>
-          <p id="ftAbout">
-            <a href="about.html">
-              <span lang="en">About this site</span>
-              <span lang="ja">&#x30B5;&#x30A4;&#x30C8;&#x306B;&#x3064;&#x3044;&#x3066;</span>
-            </a>
-          </p>
-          <p id="ftPrivacy">
-            <a href="privacy.html">
-              <span lang="en">Privacy</span>
-              <span lang="ja">&#x500B;&#x4EBA;&#x60C5;&#x5831;</span>
-            </a>
-          </p>
-          <p id="ftContact">
-            <a href="contact.html">
-              <span lang="en">Contact</span>
-              <span lang="ja">&#x304A;&#x554F;&#x3044;&#x5408;&#x308F;&#x305B;</span>
-            </a>
-          </p>
+          <ul class="footer-list">
+            <?navigation?>
+          </ul>
         </div>
-        <div class="pathway-to-justice-footer">
-          <span lang="ja">&#x304A;&#x9670;&#x69D8;&#x3067;</span>
-          <p class="pathway-translation-footer">
-            <span class="en bold">okage sama de</span>
-            <span class="en italic">for all that you have done</span>
-          </p>
+        <div class="footer-accent-container">
+          <a href="index.html">
+            <img class="logo-footer" src="images/logo-footer.webp" alt=""/>
+          </a>
         </div>
-        <!-- Moved to credits page. -->
-        <!--<p><a href="https://endings.uvic.ca/"><img id="endingsLogo" src="images/endings_logo_badge_dark_mono.svg" alt="Endings-compliant: see endings.uvic.ca | エンヂングズへ準拠します。" title="Endings-compliant: see endings.uvic.ca | エンヂングズへ準拠します。"/></a></p>-->
       </footer>
     </div>
     <script src="js/ux.js"/>

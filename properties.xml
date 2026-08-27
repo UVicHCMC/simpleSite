@@ -16,165 +16,144 @@
                     </siteTitle>
 -->
 <site>
-    <!--This list of languages defines all of the languages that the site will be built in.
+  <!--This list of languages defines all of the languages that the site will be built in.
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
-    <languages>
-        <lang code="en" label="English" default="true" />
-    </languages>
-
-    <files>
-        <cssFile>css/commons.css</cssFile>
-        <jsFile>js/pux.js</jsFile>
-        <faviconIco>images/favicon.ico</faviconIco>
-        <faviconSvg>images/favicon.svg</faviconSvg>
-        <siteManifest>site.webmanifest</siteManifest>
-    </files>
-
-    <metadata>
-        <siteTitle>
-            <en>Critical Humanities Commons @ UVic</en>
-        </siteTitle>
-        <preTitle>
-            <en>Pre-title text in splash header stack, if any</en>
-        </preTitle>
-        <organizationName>
-            <en>Organization Name</en>
-        </organizationName>
-        <contactEmail>
+  <languages>
+    <lang code="en" label="English" default="true"/>
+  </languages>
+  <files>
+    <cssFile>css/commons.css</cssFile>
+    <jsFile>js/ux.js</jsFile>
+    <faviconIco>images/favicon.ico</faviconIco>
+    <faviconSvg>images/favicon.svg</faviconSvg>
+    <siteManifest>site.webmanifest</siteManifest>
+  </files>
+  <metadata>
+    <siteTitle>
+      <en>Critical Humanities Commons @ UVic</en>
+    </siteTitle>
+    <preTitle>
+      <en>Pre-title text in splash header stack, if any</en>
+    </preTitle>
+    <organizationName>
+      <en>Organization Name</en>
+    </organizationName>
+    <contactEmail>
             muktalawrence@uvic.ca
         </contactEmail>
-
-        <WhereWhen>
-            <place>
-                <en>Event Venue/Host</en>
-            </place>
-            <date>
-                <en>DATE</en>
-            </date>
-            <dateIso>YYYY-MM-DD</dateIso>
-            <location>
-                <en>Event Location/Host</en>
-            </location>
-        </WhereWhen>
-    </metadata>
-
-
-    <!--Uncomment this and update the heading options if you want to have a language selector splash page-->
-    <!-- For language selector page -->
-    <!--<languageSelector>
+    <WhereWhen>
+      <place>
+        <en>Event Venue/Host</en>
+      </place>
+      <date>
+        <en>DATE</en>
+      </date>
+      <dateIso>YYYY-MM-DD</dateIso>
+      <location>
+        <en>Event Location/Host</en>
+      </location>
+    </WhereWhen>
+  </metadata>
+  <!--Uncomment this and update the heading options if you want to have a language selector splash page-->
+  <!-- For language selector page -->
+  <!--<languageSelector>
         <heading>
             <en>Select your language</en>
             <de>Wählen Sie Ihre Sprache</de>
         </heading>
     </languageSelector>-->
-
-    <!--The element labels here follow CSS conventions. If you want to add an attribute to a specific element, add it as a child element. -->
-
-    <!-- For nav.aria-label-->
-    <nav-aria-label>
-        <en>Language Selection</en>
-    </nav-aria-label>
-
-    <!--For img.splash-logo-->
-    <splash-logo>
-        <class>splash-logo</class>
-        <src>images/logo-splash.webp</src>
-        <en>Alt text for main site logo, if any</en>
-    </splash-logo>
-
-    <!--For img.uvic-logo-->
-    <uvic-logo>
-        <href>https://hcmc.uvic.ca</href>
-        <src>images/logo-uvic.svg</src>
-        <alt>
-            <en>University of Victoria Humanities Computing and Media Centre</en>
-        </alt>
-    </uvic-logo>
-
-    <!--For img.mobile-header splash page-->
-    <mobile-header-splash>
-        <class>mobile-header-splash</class>
-        <src>images/logo-mobile-header.webp</src>
-        <alt>
-            <en />
-
-        </alt>
-    </mobile-header-splash>
-
-    <!--For img.mobile-header internal pages-->
-    <mobile-header-internal>
-        <class>mobile-header-internal</class>
-        <src>images/logo-mobile-header.webp</src>
-        <alt>
-            <en>Alt text for mobile header logo, if any. Change language element as needed.</en>
-        </alt>
-    </mobile-header-internal>
-
-    <!--For popover.splash-icon. Assuming no alt text for this.-->
-    <popover-splash-icon>
-        <src>images/logo-mobile-popover.webp</src>
-        <alt />
-    </popover-splash-icon>
-
-    <!-- For a.skip-link-->
-    <skip-link>
-        <en>Skip to Content</en>
-    </skip-link>
-
-    <!-- For nav.aria-label-->
-    <site-navigation-label>
-        <en>Primary</en>
-    </site-navigation-label>
-
-    <!-- For subnav.aria-label-->
-    <subnav-aria-label>
-        <en>Secondary</en>
-    </subnav-aria-label>
-
-    <!--For button.aria-label-->
-    <popover-close-label>
-        <en>Close</en>
-    </popover-close-label>
-
-    <!--For span.nav-toggle-label-->
-    <nav-toggle-label>
-        <en>Site Menu</en>
-    </nav-toggle-label>
-
-    <!--For div.footer-container-->
-    <footer-content>
-        <items>
-            <item>
-                <?uvic-logo?>
-            </item>
-        </items>
-    </footer-content>
-
-    <!-- For div.popover-nav-items. Replace these with your actual navigation items. 
+  <!--The element labels here follow CSS conventions. If you want to add an attribute to a specific element, add it as a child element. -->
+  <!-- For nav.aria-label-->
+  <nav-aria-label>
+    <en>Language Selection</en>
+  </nav-aria-label>
+  <!--For img.splash-logo-->
+  <splash-logo>
+    <class>splash-logo</class>
+    <src>images/logo-splash.webp</src>
+    <en>Alt text for main site logo, if any</en>
+  </splash-logo>
+  <!--For img.uvic-logo-->
+  <uvic-logo>
+    <href>https://hcmc.uvic.ca</href>
+    <src>images/logo-uvic.svg</src>
+    <alt>
+      <en>University of Victoria Humanities Computing and Media Centre</en>
+    </alt>
+  </uvic-logo>
+  <!--For img.mobile-header splash page-->
+  <mobile-header-splash>
+    <class>mobile-header-splash</class>
+    <src>images/logo-mobile-header.webp</src>
+    <alt>
+      <en/>
+    </alt>
+  </mobile-header-splash>
+  <!--For img.mobile-header internal pages-->
+  <mobile-header-internal>
+    <class>mobile-header-internal</class>
+    <src>images/logo-mobile-header.webp</src>
+    <alt>
+      <en>Alt text for mobile header logo, if any. Change language element as needed.</en>
+    </alt>
+  </mobile-header-internal>
+  <!--For popover.splash-icon. Assuming no alt text for this.-->
+  <popover-splash-icon>
+    <src>images/logo-mobile-popover.webp</src>
+    <alt/>
+  </popover-splash-icon>
+  <!-- For a.skip-link-->
+  <skip-link>
+    <en>Skip to Content</en>
+  </skip-link>
+  <!-- For nav.aria-label-->
+  <site-navigation-label>
+    <en>Primary</en>
+  </site-navigation-label>
+  <!-- For subnav.aria-label-->
+  <subnav-aria-label>
+    <en>Secondary</en>
+  </subnav-aria-label>
+  <!--For button.aria-label-->
+  <popover-close-label>
+    <en>Close</en>
+  </popover-close-label>
+  <!--For span.nav-toggle-label-->
+  <nav-toggle-label>
+    <en>Site Menu</en>
+  </nav-toggle-label>
+  <!--For div.footer-container-->
+  <footer-content>
+    <items>
+      <item>
+        <?uvic-logo?>
+      </item>
+    </items>
+  </footer-content>
+  <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
-    <navigation>
-        <item href="index.html">
-            <en>Home</en>
-        </item>
-        <item href="critical-encounters.html">
-            <en>Critical encounters</en>
-        </item>
-        <item href="our-space.html">
-            <en>Our space</en>
-        </item>
-        <item href="public-hums-grants.html">
-            <en>Grants</en>
-        </item>
-        <item href="calendar.html">
-            <en>Calendar</en>
-        </item>
-        <item href="resources.html">
-            <en>Resources</en>
-        </item>
-        <item href="about.html">
-            <en>About</en>
-        </item>
-    </navigation>
-
+  <navigation>
+    <item href="index.html">
+      <en>Home</en>
+    </item>
+    <item href="critical-encounters.html">
+      <en>Critical encounters</en>
+    </item>
+    <item href="our-space.html">
+      <en>Our space</en>
+    </item>
+    <item href="public-hums-grants.html">
+      <en>Grants</en>
+    </item>
+    <item href="calendar.html">
+      <en>Calendar</en>
+    </item>
+    <item href="resources.html">
+      <en>Resources</en>
+    </item>
+    <item href="about.html">
+      <en>About</en>
+    </item>
+  </navigation>
 </site>
