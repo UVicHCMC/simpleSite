@@ -1,0 +1,284 @@
+@use "custom-properties" as *;
+
+// Project font stacks and fluid typography scale
+
+:root {
+    --font-sans:
+        "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-serif:
+        "Noto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times,
+        serif;
+    --font-japanese-serif: "Hiragino Mincho ProN", "Noto Serif JP", serif;
+    --font-mono:
+        ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+    --step--2: clamp(0.64rem, 0.7167rem + -0.099vw, 0.6944rem);
+    --step--1: clamp(0.8rem, 0.847rem + -0.0606vw, 0.8333rem);
+    --step-0: clamp(1rem, 1rem + 0vw, 1rem);
+    --step-1: clamp(1.2rem, 1.1795rem + 0.0909vw, 1.25rem);
+    --step-2: clamp(1.44rem, 1.3899rem + 0.2227vw, 1.5625rem);
+    --step-3: clamp(1.728rem, 1.6359rem + 0.4093vw, 1.9531rem);
+    --step-4: clamp(2.0736rem, 1.9231rem + 0.6687vw, 2.4414rem);
+    --step-5: clamp(2.4883rem, 2.2578rem + 1.0244vw, 3.0518rem);
+
+    // Fluid spacing derived from the body-text range
+    --space-1: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
+    --space-2: clamp(0.5rem, 0.4489rem + 0.2273vw, 0.625rem);
+    --space-3: clamp(0.75rem, 0.6733rem + 0.3409vw, 0.9375rem);
+    --space-4: var(--step-0);
+    --space-5: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
+    --space-6: clamp(2rem, 1.7954rem + 0.909vw, 2.5rem);
+
+    //Specifics
+    --font-size-h1: clamp(1.5rem, 0.8864rem + 2.7273vw, 3rem);
+    --font-size-h2: clamp(1rem, 0.7955rem + 0.9091vw, 1.5rem);
+    --font-body: clamp(0.875rem, 0.8239rem + 0.2273vw, 1rem);
+}
+
+// Typography and vertical rhythm for the site text container
+.text-column {
+    --flow-space: var(--space-3);
+    --flow-space-tight: var(--space-2);
+    --flow-space-loose: var(--space-5);
+
+    color: var(--grey-800);
+    font-family: var(--font-sans);
+    font-size: var(--step-0);
+    font-weight: 350;
+    line-height: 1.6;
+
+    //monument specific, this is for blockquotes following h2s and h2 immdiately following h1s
+    h1 + section:has(> h2) {
+        margin-block-start: var(--space-6);
+    }
+
+    h1 + section:has(> h2) figure {
+        margin-block-start: var(--space-4);
+    }
+    // Apply a consistent flow to pages with or without sections
+    > * {
+        margin: 0;
+    }
+
+    > * + * {
+        margin-block-start: var(--flow-space);
+    }
+
+    > h1 + * {
+        margin-block-start: var(--space-6);
+        @media (width >= $breakpoint-md) {
+            margin-block-start: var(--space-4);
+        }
+    }
+
+    > section + section {
+        margin-block-start: var(--flow-space-loose);
+    }
+
+    // Give each section its own vertical rhythm
+    section {
+        > * {
+            margin: 0;
+        }
+
+        > * + * {
+            margin-block-start: var(--flow-space);
+        }
+
+        > :is(h2, h3, h4, h5, h6):first-child {
+            margin-block-start: 0;
+        }
+
+        > * + :is(h2, h3) {
+            margin-block-start: var(--space-4);
+        }
+
+        > * + :is(h4, h5, h6) {
+            margin-block-start: var(--space-3);
+        }
+
+        > :is(h2, h3, h4, h5, h6) + * {
+            margin-block-start: var(--flow-space-tight);
+        }
+    }
+
+    :is(h1) {
+        color: var(--blue-700);
+        font-family: var(--font-sans);
+        line-height: 1.2;
+        text-wrap: balance;
+    }
+    :is(h2, h3, h4, h5, h6) {
+        color: var(--blue-700);
+        font-family: var(--font-sans);
+        line-height: 1.4;
+        text-wrap: balance;
+    }
+
+    // Use the Japanese serif stack when a heading or its child is Japanese
+    :is(h1, h2, h3, h4, h5, h6):lang(ja),
+    :is(h1, h2, h3, h4, h5, h6) > :lang(ja) {
+        font-family: var(--font-japanese-serif);
+    }
+
+    > h1 {
+        font-size: var(--font-size-h1);
+        font-weight: 800;
+        text-box-edge: cap alphabetic;
+        text-box-trim: trim-both;
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: var(--step-1);
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: var(--step-0);
+        font-weight: 600;
+    }
+
+    h5,
+    h6 {
+        font-size: var(--step--1);
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--grey-800);
+        font-family: var(--font-sans);
+        font-size: var(--font-body);
+        font-weight: 350;
+        line-height: 1.6;
+    }
+
+    strong,
+    .bold {
+        font-weight: 700;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    small {
+        font-size: var(--step--1);
+    }
+
+    a {
+        color: var(--green-300);
+        text-decoration-color: var(--site-highlight);
+        text-decoration-thickness: 0.1em;
+        text-underline-offset: 0.16em;
+        transition:
+            color 0.2s ease-in-out,
+            text-decoration-color 0.2s ease-in-out;
+
+        &:is(:hover, :focus-visible) {
+            color: var(--site-highlight);
+            text-decoration-color: currentColor;
+        }
+    }
+
+    :where(ul, ol) {
+        padding-inline-start: 1.5rem;
+        color: var(--grey-800);
+        font-family: var(--font-sans);
+        font-size: var(--font-body);
+        font-weight: 350;
+        line-height: 1.6;
+    }
+
+    :where(ul) {
+        list-style: disc outside;
+    }
+
+    :where(ol) {
+        list-style: decimal outside;
+    }
+
+    :where(li + li, li > ul, li > ol) {
+        margin-block-start: var(--space-1);
+    }
+
+    dt {
+        font-weight: 600;
+    }
+
+    dd {
+        margin-inline-start: var(--space-4);
+    }
+
+    dd + dt {
+        margin-block-start: var(--space-3);
+    }
+
+    blockquote {
+        margin-inline: 0;
+        @media (width >= $breakpoint-md) {
+            maring-inline: var(--space-3);
+        }
+        padding-inline-start: var(--space-3);
+        border-inline-start: 3px solid var(--green-100);
+        color: var(--grey-600);
+        font-family: var(--font-serif);
+        font-size: var(--font-body);
+        font-style: normal;
+        line-height: 1.6;
+        display: block;
+    }
+
+    figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-1);
+    }
+    //align attribution to the right
+    figure > blockquote + figcaption {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-inline-start: 2rem;
+        @media (width >= $breakpoint-md) {
+            padding-inline-start: 0;
+        }
+    }
+
+    figure > img {
+        border: 1px solid var(--grey-300);
+    }
+
+    figcaption {
+        width: 100%;
+        color: var(--grey-600);
+        font-family: var(--font-sans);
+        font-size: var(--step--1);
+        line-height: 1.6;
+        text-align: start;
+    }
+
+    code {
+        font-family: var(--font-mono);
+        font-size: 0.95em;
+    }
+
+    pre {
+        max-width: 100%;
+        overflow-x: auto;
+        padding: var(--space-2);
+        border-radius: 0.5rem;
+        background-color: var(--grey-100);
+        color: var(--grey-900);
+    }
+
+    pre code {
+        font-size: var(--step--1);
+    }
+}

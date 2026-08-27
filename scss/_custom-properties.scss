@@ -1,0 +1,27 @@
+//page dimensions
+$tablet: 768px;
+
+//sass variables for media queries
+
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+:root {
+  --textcol-max-width-tablet: 576px;
+  --textcol-max-width-desktop: 680px;
+  --content-max-width: 1280px;
+  --container-max-width: 1440px;
+
+  // Mobile mode
+  --mobile-menu-mode: mobile;
+
+
+  // Desktop mode
+  @media (width > 48rem) {
+    :root {
+      --mobile-menu-mode: desktop;
+    }
+  }
+}

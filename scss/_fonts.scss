@@ -1,0 +1,36 @@
+// Path to the fonts directory
+$fontPath: "../fonts/";
+@font-face {
+    font-family: "Inter Variable";
+    src: url("#{$fontPath}InterVariable.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-stretch: 62.5% 100%;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Inter Variable";
+    src: url("#{$fontPath}InterVariable-Italic.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 100 900;
+    font-stretch: 62.5% 100%;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif";
+    src: url("#{$fontPath}NotoSerif-VariableFont.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 100 900;
+    font-stretch: 62.5% 100%;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif";
+    src: url("#{$fontPath}NotoSerif-Italic-VariableFont.woff2") format("woff2");
+    font-style: italic;
+    font-weight: 100 900;
+    font-stretch: 62.5% 100%;
+    font-display: swap;
+}
