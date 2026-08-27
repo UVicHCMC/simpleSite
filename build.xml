@@ -300,7 +300,8 @@
             <mkdir dir="site"/>
             <foreach target="processOneContent" param="content.file">
                 <path>
-                    <fileset dir="content" includes="*.xml" erroronmissingdir="false"/>
+                    <!-- index.html is created by makeLandingPage from the landing-page template. -->
+                    <fileset dir="content" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                 </path>
                 <param name="currentLang" value="${defaultLang}"/>
                 <param name="outputDir" value="site"/>
@@ -316,7 +317,8 @@
                     <mkdir dir="site/@{lang}"/>
                     <foreach target="processOneContent" param="content.file">
                         <path>
-                            <fileset dir="content/@{lang}" includes="*.xml" erroronmissingdir="false"/>
+                            <!-- Each language's index.html is created by makeLandingPage. -->
+                            <fileset dir="content/@{lang}" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                         </path>
                         <param name="currentLang" value="@{lang}"/>
                         <param name="outputDir" value="site/@{lang}"/>
