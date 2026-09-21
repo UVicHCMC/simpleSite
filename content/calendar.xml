@@ -4,36 +4,19 @@
   <div class="text-column">
     <h1>Calendar</h1><!--Page title-->
 
-    <!--content to be added
-  
-  <section id="">
-    <h2>Organization</h2>
+    <h2>September 2026</h2>
 
-    <ul>
-      <li>John Smith (Campus University)</li>
-      <li>Jane Doe (Campus University)</li>
-    </ul>
+    <h3>Mon, Sept 28</h3>
+    <p>Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</p>
+    <p>
+      <a href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Visit UVic Events for more information.</a>
+    </p>
 
-    <h2>Recognition</h2>
-
-    <p>Land Acknowledgment Text</p>
-
-  </section>
-
-  <section id="partners" class="highlight">
-
-    <h2>Partners</h2>
-
-    <ul class="logo-container">
-      <a href="https://www.uvic.ca/humanities/index.php">
-        <img class="logo humanities" src="images/logo-humanities.webp" alt="" />
-      </a>
-      <a href="https://www.uvic.ca/humanities/hcmc/index.php">
-        <img class="logo hcmc" src="images/logo-hcmc.webp" alt="" />
-      </a>
-    </ul>
-
-  </section>-->
+    <h3>Tues, Sept 29</h3>
+    <p>Critical Encounters Speaker Series: CATALYST: Meet our new HUMS faculty</p>
+    <p>
+      <a href="https://events.uvic.ca/event/111002-critical-encounters-catalyst-meet-our-new-hums">Visit UVic Events for more information.</a>
+    </p>
 
   </div>
 </div>
