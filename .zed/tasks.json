@@ -10,7 +10,7 @@
       "--embed-sources",
 
       // Format: input SCSS file:output CSS file
-      "scss/commons.scss:css/commons.css",
+      "scss/commons.scss:site/css/commons.css",
     ],
     "cwd": "/Users/pszpak/Developer/commons",
     "use_new_terminal": true,

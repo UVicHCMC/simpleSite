@@ -425,8 +425,6 @@ nav#mainMenu {
         overflow-y: auto;
         overscroll-behavior: contain;
 
-        padding-block-start: 1rem;
-
         transform: translate3d(-100%, 0, 0);
 
         will-change: opacity, transform;
@@ -445,6 +443,7 @@ nav#mainMenu {
             transform: translate3d(0, 0, 0);
             background-color: var(--overlay-bg-color);
             border-inline-start: 5px solid var(--site-highlight);
+            padding: 1rem;
 
             // Entry state
             @starting-style {
@@ -463,8 +462,8 @@ nav#mainMenu {
                 overflow: visible;
                 overscroll-behavior: auto;
                 width: 100%;
-                padding-block-end: 1rem;
-                padding-block-start: 2rem;
+                //padding-block-end: 1rem;
+                //padding-block-start: 2rem;
 
                 opacity: 1;
                 transform: none;
@@ -472,6 +471,8 @@ nav#mainMenu {
                 will-change: auto;
 
                 background-color: transparent;
+            }
+            :not(#index) & {
                 border-bottom: 1px solid #d6d6d6;
             }
 
@@ -611,158 +612,11 @@ a:has(.site-logo-mobile) {
     }
 }
 
-//End top navigation top bar styling
-
-//hero only appears on index page for now
-html:not(#index) .hero {
-    display: none;
-}
 //Begin hero splash page styling
 .hero {
     min-block-size: 24rem;
-    border-block: 5px solid var(--green-200);
-    background:
-        linear-gradient(
-            180deg,
-            rgba(55, 61, 32, 0.75) 1%,
-            rgba(154, 154, 154, 0.11) 25%
-        ),
-        url(../images/splash-bg.webp) lightgray 50% / cover no-repeat;
-}
-//the green band that contains logo and search
-#index .green-band {
-    grid-column: 1/-1;
-    align-self: start;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    gap: 1.25rem;
-    margin-block-start: 2rem;
-    padding-block: 1.5rem;
-
-    border-block: 1px solid var(--green-200);
-    background: rgba(113, 119, 68, 0.6);
-
-    //the h1 that wraps the logo
-    & h1 {
-        text-align: center;
-    }
-}
-
-// Splash logo. The inline SVG keeps the outer ring and inner flower in the
-// same coordinate system so both layers remain perfectly centred as they turn.
-.site-logo-container {
-    --logo-outer-rotation-duration: 48s;
-    --logo-inner-rotation-duration: 36s;
-
-    align-self: center;
-    display: inline-block;
-    inline-size: min(100%, 15rem);
-    line-height: 0;
-
-    .splash-logo {
-        display: block;
-        inline-size: 100%;
-        block-size: auto;
-        overflow: visible;
-
-        filter: drop-shadow(0 1.35px 1.35px rgba(10, 13, 18, 0.04))
-            drop-shadow(0 2.7px 4.05px rgba(10, 13, 18, 0.03))
-            drop-shadow(0 8.1px 10.8px rgba(10, 13, 18, 0.08));
-    }
-
-    .splash-logo__outer,
-    .splash-logo__inner {
-        transform-box: view-box;
-        transform-origin: center;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-
-    .splash-logo__outer {
-        animation-name: splash-logo-rotate-clockwise;
-        animation-duration: var(--logo-outer-rotation-duration);
-    }
-
-    .splash-logo__inner {
-        animation-name: splash-logo-rotate-counter-clockwise;
-        animation-duration: var(--logo-inner-rotation-duration);
-    }
-}
-
-// Wide splash logo with static outlined text. The mark occupies the first
-// 646 units of the 1696-unit SVG viewBox, so its centre is 323, 323 rather
-// than the centre of the complete logo.
-.logo-container {
-    --logo-outer-rotation-duration: 48s;
-    --logo-inner-rotation-duration: 36s;
-
-    align-self: center;
-    display: inline-block;
-    inline-size: min(100%, 15rem);
-    line-height: 0;
-
-    .splash-logo {
-        display: block;
-        inline-size: 100%;
-        block-size: auto;
-        overflow: visible;
-
-        filter: drop-shadow(0 1.35px 1.35px rgba(10, 13, 18, 0.04))
-            drop-shadow(0 2.7px 4.05px rgba(10, 13, 18, 0.03))
-            drop-shadow(0 8.1px 10.8px rgba(10, 13, 18, 0.08));
-    }
-
-    .splash-logo__outer,
-    .splash-logo__inner {
-        // 323 / 1696 = 19.0448%; 323 / 646 = 50%.
-        transform-box: view-box;
-        transform-origin: 19.0448% 50%;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-play-state: paused;
-    }
-
-    .splash-logo__outer {
-        animation-name: splash-logo-rotate-clockwise;
-        animation-duration: var(--logo-outer-rotation-duration);
-    }
-
-    .splash-logo__inner {
-        animation-name: splash-logo-rotate-counter-clockwise;
-        animation-duration: var(--logo-inner-rotation-duration);
-    }
-
-    // No animation is assigned to .splash-logo__text.
-}
-
-// Start the mark when the search input receives focus. The animation pauses
-// at its current position when focus leaves and resumes when focus returns.
-.green-band:has(#q:focus) {
-    .logo-container :is(.splash-logo__outer, .splash-logo__inner) {
-        animation-play-state: running;
-    }
-}
-
-@keyframes splash-logo-rotate-clockwise {
-    to {
-        transform: rotate(1turn);
-    }
-}
-
-@keyframes splash-logo-rotate-counter-clockwise {
-    to {
-        transform: rotate(-1turn);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    :is(.site-logo-container, .logo-container)
-        :is(.splash-logo__outer, .splash-logo__inner) {
-        animation: none;
-    }
+    //border-block: 5px solid var(--green-200);
+    background: url(../images/hero-bg.webp) lightgray 10% / cover no-repeat;
 }
 
 //search container
@@ -879,7 +733,7 @@ html:not(#index) .hero {
 // Enhance the hero and green-band contents as more space becomes available.
 @media (width > $breakpoint-sm) {
     .hero {
-        min-block-size: 30rem;
+        min-block-size: 25rem;
     }
 
     #index .green-band {
@@ -909,7 +763,7 @@ html:not(#index) .hero {
 
 @media (width > $breakpoint-md) {
     .hero {
-        min-block-size: 35rem;
+        min-block-size: 25rem;
     }
 
     #index .green-band {
@@ -945,9 +799,7 @@ html:not(#index) .hero {
     justify-content: center;
     @media (width >= $breakpoint-md) {
         max-inline-size: 100%;
-        grid-template-columns:
-            minmax(0, var(--textcol-max-width-desktop))
-            minmax(100px, 138px);
+        grid-template-columns: minmax(0, var(--textcol-max-width-desktop));
         column-gap: 2rem;
         padding-inline: 2rem;
         margin-block-start: 3rem;
@@ -955,15 +807,20 @@ html:not(#index) .hero {
     }
     @media (width >= $breakpoint-xl) {
         max-inline-size: $breakpoint-xl;
-        grid-template-columns:
-            minmax(100px, 138px)
-            minmax(0, var(--textcol-max-width-desktop))
-            min-content;
+        grid-template-columns: minmax(0, var(--textcol-max-width-desktop));
+
         column-gap: 5rem;
     }
     inline-size: 100%;
     margin-block-start: 1.5rem;
     margin-inline: auto;
+}
+
+// Allow splash layouts to occupy the full main container
+#index .main-wrapper.splash {
+    max-inline-size: none;
+    grid-template-columns: minmax(0, 1fr);
+    justify-self: stretch;
 }
 
 //container for non index page landing pages
@@ -1260,18 +1117,48 @@ p.okagesama-de {
     grid-column: 1/2;
 
     @media (width >= $breakpoint-xl) {
-        grid-column: 2/3;
+        // grid-column: 2/3;
     }
 
     inline-size: 100%;
     //max-inline-size: var(--textcol-max-width-tablet);
+
+    & p.intro-text {
+        font-size: 1.356rem;
+        color: var(--highlight);
+    }
+}
+
+#index .text-column-splash {
+    --textcol-max-width-tablet: 576px;
+    --textcol-max-width-desktop: 680px;
+    --content-max-width: 1280px;
+    --container-max-width: 1440px;
+
+    grid-column: 1/2;
+    border-block-end: none;
+
+    @media (width >= $breakpoint-xl) {
+        // grid-column: 2/3;
+    }
+
+    inline-size: 100%;
+    //max-inline-size: var(--textcol-max-width-tablet);
+
+    & p.intro-text {
+        font-family: var(--font-sans);
+        font-size: 1.356rem;
+        color: var(--highlight);
+        border-block-end: none;
+        font-weight: 300;
+        line-height: 1.6;
+    }
 }
 
 //text column precedes kanji on no splash pages
 html:not(#index) .text-column {
     inline-size: 100%;
     padding-block-end: 3rem;
-    border-block-end: 1px solid (var(--green-200));
     @media (width >= $breakpoint-md) {
         max-inline-size: var(--textcol-max-width-tablet);
     }
@@ -1290,6 +1177,31 @@ html:not(#index) .text-column {
     font-weight: 700;
     font-size: var(--step-4);
     color: var(--green-200);
+}
+
+.event-page-poster.portrait {
+    inline-size: 100%;
+    margin-inline: auto;
+
+    @media (width >= $breakpoint-md) {
+        inline-size: 50%;
+    }
+
+    > .event-poster-link {
+        display: block;
+        inline-size: 100%;
+    }
+
+    img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+    }
+}
+
+.event-poster-link:focus-visible {
+    outline: 3px solid var(--site-highlight);
+    outline-offset: 3px;
 }
 
 //end center content
@@ -1650,13 +1562,167 @@ h1 > span > span {
     font-weight: 500;
 }
 
-//Intro text under headings
-
-.intro-text {
-    padding-block-end: 1rem;
-    border-bottom: 1px solid var(--green-300);
+.hero {
+    place-content: center;
 }
 
+.hero-content-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    inline-size: 100%;
+    margin-inline: auto;
+    gap: 2rem;
+    padding: 2rem;
+
+    @media (width >= $breakpoint-md) {
+        grid-template-columns: minmax(0, 325px) minmax(330px, 410px);
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+}
+
+.logo-container {
+    justify-self: center;
+}
+
+.intro-text {
+    inline-size: 100%;
+    max-inline-size: var(--textcol-max-width-tablet);
+    justify-self: center;
+    font-family: var(--font-sans);
+    color: #fff;
+    padding-block-end: 1rem;
+    font-weight: 350;
+    font-size: 1rem;
+    line-height: 1.6;
+
+    @media (width >= $breakpoint-md) {
+        font-size: 1.25rem;
+    }
+}
+
+//event entry kinda calendar thing
+
+.splash-heading {
+    font-family: var(--font-sans);
+    font-size: 1.5rem;
+    color: var(--site-highlight);
+    line-height: 1.3;
+    text-align: center;
+}
+
+.event-container {
+    margin-block-start: 1.5rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    inline-size: fit-content;
+    max-inline-size: min(100%, 49.25rem);
+    gap: 2rem;
+    padding: 1.5rem;
+    background-color: var(--site-highlight);
+    border-radius: 5px;
+    font-family: var(--font-sans);
+
+    @media (width >= $breakpoint-md) {
+        grid-template-columns: 10rem minmax(0, 36.75rem);
+    }
+}
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: #ffffff;
+    color: var(--site-highlight);
+    @media (width >= $breakpoint-md) {
+        gap: 1rem;
+    }
+}
+.details-container dd {
+    font-size: 1rem;
+    font-weight: 300;
+}
+.details-container * {
+    text-align: center;
+}
+.details-container .date time {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
+.details-container :is(.day, .month) {
+    font-weight: 700;
+}
+.event-description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #ffffff;
+}
+
+.calendar-event-title {
+    font-weight: 400;
+    line-height: 1.3;
+    text-wrap: balance;
+}
+.event-teaser {
+    font-weight: 200;
+    line-height: 1.4;
+    grid-column: 2 / 3;
+}
+
+.event-teaser-image {
+    inline-size: 50%;
+    margin-inline: auto;
+    @media (width >= $breakpoint-lg) {
+        margin-inline: initial;
+    }
+}
+.float-right {
+    float: right;
+}
+.float-left {
+    float: left;
+}
+
+.calendar-link-container {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (width >= $breakpoint-md) {
+        grid-column: 1 / -1;
+    }
+}
+.event-button {
+    display: inline-block;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+    background-color: transparent;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+        background-color: #ffffff;
+        color: var(--site-highlight);
+    }
+
+    &:focus-visible {
+        outline: 3px solid #ffffff;
+        outline-offset: 3px;
+    }
+}
 //alphabetic listing
 .letterLinks {
     --letter-bg: #eff1ed;
@@ -1858,4 +1924,12 @@ h1 > span > span {
 }
 .subnav {
     display: none;
+}
+
+figure .landscape {
+    inline-size: 75%;
+}
+
+figure .portrait {
+    inline-size: 50%;
 }

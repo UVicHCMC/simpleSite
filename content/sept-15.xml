@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
+
+  <div class="text-column event-page">
+    <h1>Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</h1><!--Page title-->
+
+    <figure class="event-page-poster">
+      <a class="event-poster-link" href="images/sept-15.webp" aria-label="View the full-size event poster">
+        <img src="images/sept-15.webp" width="1500" height="2285" alt="" />
+      </a>
+      <figcaption>Mural by ABDW Art Project, 2026</figcaption>
+    </figure>
+
+    <p>Please join us for the Pacific and Asian Studies Lansdowne Lecture, “Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria.”</p>
+
+    <p>Drawing on over two decades of collective artistic and community work in Indonesia, and their collaborative work with UVic’s Legacy Galleries, artists Bayu Widodo and Patub Porx will reflect critically on developing spaces for sustainable arts-focused community, meaningful critique and social engagement. Their Lansdowne lecture will use audio-visual materials to examine artistic practice as not merely a form of expression but as a way of bringing people together, testing new forms of collaboration and forging solidarity amid social fragmentation and rising authoritarianism. Avoiding the common tendency to romanticize community, their talk will explore its tensions and demands, and what it takes to maintain independent spaces amid political pressure. With an eye to the future, Porx and Widodo ask how collective artistic work might enable new forms of public life.</p>
+
+    <p>After the lecture, attendees are invited to the opening of the <em>wara-wara</em> exhibit at the Legacy Art Gallery, 630 Yates Street.</p>
+
+    <section aria-labelledby="event-details-heading">
+      <h2 id="event-details-heading">Event details</h2>
+
+      <dl>
+        <dt>When</dt>
+        <dd>
+          <time datetime="2026-09-15T14:30:00-07:00">Tuesday, September 15, 2026, 2:30 p.m.</time>
+          <span aria-hidden="true">–</span>
+          <span class="visually-hidden">to</span>
+          <time datetime="2026-09-15T16:15:00-07:00">4:15 p.m. PDT</time>
+        </dd>
+
+        <dt>Where</dt>
+        <dd>Critical Humanities Commons, C305</dd>
+
+        <dt>Format</dt>
+        <dd>This event is hybrid. Zoom link forthcoming.</dd>
+      </dl>
+    </section>
+  </div>
+</div>
+<!--end of root-->

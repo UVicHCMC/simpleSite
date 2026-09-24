@@ -456,7 +456,10 @@
         
         <echo message="Copying CSS to the 'site/css' folder."/>
         <copy todir="${basedir}/site/css" preservelastmodified="true">
-            <fileset dir="${basedir}/css" includes="*.css"/>
+            <fileset dir="${basedir}/css">
+                <include name="*.css"/>
+                <include name="*.css.map"/>
+            </fileset>
         </copy>
         
         <echo message="Copying fonts to the 'site/fonts' folder."/>
@@ -521,6 +524,9 @@
                 <replaceregexp file="${basedir}/site/${hashed.cssFile}"
                     match='/\*# sourceMappingURL=[^*]+\*/'
                     replace='' byline="true"/>
+                <delete>
+                    <fileset dir="${basedir}/site/css" includes="*.css.map"/>
+                </delete>
                 <delete file="${basedir}/site/${cssFile}"/>
                 <delete file="${basedir}/site/${jsFile}"/>
                 <echo message="CSS asset: ${hashed.cssFile}"/>
@@ -544,9 +550,6 @@
                 <!-- Dev build: plain filenames, keep source map for debugging -->
                 <var name="hashed.cssFile" value="${cssFile}"/>
                 <var name="hashed.jsFile"  value="${jsFile}"/>
-                <copy file="${basedir}/css/simpleSite.css.map"
-                      tofile="${basedir}/site/css/simpleSite.css.map"
-                      preservelastmodified="true"/>
                 <echo message="CSS asset (dev): ${hashed.cssFile}"/>
                 <echo message="JS  asset (dev): ${hashed.jsFile}"/>
             </else>

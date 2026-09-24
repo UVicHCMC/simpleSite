@@ -31,7 +31,7 @@
     --space-6: clamp(2rem, 1.7954rem + 0.909vw, 2.5rem);
 
     //Specifics
-    --font-size-h1: clamp(1.5rem, 0.8864rem + 2.7273vw, 3rem);
+    --font-size-h1: clamp(1.25rem, 0.8864rem + 2.7273vw, 2rem);
     --font-size-h2: clamp(1rem, 0.7955rem + 0.9091vw, 1.5rem);
     --font-body: clamp(0.875rem, 0.8239rem + 0.2273vw, 1rem);
 }
@@ -68,7 +68,7 @@
     > h1 + * {
         margin-block-start: var(--space-6);
         @media (width >= $breakpoint-md) {
-            margin-block-start: var(--space-4);
+            margin-block-start: var(--space-6);
         }
     }
 
@@ -237,7 +237,7 @@
     figure {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         gap: var(--space-1);
     }
     //align attribution to the right
