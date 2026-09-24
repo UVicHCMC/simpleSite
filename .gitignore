@@ -14,6 +14,9 @@ templates/
 #Ignore sass cache
 .sass-cache/
 
+# Ignore npm dependencies
+node_modules/
+
 # Ignore source files
 src/
 

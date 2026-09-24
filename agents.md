@@ -21,3 +21,7 @@
 - In SCSS files, always use SCSS single-line comments (`//`) instead of CSS block comments (`/* ... */`).
 - use nested css where appropriate, but no more than two levels deep
 - when nesting is deep comment what it is doing
+
+## Comments
+
+- comment your changes succicntly in other file types like config files, .json files, js, etc. Comment them for developer understanding.

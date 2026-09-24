@@ -1,0 +1,27 @@
+{
+  "name": "commons",
+  "version": "1.0.0",
+  "description": "`simpleSite` is an Ant-based static-site build system for small HCMC websites that do not require large datasets. It was initially created for conference websites, although it may be used for other types of sites in future.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/UVicHCMC/simpleSite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/UVicHCMC/simpleSite/issues"
+  },
+  "homepage": "https://github.com/UVicHCMC/simpleSite#readme",
+  "dependencies": {
+    "gsap": "^3.15.0"
+  }
+}
