@@ -21,6 +21,7 @@
 - In SCSS files, always use SCSS single-line comments (`//`) instead of CSS block comments (`/* ... */`).
 - use nested css where appropriate, but no more than two levels deep
 - when nesting is deep comment what it is doing
+- use logical properties like margin-block start etc.
 
 ## Comments
 

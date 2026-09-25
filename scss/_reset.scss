@@ -35,11 +35,6 @@ canvas {
     background-repeat: no-repeat;
     background-size: cover;
 }
-//Don't want this to apply to open layers
-.ol-layer > canvas {
-    max-width: none;
-}
-
 //In the case an images doesn't load, setting and alternative text that explains the image and that is italic tells the user.
 img,
 picture,

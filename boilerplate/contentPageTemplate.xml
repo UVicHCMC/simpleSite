@@ -10,16 +10,16 @@
     <!-- Compiled styles (includes page grid + layout system) -->
     <link rel="stylesheet" href="{?cssFile}"/>
     <!-- Script -->
-    <script src="{?jsFile}"/>
+    <script src="{?jsFile}" defer="defer"/>
     <!-- Favicons / PWA -->
     <link rel="icon" href="{?faviconIco}" sizes="48x48"/>
     <link rel="icon" href="{?faviconSvg}" sizes="any" type="image/svg+xml"/>
     <link rel="manifest" href="{?siteManifest}"/>
   </head>
   <body id="top">
-    <div class="content-wrapper">
-      <div class="top-wrapper full-bleed">
-        <header>
+    <div class="content-wrapper page-grid">
+      <div class="top-wrapper full-bleed inherit-page-grid">
+        <header class="breakout">
           <nav id="mainMenu" aria-label="{?site-navigation-label}">
             <button class="mobile-menu-close">
               Close
@@ -59,26 +59,31 @@
           </button>
         </header>
       </div>
-      <main class="page-grid" id="content">
-        <div class="main-wrapper">
+      <main class="full-bleed inherit-page-grid" id="content">
+        <div class="main-wrapper full-bleed inherit-page-grid">
           <!-- NOTE: This processing-instruction will be replaced by the document
                              content. -->
           <?docContent?>
         </div>
       </main>
-      <footer class="full-bleed">
-        <div class="footer-wrapper inline">
+      <footer class="full-bleed inherit-page-grid">
+        <div class="footer-wrapper inline breakout">
           <ul class="footer-list">
             <?navigation?>
           </ul>
         </div>
-        <div class="footer-accent-container">
+        <div class="footer-accent-container breakout">
           <a href="index.html">
             <img class="logo-footer" src="images/logo-footer.webp" alt=""/>
           </a>
         </div>
       </footer>
     </div>
-    <script src="js/ux.js"/>
+    <a class="scroll-to-top" href="#top" aria-hidden="true" inert="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="up-caret" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12 5-5 5 5"/>
+      </svg>
+      <span>Back to top</span>
+    </a>
   </body>
 </html>

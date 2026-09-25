@@ -10,16 +10,16 @@
     <!-- Compiled styles (includes page grid + layout system) -->
     <link rel="stylesheet" href="{?cssFile}"/>
     <!-- Script -->
-    <script src="{?jsFile}"/>
+    <script src="{?jsFile}" defer="defer"/>
     <!-- Favicons / PWA -->
     <link rel="icon" href="{?faviconIco}" sizes="48x48"/>
     <link rel="icon" href="{?faviconSvg}" sizes="any" type="image/svg+xml"/>
     <link rel="manifest" href="{?siteManifest}"/>
   </head>
   <body id="top">
-    <div class="content-wrapper">
-      <div class="top-wrapper full-bleed">
-        <header>
+    <div class="content-wrapper page-grid">
+      <div class="top-wrapper full-bleed inherit-page-grid">
+        <header class="breakout">
           <nav id="mainMenu" aria-label="{?site-navigation-label}">
             <button class="mobile-menu-close">
               Close
@@ -59,8 +59,8 @@
           </button>
         </header>
       </div>
-      <div class="hero full-bleed">
-        <div class="hero-content-container">
+      <div class="hero full-bleed inherit-page-grid">
+        <div class="hero-content-container breakout">
           <div class="logo-container">
             <img class="splash-logo" src="images/splash-logo.webp" alt=""/>
             <h1 class="visually-hidden">Critical Humanities Commons: Rooted in Care. Driven by Ideas</h1>
@@ -70,66 +70,99 @@
           </div>
         </div>
       </div>
-      <main id="content">
-        <div class="main-wrapper splash">
-          <section>
-            <h2 class="splash-heading">Upcoming events</h2>
-            <article class="calendar-splash" aria-labelledby="featured-event-title">
-              <div class="event-container">
-                <dl class="details-container">
-                  <div class="date">
-                    <dt class="visually-hidden">Date</dt>
-                    <dd>
-                      <time datetime="2026-09-15">
-                        <span class="month">September</span>
-                        <span class="day">15</span>
-                      </time>
-                    </dd>
-                  </div>
-                  <div class="location">
-                    <dt class="visually-hidden">Location</dt>
-                    <dd>Critical Humanities Commons</dd>
-                  </div>
-                  <div class="time">
-                    <dt class="visually-hidden">Time</dt>
-                    <dd>
-                      <time datetime="2026-09-15T14:30:00-07:00">2:30</time>
-                      <span aria-hidden="true">&#x2013;</span>
-                      <span class="visually-hidden">to</span>
-                      <time datetime="2026-09-15T16:15:00-07:00">4:15</time>
-                    </dd>
-                  </div>
-                </dl>
-                <div class="event-description">
-                  <h2 id="featured-event-title" class="calendar-event-title">Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</h2>
-                  <img class="event-teaser-image" src="images/sept-15.webp" alt=""/>
-                  <!--<p class="event-teaser">
+      <main id="content" class="full-bleed inherit-page-grid">
+        <div class="main-wrapper splash full-bleed inherit-page-grid">
+          <section class="breakout">
+            <div class="splash-band-wrapper">
+              <h2 class="splash-heading">Upcoming events</h2>
+              <article class="calendar-splash" aria-labelledby="featured-event-title">
+                <div class="event-container">
+                  <dl class="details-container">
+                    <div class="date">
+                      <dt class="visually-hidden">Date</dt>
+                      <dd>
+                        <time datetime="2026-09-15">
+                          <span class="month">September</span>
+                          <span class="day">15</span>
+                        </time>
+                      </dd>
+                    </div>
+                    <div class="location">
+                      <dt class="visually-hidden">Location</dt>
+                      <dd>Critical Humanities Commons</dd>
+                    </div>
+                    <div class="time">
+                      <dt class="visually-hidden">Time</dt>
+                      <dd>
+                        <time datetime="2026-09-15T14:30:00-07:00">2:30</time>
+                        <span aria-hidden="true">&#x2013;</span>
+                        <span class="visually-hidden">to</span>
+                        <time datetime="2026-09-15T16:15:00-07:00">4:15</time>
+                      </dd>
+                    </div>
+                  </dl>
+                  <div class="event-description">
+                    <h2 id="featured-event-title" class="calendar-event-title">Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</h2>
+                    <p class="event-teaser">
                     What kinds of research are Humanities graduate students conducting and how do their findings help us to apply social justice principles within and beyond the university? Come listen to some of our MA and PhD students share their work and experiences!
-                    </p>-->
+                    </p>
+                  </div>
+                  <div class="calendar-link-container">
+                    <a class="event-button" href="sept-15.html">Event details</a>
+                  </div>
                 </div>
-                <div class="calendar-link-container">
-                  <a class="event-button" href="sept-15.html">Event details</a>
-                </div>
-              </div>
-            </article>
+              </article>
+            </div>
           </section>
-          <div class="text-column-splash">
-          </div>
+          <section class="pillars-section full-bleed inherit-page-grid" aria-labelledby="pillars-heading">
+            <h2 id="pillars-heading" class="pillars-heading breakout">Commons: Four Pillars</h2>
+            <ul class="pillar-container breakout">
+              <li class="pillar">
+                <h3>Expertise</h3>
+                <p>We deepen scholarly inquiry and challenge the boundaries of disciplinary knowledge.</p>
+                <img class="pillar-icon" src="images/icon-expertise.svg" width="64" height="64" alt=""/>
+              </li>
+              <li class="pillar">
+                <h3>Collaboration</h3>
+                <p>We work across fields to build sustained, trans-disciplinary research and relationships.</p>
+                <img class="pillar-icon" src="images/icon-collaboration.svg" width="64" height="64" alt=""/>
+              </li>
+              <li class="pillar">
+                <h3>Exchange</h3>
+                <p>We foster reciprocal learning and critical dialogue with diverse stakeholders.</p>
+                <img class="pillar-icon" src="images/icon-exchange.svg" width="64" height="64" alt=""/>
+              </li>
+              <li class="pillar">
+                <h3>Dissemination</h3>
+                <p>We ensure scholarship and dialogue have a tangible impact on wider publics.</p>
+                <img class="pillar-icon" src="images/icon-dissemination.svg" width="64" height="64" alt=""/>
+              </li>
+            </ul>
+          </section>
+          <section class="subscribe-section" aria-labelledby="subscribe-heading">
+            <h2 id="subscribe-heading">Subscribe for more Critical Humanities Commons news and updates</h2>
+            <a class="subscribe-button" href="mailto:muktalawrence@uvic.ca">Subscribe by email</a>
+          </section>
         </div>
       </main>
-      <footer class="full-bleed">
-        <div class="footer-wrapper inline">
+      <footer class="full-bleed inherit-page-grid">
+        <div class="footer-wrapper inline breakout">
           <ul class="footer-list">
             <?navigation?>
           </ul>
         </div>
-        <div class="footer-accent-container">
+        <div class="footer-accent-container breakout">
           <a href="index.html">
             <img class="logo-footer" src="images/logo-footer.webp" alt=""/>
           </a>
         </div>
       </footer>
     </div>
-    <script src="js/ux.js"/>
+    <a class="scroll-to-top" href="#top" aria-hidden="true" inert="">
+      <svg xmlns="http://www.w3.org/2000/svg" class="up-caret" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12 5-5 5 5"/>
+      </svg>
+      <span>Back to top</span>
+    </a>
   </body>
 </html>
