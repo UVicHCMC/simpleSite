@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <div class="text-column">
-    <h1>Calendar</h1><!--Page title-->
+  <!-- Calendar page hero -->
+  <section class="page-hero calendar-hero full-bleed inherit-page-grid" aria-labelledby="calendar-heading">
+    <div class="page-hero-content">
+      <h1 id="calendar-heading">Critical Humanities Commons <span class="sub-title">Calendar</span></h1>
+    </div>
+  </section>
 
-    <h2>September 2026</h2>
+  <section class="calendar-listing breakout" aria-labelledby="upcoming-events-heading">
+    <h2 id="upcoming-events-heading">Upcoming events</h2>
 
-    <h3>Mon, Sept 28</h3>
-    <p>Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</p>
-    <p>
-      <a href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Visit UVic Events for more information.</a>
-    </p>
-
-    <h3>Tues, Sept 29</h3>
-    <p>Critical Encounters Speaker Series: CATALYST: Meet our new HUMS faculty</p>
-    <p>
-      <a href="https://events.uvic.ca/event/111002-critical-encounters-catalyst-meet-our-new-hums">Visit UVic Events for more information.</a>
-    </p>
-
-  </div>
+    <!-- Events are listed chronologically -->
+    <ol class="calendar-events-list">
+      <li>
+        <article class="event-container calendar-event" aria-labelledby="event-september-28-title">
+          <time class="event-date" datetime="2026-09-28">
+            <span class="event-weekday">Monday</span>
+            <span class="event-month">September</span>
+            <span class="event-day">28</span>
+            <span class="event-year">2026</span>
+          </time>
+          <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+          <div class="event-summary">
+            <h3 id="event-september-28-title" class="calendar-event-title">Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</h3>
+            <a class="event-button" href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Event details</a>
+          </div>
+        </article>
+      </li>
+      <li>
+        <article class="event-container calendar-event" aria-labelledby="event-september-29-title">
+          <time class="event-date" datetime="2026-09-29">
+            <span class="event-weekday">Tuesday</span>
+            <span class="event-month">September</span>
+            <span class="event-day">29</span>
+            <span class="event-year">2026</span>
+          </time>
+          <img class="calendar-event-image" src="images/critical-encounters-catalyst.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+          <div class="event-summary">
+            <h3 id="event-september-29-title" class="calendar-event-title">Critical Encounters Speaker Series: CATALYST: Meet our new HUMS faculty</h3>
+            <a class="event-button" href="https://events.uvic.ca/event/111002-critical-encounters-catalyst-meet-our-new-hums">Event details</a>
+          </div>
+        </article>
+      </li>
+    </ol>
+  </section>
 </div>
 <!--end of root-->

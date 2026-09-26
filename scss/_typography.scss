@@ -48,15 +48,7 @@
     font-weight: 350;
     line-height: 1.6;
 
-    //monument specific, this is for blockquotes following h2s and h2 immdiately following h1s
-    h1 + section:has(> h2) {
-        margin-block-start: var(--space-6);
-    }
-
-    h1 + section:has(> h2) figure {
-        margin-block-start: var(--space-4);
-    }
-    // Apply a consistent flow to pages with or without sections
+    // Apply one flow system to direct content and nested sections
     > * {
         margin: 0;
     }
@@ -65,18 +57,15 @@
         margin-block-start: var(--flow-space);
     }
 
-    > h1 + * {
-        margin-block-start: var(--space-6);
-        @media (width >= $breakpoint-md) {
-            margin-block-start: var(--space-6);
-        }
-    }
-
-    > section + section {
+    > * + :is(h2, h3, h4, h5, h6, section) {
         margin-block-start: var(--flow-space-loose);
     }
 
-    // Give each section its own vertical rhythm
+    > :is(h1, h2, h3, h4, h5, h6) + :not(section) {
+        margin-block-start: var(--flow-space-tight);
+    }
+
+    // Repeat the same rhythm inside semantic sections
     section {
         > * {
             margin: 0;
@@ -86,19 +75,11 @@
             margin-block-start: var(--flow-space);
         }
 
-        > :is(h2, h3, h4, h5, h6):first-child {
-            margin-block-start: 0;
+        > * + :is(h2, h3, h4, h5, h6, section) {
+            margin-block-start: var(--flow-space-loose);
         }
 
-        > * + :is(h2, h3) {
-            margin-block-start: var(--space-4);
-        }
-
-        > * + :is(h4, h5, h6) {
-            margin-block-start: var(--space-3);
-        }
-
-        > :is(h2, h3, h4, h5, h6) + * {
+        > :is(h2, h3, h4, h5, h6) + :not(section) {
             margin-block-start: var(--flow-space-tight);
         }
     }
@@ -222,7 +203,7 @@
     blockquote {
         margin-inline: 0;
         @media (width >= $breakpoint-md) {
-            maring-inline: var(--space-3);
+            margin-inline: var(--space-3);
         }
         padding-inline-start: var(--space-3);
         border-inline-start: 3px solid var(--green-100);

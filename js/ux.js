@@ -84,13 +84,11 @@
     if (!menu || !openButton || !closeButton) return;
 
     /*
-     * Treat the menu as mobile when CSS displays the mobile opener.
-     *
-     * This makes CSS the source of truth without duplicating its breakpoint
-     * or relying on a separate custom property.
+     * Match the SCSS desktop rule, which takes effect above 768px. Using a
+     * media query avoids retaining a stale inert state while styles update.
      */
-    const isMobileMenu = () =>
-      getComputedStyle(openButton).display !== "none";
+    const mobileMenuQuery = window.matchMedia("(max-width: 768px)");
+    const isMobileMenu = () => mobileMenuQuery.matches;
 
     /*
      * Identify controls that may participate in the menu's focus loop.
@@ -106,12 +104,6 @@
      * does not repeatedly reset an open menu.
      */
     let previousMobileMode;
-
-    /*
-     * Store the pending animation frame used to process resize events after
-     * the browser has recalculated responsive styles.
-     */
-    let resizeFrame;
 
     /*
      * Preserve the original inert state of content outside the menu.
@@ -380,23 +372,12 @@
       setMenuInert(mobileMode);
     };
 
-    /**
-     * Process resize changes after responsive styles have been recalculated.
-     *
-     * The animation frame also prevents repeated synchronous work during
-     * rapid resizing.
-     */
-    const handleResize = () => {
-      cancelAnimationFrame(resizeFrame);
-      resizeFrame = requestAnimationFrame(syncMenu);
-    };
-
     // Bind controls and responsive behavior.
     openButton.addEventListener("click", openMenu);
     closeButton.addEventListener("click", () => closeMenu());
     menu.addEventListener("click", handleMenuClick);
     document.addEventListener("keydown", handleKeydown);
-    window.addEventListener("resize", handleResize);
+    mobileMenuQuery.addEventListener("change", syncMenu);
 
     // Establish the correct state for the initial viewport.
     syncMenu();

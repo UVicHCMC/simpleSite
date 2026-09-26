@@ -72,46 +72,26 @@
       </div>
       <main id="content" class="full-bleed inherit-page-grid">
         <div class="main-wrapper splash full-bleed inherit-page-grid">
-          <section class="breakout">
+          <section class="event-band breakout" aria-labelledby="events-heading">
             <div class="splash-band-wrapper">
-              <h2 class="splash-heading">Upcoming events</h2>
+              <h2 id="events-heading" class="splash-heading">Upcoming events</h2>
               <article class="calendar-splash" aria-labelledby="featured-event-title">
-                <div class="event-container">
-                  <dl class="details-container">
-                    <div class="date">
-                      <dt class="visually-hidden">Date</dt>
-                      <dd>
-                        <time datetime="2026-09-15">
-                          <span class="month">September</span>
-                          <span class="day">15</span>
-                        </time>
-                      </dd>
-                    </div>
-                    <div class="location">
-                      <dt class="visually-hidden">Location</dt>
-                      <dd>Critical Humanities Commons</dd>
-                    </div>
-                    <div class="time">
-                      <dt class="visually-hidden">Time</dt>
-                      <dd>
-                        <time datetime="2026-09-15T14:30:00-07:00">2:30</time>
-                        <span aria-hidden="true">&#x2013;</span>
-                        <span class="visually-hidden">to</span>
-                        <time datetime="2026-09-15T16:15:00-07:00">4:15</time>
-                      </dd>
-                    </div>
-                  </dl>
-                  <div class="event-description">
-                    <h2 id="featured-event-title" class="calendar-event-title">Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</h2>
-                    <p class="event-teaser">
-                    What kinds of research are Humanities graduate students conducting and how do their findings help us to apply social justice principles within and beyond the university? Come listen to some of our MA and PhD students share their work and experiences!
-                    </p>
-                  </div>
-                  <div class="calendar-link-container">
-                    <a class="event-button" href="sept-15.html">Event details</a>
+                <div class="event-container calendar-event">
+                  <time class="event-date" datetime="2026-09-28">
+                    <span class="event-weekday">Monday</span>
+                    <span class="event-month">September</span>
+                    <span class="event-day">28</span>
+                    <span class="event-year">2026</span>
+                  </time>
+                  <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+                  <div class="event-summary">
+                    <p class="event-kicker">Featured event</p>
+                    <h3 id="featured-event-title" class="calendar-event-title">Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</h3>
+                    <a class="event-button" href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Event details</a>
                   </div>
                 </div>
               </article>
+              <a class="calendar-button" href="calendar.html">View full calendar</a>
             </div>
           </section>
           <section class="pillars-section full-bleed inherit-page-grid" aria-labelledby="pillars-heading">

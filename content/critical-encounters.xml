@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
-
-    <div class="text-column">
-        <h1>Critical Encounters</h1><!--Page title-->
-
-        <p>A free monthly speaker series curating encounters that apply humanistic thinking beyond the academy. The aim is to underscore the public relevance of the humanities in responding to uncertainty and possibility, through programming that appeals to a broad range of interests on campus and community. These events will be accompanied with modest refreshments to foster informal exchange.</p>
-
-        <p>All events are in the Commons Hub and on Zoom or otherwise specified.</p>
-
-        <h2>2026-2027 Schedule (Current)</h2>
-        <!-- embed pdf of current schedule -->
-
-        <h2>2025-2026 Schedule (Past)</h2>
-        <!-- embed png of past schedule -->
-        <!-- add in photos from Estes event -->
-
-        <h2>Event Recordings</h2>
-
-        <p>Nick Estes Lansdowne Event: <a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Indigenous Resistance &amp; the Colonialism of our Times</a>
-        </p>
-
+<div xmlns="http://www.w3.org/1999/xhtml" id="root">
+  <!--gets removed-->
+  <section class="page-hero encounters-hero full-bleed inherit-page-grid" aria-labelledby="encounters-heading">
+    <div class="page-hero-content">
+      <h1 id="encounters-heading">Critical Humanities Commons <span class="sub-title">Critical Encounters</span></h1>
     </div>
+  </section>
+  <div class="page-content content-width">
+    <div class="text-column">
+      <p>A free monthly speaker series curating encounters that apply humanistic thinking beyond the academy. The aim is to underscore the public relevance of the humanities in responding to uncertainty and possibility, through programming that appeals to a broad range of interests on campus and community. These events will be accompanied with modest refreshments to foster informal exchange.</p>
+      <p>All events are in the Commons Hub and on Zoom or otherwise specified.</p>
+    </div>
+  </div>
+  <section class="encounters-poster-section content-width" aria-labelledby="current-schedule-heading">
+    <div class="text-column">
+      <h2 id="current-schedule-heading">2026-2027 Schedule (Current)</h2>
+      <p>Select a poster to view its full-size version.</p>
+    </div>
+    <figure class="encounters-poster">
+      <a class="encounters-poster-link" href="images/critical-encounters-2026-2027.webp" aria-label="View the full-size Critical Encounters 2026–2027 program poster">
+        <img src="images/critical-encounters-2026-2027-thumb.webp" width="1200" height="1826" alt="Critical Encounters 2026–2027 program poster" loading="lazy" decoding="async"/>
+      </a>
+      <figcaption>Critical Encounters 2026–2027 program</figcaption>
+    </figure>
+  </section>
+  <section class="encounters-poster-section content-width" aria-labelledby="past-schedule-heading">
+    <div class="text-column">
+      <h2 id="past-schedule-heading">2025-2026 Schedule (Past)</h2>
+    </div>
+    <figure class="encounters-poster">
+      <a class="encounters-poster-link" href="images/critical-encounters-2025-2026.webp" aria-label="View the full-size Critical Encounters 2025–2026 schedule poster">
+        <img src="images/critical-encounters-2025-2026-thumb.webp" width="1200" height="1600" alt="Critical Encounters 2025–2026 schedule poster" loading="lazy" decoding="async"/>
+      </a>
+      <figcaption>Critical Encounters 2025–2026 schedule</figcaption>
+    </figure>
+  </section>
+  <section class="page-content content-width" aria-labelledby="event-recordings-heading">
+    <div class="text-column">
+      <h2 id="event-recordings-heading">Event recordings</h2>
+      <p>Nick Estes Lansdowne Event: <a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Indigenous Resistance &amp; the Colonialism of our Times</a></p>
+    </div>
+  </section>
 </div>
 <!--end of root-->

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
 
-  <div class="text-column event-page">
-    <h1>Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</h1><!--Page title-->
+  <section class="page-hero event-hero full-bleed inherit-page-grid" aria-labelledby="event-heading">
+    <div class="page-hero-content">
+      <h1 id="event-heading">Critical Humanities Commons <span class="sub-title">Artistic Practice, Community &amp; Solidarity: Reflections from Yogyakarta to Victoria</span></h1>
+    </div>
+  </section>
+
+  <div class="page-content breakout">
+    <div class="text-column event-page">
 
     <figure class="event-page-poster">
       <a class="event-poster-link" href="images/sept-15.webp" aria-label="View the full-size event poster">
@@ -36,6 +42,7 @@
         <dd>This event is hybrid. Zoom link forthcoming.</dd>
       </dl>
     </section>
+    </div>
   </div>
 </div>
 <!--end of root-->

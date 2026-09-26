@@ -1,5 +1,21 @@
 // Path to the fonts directory
 $fontPath: "../fonts/";
+
+@font-face {
+    font-family: "Glacial Indifference";
+    src: url("#{$fontPath}GlacialIndifference-Regular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Glacial Indifference";
+    src: url("#{$fontPath}GlacialIndifference-Bold.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
 @font-face {
     font-family: "Inter Variable";
     src: url("#{$fontPath}InterVariable.woff2") format("woff2");
