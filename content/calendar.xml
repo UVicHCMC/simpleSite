@@ -43,6 +43,21 @@
           </div>
         </article>
       </li>
+      <li>
+        <article class="event-container calendar-event" aria-labelledby="event-october-22-title">
+          <time class="event-date" datetime="2026-10-22">
+            <span class="event-weekday">Thursday</span>
+            <span class="event-month">October</span>
+            <span class="event-day">22</span>
+            <span class="event-year">2026</span>
+          </time>
+          <img class="calendar-event-image" src="images/lost-in-translation-odyssey-catullus.webp" width="400" height="560" alt="" loading="lazy" decoding="async" />
+          <div class="event-summary">
+            <h3 id="event-october-22-title" class="calendar-event-title">Lost in Translation? Homer’s Odyssey &amp; Catullus in Love</h3>
+            <a class="event-button" href="https://events.uvic.ca/event/111266-lost-in-translation-homers-odyssey-catullus-in">Event details</a>
+          </div>
+        </article>
+      </li>
     </ol>
   </section>
 </div>

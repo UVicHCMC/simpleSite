@@ -188,7 +188,7 @@ header {
 
 .top-wrapper {
     --top-wrapper-desktop-height: 3.75rem;
-    --top-wrapper-desktop-padding-block: 0;
+    --top-wrapper-desktop-padding-block: 1rem;
     --top-wrapper-bg-color-desktop: #f9fafb;
 
     grid-column: full;
@@ -197,10 +197,12 @@ header {
     display: grid;
     grid-template-columns: subgrid;
     align-items: center;
-    block-size: var(--top-wrapper-desktop-height, 3.75rem);
-    padding-block: var(--top-wrapper-desktop-padding-block, 2rem);
-
+    block-size: auto;
+    padding-block: 0;
     background-color: var(--top-wrapper-bg-color-desktop);
+    @media (width >= $breakpoint-md) {
+        padding-block: var(--top-wrapper-desktop-padding-block, 2rem);
+    }
 }
 
 .siteTitle {
@@ -1463,7 +1465,9 @@ a.publication-link:focus-visible {
     align-self: center;
     justify-self: center;
     inline-size: min(12rem, calc(100% - 3rem));
-    block-size: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
     margin-block-start: 1.5rem;
     box-shadow: var(--shadow-card);
 
