@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div xmlns="http://www.w3.org/1999/xhtml" id="root">
+<div xmlns="http://www.w3.org/1999/xhtml" id="root" data-page-title="Our Space" data-meta-description="Learn about the Critical Humanities Commons Hub and Lounge, view the spaces, and find information about booking an event.">
   <!--gets removed-->
   <section class="page-hero space-hero full-bleed inherit-page-grid" aria-labelledby="space-heading">
     <div class="page-hero-content">

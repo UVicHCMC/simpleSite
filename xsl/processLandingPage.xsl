@@ -21,6 +21,14 @@
   <!-- Convert string parameters to usable values -->
   <xsl:variable name="isMultilingualBool" select="$isMultilingual = 'true'"/>
   <xsl:variable name="lang" select="if ($currentLang != '') then $currentLang else $defaultLang"/>
+
+  <!-- Load shared homepage metadata and derive its canonical URL. -->
+  <xsl:variable name="propertiesDoc" select="document(resolve-uri('../properties.xml', static-base-uri()))"/>
+  <xsl:variable name="siteTitle" as="xs:string" select="normalize-space(string(($propertiesDoc/site/metadata/siteTitle/*[local-name() = $lang], $propertiesDoc/site/metadata/siteTitle)[1]))"/>
+  <xsl:variable name="metaDescription" as="xs:string" select="normalize-space(string(($propertiesDoc/site/metadata/metaDescription/*[local-name() = $lang], $propertiesDoc/site/metadata/metaDescription)[1]))"/>
+  <xsl:variable name="configuredSiteUrl" as="xs:string" select="normalize-space(string($propertiesDoc/site/metadata/siteUrl))"/>
+  <xsl:variable name="siteUrl" as="xs:string" select="if (ends-with($configuredSiteUrl, '/')) then $configuredSiteUrl else concat($configuredSiteUrl, '/')"/>
+  <xsl:variable name="canonicalUrl" as="xs:string" select="concat($siteUrl, if ($isMultilingualBool) then concat($lang, '/') else '')"/>
   
   <!-- Image dimensions handling -->
   <xsl:variable name="txtDimensions" select="unparsed-text('../utilities/imageDimensions.txt')"/>
@@ -47,6 +55,27 @@
         <xsl:attribute name="id" select="'index'"/>
       </xsl:if>
       <xsl:apply-templates select="node()"/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Replace shared head placeholders with homepage search metadata. -->
+  <xsl:template match="xhtml:title" priority="5">
+    <xsl:element name="title">
+      <xsl:value-of select="$siteTitle"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="xhtml:meta[@name = 'description']" priority="5">
+    <xsl:element name="meta">
+      <xsl:attribute name="name">description</xsl:attribute>
+      <xsl:attribute name="content" select="$metaDescription"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="xhtml:link[@rel = 'canonical']" priority="5">
+    <xsl:element name="link">
+      <xsl:attribute name="rel">canonical</xsl:attribute>
+      <xsl:attribute name="href" select="$canonicalUrl"/>
     </xsl:element>
   </xsl:template>
 

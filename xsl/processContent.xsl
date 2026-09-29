@@ -51,6 +51,15 @@
   
   <!-- Store the content document root for later use -->
   <xsl:variable name="contentRoot" select="/"/>
+
+  <!-- Build page-specific search metadata from the content root and site properties. -->
+  <xsl:variable name="siteTitle" as="xs:string" select="normalize-space(string(($propertiesDoc/site/metadata/siteTitle/*[local-name() = $lang], $propertiesDoc/site/metadata/siteTitle)[1]))"/>
+  <xsl:variable name="pageTitle" as="xs:string" select="normalize-space(string($contentRoot/*/@data-page-title))"/>
+  <xsl:variable name="metaDescription" as="xs:string" select="normalize-space(string($contentRoot/*/@data-meta-description))"/>
+  <xsl:variable name="configuredSiteUrl" as="xs:string" select="normalize-space(string($propertiesDoc/site/metadata/siteUrl))"/>
+  <xsl:variable name="siteUrl" as="xs:string" select="if (ends-with($configuredSiteUrl, '/')) then $configuredSiteUrl else concat($configuredSiteUrl, '/')"/>
+  <xsl:variable name="isMultilingual" select="count(tokenize($languages, ',')) gt 1"/>
+  <xsl:variable name="canonicalUrl" as="xs:string" select="concat($siteUrl, if ($isMultilingual) then concat($lang, '/') else '', $currentPage)"/>
   
   <!-- Image dimensions handling -->
   <xsl:variable name="txtDimensions" select="unparsed-text('../utilities/imageDimensions.txt')"/>
@@ -83,6 +92,27 @@
         <xsl:attribute name="id" select="$pageId"/>
       </xsl:if>
       <xsl:apply-templates select="node()"/>
+    </xsl:element>
+  </xsl:template>
+
+  <!-- Replace shared head placeholders with metadata for the current page. -->
+  <xsl:template match="xhtml:title" priority="5">
+    <xsl:element name="title">
+      <xsl:value-of select="if ($pageTitle = '' or $pageTitle = $siteTitle) then $siteTitle else concat($pageTitle, ' | ', $siteTitle)"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="xhtml:meta[@name = 'description']" priority="5">
+    <xsl:element name="meta">
+      <xsl:attribute name="name">description</xsl:attribute>
+      <xsl:attribute name="content" select="$metaDescription"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="xhtml:link[@rel = 'canonical']" priority="5">
+    <xsl:element name="link">
+      <xsl:attribute name="rel">canonical</xsl:attribute>
+      <xsl:attribute name="href" select="$canonicalUrl"/>
     </xsl:element>
   </xsl:template>
 
@@ -120,8 +150,6 @@
   </xsl:template>
   
   <!-- Fix resource paths (CSS, JS, images) for multilingual builds. We do this because the resources are one level up from the HTML pages in bilingual builds. -->
-  <xsl:variable name="isMultilingual" select="count(tokenize($languages, ',')) gt 1"/>
-  
   <xsl:template match="xhtml:link/@href[not(starts-with(., 'http')) and not(starts-with(., '/')) and (contains(., 'css/') or contains(., 'fonts/'))]" priority="3">
     <xsl:attribute name="href">
       <xsl:if test="$isMultilingual">../</xsl:if>

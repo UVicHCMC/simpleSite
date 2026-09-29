@@ -30,9 +30,14 @@
     <siteManifest>site.webmanifest</siteManifest>
   </files>
   <metadata>
+    <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
+    <siteUrl>https://commons.uvic.ca/</siteUrl>
     <siteTitle>
       <en>Critical Humanities Commons</en>
     </siteTitle>
+    <metaDescription>
+      <en>The Critical Humanities Commons at the University of Victoria brings people together for interdisciplinary scholarship, public dialogue, and social justice.</en>
+    </metaDescription>
     <preTitle>
       <en>Pre-title text in splash header stack, if any</en>
     </preTitle>

@@ -7,6 +7,9 @@
     <!-- Core metadata -->
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Page-specific values are supplied by processContent.xsl. -->
+    <meta name="description" content=""/>
+    <link rel="canonical" href=""/>
     <!-- Compiled styles (includes page grid + layout system) -->
     <link rel="stylesheet" href="{?cssFile}"/>
     <!-- Script -->

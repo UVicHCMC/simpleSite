@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
+<div id="root" xmlns="http://www.w3.org/1999/xhtml" data-page-title="About" data-meta-description="Learn about the Critical Humanities Commons, its guiding principles, director, and administrative team at the University of Victoria."><!--gets removed-->
 
   <section class="page-hero about-hero full-bleed inherit-page-grid" aria-labelledby="about-heading">
     <div class="page-hero-content">
