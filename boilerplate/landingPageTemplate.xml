@@ -75,20 +75,18 @@
           <section class="event-band breakout" aria-labelledby="events-heading">
             <div class="splash-band-wrapper">
               <h2 id="events-heading" class="splash-heading">Upcoming events</h2>
-              <article class="calendar-splash" aria-labelledby="featured-event-title">
-                <div class="event-container calendar-event">
-                  <time class="event-date" datetime="2026-09-28">
-                    <span class="event-weekday">Monday</span>
-                    <span class="event-month">September</span>
-                    <span class="event-day">28</span>
-                    <span class="event-year">2026</span>
-                  </time>
-                  <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
-                  <div class="event-summary">
-                    <p class="event-kicker">Featured event</p>
-                    <h3 id="featured-event-title" class="calendar-event-title">Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</h3>
-                    <a class="event-button" href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Event details</a>
-                  </div>
+              <!-- Replace this article with any event article copied from content/calendar.xml. -->
+              <article class="event-container calendar-event" aria-labelledby="event-september-28-title">
+                <time class="event-date" datetime="2026-09-28">
+                  <span class="event-weekday">Monday</span>
+                  <span class="event-month">September</span>
+                  <span class="event-day">28</span>
+                  <span class="event-year">2026</span>
+                </time>
+                <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+                <div class="event-summary">
+                  <h3 id="event-september-28-title" class="calendar-event-title">Public History Talks &amp; Tours Series, with Commons Director Dr. Jaipreet Virdi</h3>
+                  <a class="event-button" href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Event details</a>
                 </div>
               </article>
               <a class="calendar-button" href="calendar.html">View full calendar</a>
