@@ -13,7 +13,7 @@
 
     <!-- Events are listed chronologically -->
     <ol class="calendar-events-list">
-      <li>
+      <!--<li>
         <article class="event-container calendar-event" aria-labelledby="event-september-28-title">
           <time class="event-date" datetime="2026-09-28">
             <span class="event-weekday">Monday</span>
@@ -27,7 +27,7 @@
             <a class="event-button" href="https://events.uvic.ca/event/110560-public-history-talks-tours-series">Event details</a>
           </div>
         </article>
-      </li>
+      </li> -->
       <li>
         <article class="event-container calendar-event" aria-labelledby="event-september-29-title">
           <time class="event-date" datetime="2026-09-29">
