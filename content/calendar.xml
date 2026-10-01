@@ -28,7 +28,7 @@
           </div>
         </article>
       </li> -->
-      <li>
+      <!---<li>
         <article class="event-container calendar-event" aria-labelledby="event-september-29-title">
           <time class="event-date" datetime="2026-09-29">
             <span class="event-weekday">Tuesday</span>
@@ -42,7 +42,7 @@
             <a class="event-button" href="https://events.uvic.ca/event/111002-critical-encounters-catalyst-meet-our-new-hums">Event details</a>
           </div>
         </article>
-      </li>
+      </li>-->
       <li>
         <article class="event-container calendar-event" aria-labelledby="event-october-22-title">
           <time class="event-date" datetime="2026-10-22">
