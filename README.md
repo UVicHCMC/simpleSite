@@ -69,6 +69,22 @@ Provide translations for all user-visible metadata, navigation items, and interf
 
 To use a language-selection splash page for a multilingual site, uncomment and configure `<languageSelector>` in `properties.xml`.
 
+### Homepage modes
+
+Set `<landingPageMode>` directly under `<site>` in `properties.xml`:
+
+| Value | Source of `index.html` | Shared navigation and footer |
+| --- | --- | --- |
+| `simple` | `boilerplate/landingPageTemplate.xml` | Supplied by that template |
+| `content` | `content/index.xml` through `boilerplate/contentPageTemplate.xml` | Included as on other content pages |
+| `complex` | `content/index.xml` through `boilerplate/contentPageTemplate.xml` | Omitted from the homepage |
+
+The default when the setting is absent is `simple`. An Ant command-line property overrides the file for one build, for example `ant -DlandingPageMode=simple fullBuild`. Unknown values stop the build with an error.
+
+The Commons site uses `content`: its hero and homepage sections are in `content/index.xml`. In either content-based mode, the index XML uses the same wrapper and page metadata attributes as other content files. Its child elements are inserted at `<?docContent?>` in the content template. Complex mode uses that same template and content format, but the build omits its top navigation area and footer on the homepage. Other content pages retain them.
+
+For a multilingual site, provide `content/{lang}/index.xml` for every configured language when using `content` or `complex`. The build writes each language's homepage at `site/{lang}/index.html`; the root `site/index.html` is either the configured language selector or a redirect to the default language. In all modes, the build handles `index.xml` separately from ordinary content files. Use `ant makeLandingPage` to rebuild it; `processSingleContent` is for other pages.
+
 ### Navigation
 
 Each navigation entry supplies a target file and a label for every language:
@@ -126,8 +142,8 @@ When a page contains two or more `<section>` elements, sections that have both a
 
 If you wish to modify templates for either the landing/splash page or for content pages you can do some by modifying:
 
-- `boilerplate/landingPageTemplate.xml` for the landing/spash page; and/or
-- `boilerplate/contentPageTemplate.xml` for content pages.
+- `boilerplate/landingPageTemplate.xml` for a simple homepage; or
+- `boilerplate/contentPageTemplate.xml` for content pages and both content-based homepage modes.
 
 Do not edit files in `templates/`. They are generated from the boilerplate files for each configured language and are overwritten during every build.
 
@@ -152,6 +168,7 @@ Running a development build (eg. ant fullBuild) retains stable CSS and JavaScrip
 | Command | Purpose |
 | --- | --- |
 | `ant fullBuild` | Clean and rebuild the complete development site, including resources, content pages, landing pages, and the sitemap. |
+| `ant -DlandingPageMode=complex fullBuild` | Build once with the complex homepage mode, overriding `properties.xml`. |
 | `ant processSingleContent -Dcontent.file=content/about.xml` | Rebuild one page in a monolingual site. |
 | `ant processSingleContent -Dcontent.file=content/fr/about.xml` | Rebuild one page in a multilingual site; the language and output directory are inferred from the path. |
 | `ant validateSite` | Run the VNU Validator over HTML files in `site/`. Review the console output for errors. |

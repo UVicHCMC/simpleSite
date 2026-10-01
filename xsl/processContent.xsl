@@ -4,14 +4,20 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:xhtml="http://www.w3.org/1999/xhtml"
                 xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+                xmlns:hcmc="http://hcmc.uvic.ca/ns"
                 exclude-result-prefixes="#all" 
                 version="3.0">
   
-  <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
+  <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" exclude-result-prefixes="#all"/>
   
   <!-- Parameters passed from build -->
   <xsl:param name="currentLang" select="'en'"/>
   <xsl:param name="languages" select="'en'"/>
+  <xd:doc>
+    <xd:desc>Omits the shared top navigation area and footer for a complex homepage.</xd:desc>
+  </xd:doc>
+  <xsl:param name="omitSiteChrome" as="xs:string" select="'false'"/>
   
   <!-- Get current document filename and page name -->
   <xsl:variable name="currentFile" select="tokenize(base-uri(/), '/')[last()]"/>
@@ -40,13 +46,20 @@
   "/>
   
   <!-- Load the appropriate template -->
-  <xsl:variable name="templatePath" select="
-    if ($langFromPath != '') then
-      concat('../templates/', $lang, '/contentPage.xml')
-    else
-      '../templates/contentPage.xml'
-                  "/>
-  
+  <xd:doc scope="component">
+    <xd:desc>Resolves the generated content template for this language.</xd:desc>
+  </xd:doc>
+  <xsl:variable name="templatePath" as="xs:string"
+                select="if ($langFromPath ne '')
+                        then '../templates/' || $lang || '/contentPage.xml'
+                        else '../templates/contentPage.xml'"/>
+
+  <xd:doc scope="component">
+    <xd:desc>True only when a complex index page requests the page shell without navigation or footer.</xd:desc>
+  </xd:doc>
+  <xsl:variable name="isComplexHomepage" as="xs:boolean"
+                select="$currentPage eq 'index.html' and $omitSiteChrome eq 'true'"/>
+
   <xsl:variable name="template" select="doc($templatePath)"/>
   
   <!-- Store the content document root for later use -->
@@ -55,11 +68,18 @@
   <!-- Build page-specific search metadata from the content root and site properties. -->
   <xsl:variable name="siteTitle" as="xs:string" select="normalize-space(string(($propertiesDoc/site/metadata/siteTitle/*[local-name() = $lang], $propertiesDoc/site/metadata/siteTitle)[1]))"/>
   <xsl:variable name="pageTitle" as="xs:string" select="normalize-space(string($contentRoot/*/@data-page-title))"/>
-  <xsl:variable name="metaDescription" as="xs:string" select="normalize-space(string($contentRoot/*/@data-meta-description))"/>
+  <xsl:variable name="metaDescription" as="xs:string"
+                select="if (normalize-space(string($contentRoot/*/@data-meta-description)) ne '')
+                        then normalize-space(string($contentRoot/*/@data-meta-description))
+                        else if ($currentPage eq 'index.html')
+                        then normalize-space(string(($propertiesDoc/site/metadata/metaDescription/*[local-name() eq $lang], $propertiesDoc/site/metadata/metaDescription)[1]))
+                        else ''"/>
   <xsl:variable name="configuredSiteUrl" as="xs:string" select="normalize-space(string($propertiesDoc/site/metadata/siteUrl))"/>
   <xsl:variable name="siteUrl" as="xs:string" select="if (ends-with($configuredSiteUrl, '/')) then $configuredSiteUrl else concat($configuredSiteUrl, '/')"/>
   <xsl:variable name="isMultilingual" select="count(tokenize($languages, ',')) gt 1"/>
-  <xsl:variable name="canonicalUrl" as="xs:string" select="concat($siteUrl, if ($isMultilingual) then concat($lang, '/') else '', $currentPage)"/>
+  <xsl:variable name="canonicalUrl" as="xs:string"
+                select="$siteUrl || (if ($isMultilingual) then $lang || '/' else '') ||
+                        (if ($currentPage eq 'index.html') then '' else $currentPage)"/>
   
   <!-- Image dimensions handling -->
   <xsl:variable name="txtDimensions" select="unparsed-text('../utilities/imageDimensions.txt')"/>
@@ -80,6 +100,7 @@
   
   <!-- Main template: Process the template document, not the content -->
   <xsl:template match="/">
+    <xsl:message select="'Processing ' || $currentPage || (if ($isComplexHomepage) then ' without shared navigation and footer' else '') || '.'"/>
     <xsl:apply-templates select="$template/*"/>
   </xsl:template>
   
@@ -93,6 +114,15 @@
       </xsl:if>
       <xsl:apply-templates select="node()"/>
     </xsl:element>
+  </xsl:template>
+
+  <xd:doc>
+    <xd:desc>Skips the shared top area and footer when processing a complex homepage.</xd:desc>
+  </xd:doc>
+  <xsl:template match="xhtml:div[contains-token(@class, 'top-wrapper')] | xhtml:footer" priority="4">
+    <xsl:if test="not($isComplexHomepage)">
+      <xsl:next-match/>
+    </xsl:if>
   </xsl:template>
 
   <!-- Replace shared head placeholders with metadata for the current page. -->
@@ -208,7 +238,7 @@
                       "/>
       <xsl:variable name="contentNodes" select="$contentRoot/*/*"/>
       <xsl:variable name="sections" as="element()*" select="$contentNodes/descendant-or-self::*[local-name() = 'section']"/>
-      <xsl:if test="count($sections) &gt;= 2">
+      <xsl:if test="$currentPage ne 'index.html' and count($sections) &gt;= 2">
         <xsl:message>Creating section navigation with <xsl:value-of select="count($sections)"/> sections</xsl:message>
         <nav class="subnav" aria-label="{$sectionNavLabel}">
           <ul>

@@ -7,8 +7,6 @@
 ## Allowed change scope
 
 - For the time being, only create, edit, move, or delete files inside the root-level `css/`, 'scss/' `js/`, `boilerplate/`, `content/` and `fonts/` directories.
-- Files outside `css/`, `js/`, `content/` and `fonts/` may be inspected when necessary, but must not be modified.
-- Do not run formatting, generation, build, or other commands that write files outside `css/`, `js/`, `content/` or `fonts/`.
 - If a requested task requires changes outside these directories, stop and ask for explicit permission before making those changes.
 
 ## HTML and XML

@@ -8,9 +8,10 @@
                 xmlns:hcmc="http://hcmc.uvic.ca/ns"
                 xmlns:tei="http://www.tei-c.org/ns/1.0"
                 xmlns:map="http://www.w3.org/2005/xpath-functions/map"
+                xpath-default-namespace=""
                 version="3.0">
   
-  <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no"/>
+  <xsl:output method="xml" indent="yes" encoding="UTF-8" omit-xml-declaration="no" exclude-result-prefixes="#all"/>
   
   <!-- Load properties file -->
   <xsl:variable name="propertiesDoc" select="document(resolve-uri('../properties.xml', base-uri(/)))"/>
@@ -67,6 +68,13 @@
     </xsl:copy>
   </xsl:template>
   
+  <xd:doc>
+    <xd:desc>Sets the generated page's language from the current build language.</xd:desc>
+  </xd:doc>
+  <xsl:template match="xhtml:html/@lang" mode="process-template" priority="3">
+    <xsl:attribute name="lang" select="$lang"/>
+  </xsl:template>
+
   <!-- Process elements with class="lang-chooser" -->
   <xsl:template match="xhtml:*[contains(@class, 'lang-chooser')]" mode="process-template" priority="3">
     <xsl:variable name="elementName" select="local-name()"/>
