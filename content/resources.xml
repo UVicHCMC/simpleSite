@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div id="root" xmlns="http://www.w3.org/1999/xhtml" data-page-title="Resources" data-meta-description="Browse Critical Humanities Commons newsletters, accessible pedagogy workshop materials, and classroom accessibility resources."><!--gets removed-->
-
+<div xmlns="http://www.w3.org/1999/xhtml" id="root" data-page-title="Resources" data-meta-description="Browse Critical Humanities Commons newsletters, accessible pedagogy workshop materials, and classroom accessibility resources.">
+  <!--gets removed-->
   <section class="page-hero resources-hero full-bleed inherit-page-grid" aria-labelledby="resources-heading">
     <div class="page-hero-content">
       <h1 id="resources-heading">Critical Humanities Commons <span class="sub-title">Resources</span></h1>
     </div>
   </section>
-
   <div class="page-content breakout">
     <div class="text-column">
-
       <section class="resource-section" aria-labelledby="newsletter-heading">
         <h2 id="newsletter-heading">Commons Newsletter</h2>
-
         <div class="newsletter-container">
           <ul class="publication-list">
             <li>
-              <article class="publication-card" aria-labelledby="newsletter-september-2026-title">
+              <article class="publication-card" aria-labelledby="newsletter-current-issue">
                 <p class="publication-type">Newsletter</p>
-                <h3 id="newsletter-september-2026-title">September 2026</h3>
-                <a class="publication-link" href="pdf/CHCNewsletter_September2026.pdf" type="application/pdf">Download newsletter</a>
+                <h3 id="newsletter-current-issue">October 2026</h3>
+                <a class="publication-link" href="pdf/CHCNewsletter_October2026.pdf" type="application/pdf">Download newsletter</a>
               </article>
             </li>
           </ul>
-
           <aside class="newsletter-subscribe" aria-labelledby="newsletter-subscribe-heading">
             <h3 id="newsletter-subscribe-heading">Subscribe to the newsletter</h3>
             <p>Receive Critical Humanities Commons news and updates by email.</p>
@@ -31,10 +27,8 @@
           </aside>
         </div>
       </section>
-
       <section class="resource-section" aria-labelledby="accessible-pedagogy-heading">
         <h2 id="accessible-pedagogy-heading">Accessible Pedagogy Workshops (2025–2026)</h2>
-
         <ul class="publication-list">
           <li>
             <article class="publication-card" aria-labelledby="designing-access-title">
@@ -52,10 +46,8 @@
           </li>
         </ul>
       </section>
-
       <section class="resource-section" aria-labelledby="accessible-classroom-heading">
         <h2 id="accessible-classroom-heading">Accessible classroom</h2>
-
         <ul class="publication-list">
           <li>
             <article class="publication-card" aria-labelledby="twenty-things-title">
