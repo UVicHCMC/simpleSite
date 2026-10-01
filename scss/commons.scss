@@ -144,6 +144,51 @@ html {
     }
 }
 
+// Content-mode homepages keep their hero inside the shared main element.
+#index .content-wrapper:has(> main .hero) {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+
+    > main {
+        grid-row: 2;
+    }
+
+    > footer {
+        grid-row: 3;
+    }
+}
+
+// A complex homepage has no shared header or footer, so main owns the page grid.
+#index .content-wrapper:not(:has(> .top-wrapper)) {
+    grid-template-rows: minmax(0, 1fr);
+
+    > main {
+        grid-row: 1;
+    }
+}
+
+#index .main-wrapper:has(> .hero:first-child) {
+    margin-block-start: 0;
+}
+
+#index .main-wrapper > .hero {
+    grid-row: auto;
+}
+
+.simple-landing {
+    padding-block: clamp(3rem, 8vw, 6rem);
+
+    h1 {
+        font-family: var(--font-sans);
+        font-size: var(--step-5);
+        color: var(--blue-400);
+    }
+
+    p {
+        margin-block-start: 1.5rem;
+        line-height: 1.6;
+    }
+}
+
 // Content defaults to the readable track and opts wider with utility classes
 .main-wrapper > * {
     grid-column: content;

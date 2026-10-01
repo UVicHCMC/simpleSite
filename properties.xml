@@ -29,7 +29,7 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <cssFile>css/commons.css</cssFile>
+    <cssFile>css/loi.css</cssFile>
     <jsFile>js/ux.js</jsFile>
     <faviconIco>images/favicon.ico</faviconIco>
     <faviconSvg>images/favicon.svg</faviconSvg>
@@ -39,10 +39,10 @@
     <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
     <siteUrl>https://commons.uvic.ca/</siteUrl>
     <siteTitle>
-      <en>Critical Humanities Commons</en>
+      <en>LOI Discovery Interface</en>
     </siteTitle>
     <metaDescription>
-      <en>The Critical Humanities Commons at the University of Victoria brings people together for interdisciplinary scholarship, public dialogue, and social justice.</en>
+      <en>The LOI Discovery Interface for exploring and discovering research outputs related to the Landscapes of Injustice and Past Wrongs Future Choices projects.</en>
     </metaDescription>
     <preTitle>
       <en>Pre-title text in splash header stack, if any</en>
