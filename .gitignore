@@ -5,7 +5,7 @@
 utilities/imageDimensions.txt
 
 #Dont track CSS
-css/
+# css/
 scss/*.css
 
 #ignore generated template files
