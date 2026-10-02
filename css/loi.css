@@ -4331,7 +4331,7 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
   min-height: var(--topNavHeight);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 76px 1fr 180px;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 1.5rem;
 }
@@ -4340,7 +4340,6 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
 .loi-partner { display: block; width: fit-content; }
 
 .loi-brand img {
-  width: 58px;
   height: 58px;
   object-fit: contain;
 }
@@ -4354,11 +4353,10 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
 
 .loi-masthead__title {
   color: var(--loi-muted);
-  font-size: 0.7rem;
-  font-weight: 650;
+  font-size: 1.5rem;
+  font-weight: 500;
   letter-spacing: 0.13em;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .loi-hero {
@@ -4566,11 +4564,13 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
   .loi-masthead__inner {
     width: calc(100% - 2rem);
     min-height: 72px;
-    grid-template-columns: 54px 1fr 108px;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 0.75rem;
   }
 
-  .loi-brand img { width: 48px; height: 48px; }
+  .loi-brand img { 
+    height: 58px; 
+  }
   .loi-partner img { width: 108px; }
   .loi-masthead__title { display: none; }
 
