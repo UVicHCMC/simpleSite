@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml" id="root" data-page-title="Lansdowne Lecture: Nick Estes" data-meta-description="View photographs and the recording from the Lansdowne Lecture with Nick Estes at the Critical Humanities Commons.">
+  <!--gets removed-->
+  <section class="page-hero event-hero full-bleed inherit-page-grid" aria-labelledby="estes-event-heading">
+    <div class="page-hero-content">
+      <h1 id="estes-event-heading">Critical Humanities Commons <span class="sub-title">Lansdowne Lecture: Nick Estes</span></h1>
+    </div>
+  </section>
+
+  <section class="page-content content-width" aria-labelledby="estes-recording-heading">
+    <div class="text-column">
+      <h2 id="estes-recording-heading">Event recording</h2>
+      <p><a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Watch <cite>Indigenous Resistance &amp; the Colonialism of our Times</cite></a>.</p>
+    </div>
+  </section>
+
+  <section class="event-gallery-section breakout" aria-labelledby="estes-gallery-heading">
+    <div class="text-column">
+      <h2 id="estes-gallery-heading">Event gallery</h2>
+      <p>Select a photograph to view its full-size version.</p>
+    </div>
+    <ul class="event-photo-gallery" aria-label="Photographs from the Nick Estes Lansdowne Lecture">
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-1.webp" aria-label="View full-size photograph of two audience members listening during the lecture">
+          <img src="images/estes-event/estes-1.webp" width="800" height="1200" alt="Two audience members listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-2.webp" aria-label="View full-size photograph of the audience gathered for the lecture">
+          <img src="images/estes-event/estes-2.webp" width="1200" height="800" alt="Audience members gathered and listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-3.webp" aria-label="View full-size photograph of an audience member smiling during the lecture">
+          <img src="images/estes-event/estes-3.webp" width="800" height="1200" alt="An audience member smiling while listening to the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-4.webp" aria-label="View full-size photograph of a row of audience members listening during the lecture">
+          <img src="images/estes-event/estes-4.webp" width="800" height="1200" alt="A row of audience members listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-5.webp" aria-label="View full-size photograph of audience members during the lecture">
+          <img src="images/estes-event/estes-5.webp" width="1200" height="800" alt="Audience members seated together during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-6.webp" aria-label="View full-size photograph of Nick Estes smiling while speaking">
+          <img src="images/estes-event/estes-6.webp" width="800" height="1200" alt="Nick Estes smiling while speaking to the audience" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-7.webp" aria-label="View full-size photograph of Nick Estes gesturing while speaking">
+          <img src="images/estes-event/estes-7.webp" width="800" height="1200" alt="Nick Estes gesturing with one hand while speaking" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-8.webp" aria-label="View full-size photograph of a speaker addressing the audience">
+          <img src="images/estes-event/estes-8.webp" width="800" height="1200" alt="A seated speaker addressing the audience with a handheld microphone" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-9.webp" aria-label="View full-size photograph of an audience member listening during the lecture">
+          <img src="images/estes-event/estes-9.webp" width="1168" height="800" alt="An audience member in a black toque listening during the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-10.webp" aria-label="View full-size photograph of an audience member listening during the lecture">
+          <img src="images/estes-event/estes-10.webp" width="800" height="1200" alt="An audience member with long grey hair and glasses listening during the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-11.webp" aria-label="View full-size portrait of a speaker holding a microphone">
+          <img src="images/estes-event/estes-11.webp" width="800" height="1200" alt="A speaker holding a handheld microphone during the event" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/estes-event/estes-12.webp" aria-label="View full-size photograph of two audience members listening during the lecture">
+          <img src="images/estes-event/estes-12.webp" width="1200" height="800" alt="Two audience members listening attentively during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+    </ul>
+  </section>
+</div>
+<!--end of root-->
