@@ -21,7 +21,7 @@
   Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer.
   Use complex for a custom landing page built from index.xml without the top navigation or footer.
   -->
-  <landingPageMode>content</landingPageMode>
+  <landingPageMode>complex</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
@@ -29,20 +29,20 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <cssFile>css/loi.css</cssFile>
-    <jsFile>js/ux.js</jsFile>
+    <cssFile>css/bcstudies.css</cssFile>
+    <!--<jsFile>js/ux.js</jsFile>-->
     <faviconIco>images/favicon.ico</faviconIco>
     <faviconSvg>images/favicon.svg</faviconSvg>
     <siteManifest>site.webmanifest</siteManifest>
   </files>
   <metadata>
     <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
-    <siteUrl>https://commons.uvic.ca/</siteUrl>
+    <siteUrl>https://bcstudies2027.uvic.ca/</siteUrl>
     <siteTitle>
-      <en>LOI Discovery Interface</en>
+      <en>Living in Risky Times</en>
     </siteTitle>
     <metaDescription>
-      <en>The LOI Discovery Interface for exploring and discovering research outputs related to the Landscapes of Injustice and Past Wrongs Future Choices projects.</en>
+      <en>Website for the BC Studies 2027 conference.</en>
     </metaDescription>
     <preTitle>
       <en>Pre-title text in splash header stack, if any</en>
@@ -51,7 +51,7 @@
       <en>Organization Name</en>
     </organizationName>
     <contactEmail>
-            info@landscapesofinjustice.com <!--Check if this needs to be changed-->
+            info@bcstudies2027.uvic.ca <!--Check if this needs to be changed-->
         </contactEmail>
     <WhereWhen>
       <place>
@@ -146,28 +146,7 @@
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
     <item href="index.html">
-      <en>Home</en>
-    </item>
-    <item href="critical-encounters.html">
-      <en>Critical encounters</en>
-    </item>
-    <item href="our-space.html">
-      <en>Our space</en>
-    </item>
-    <item href="public-hums-grants.html">
-      <en>Grants</en>
-    </item>
-    <item href="calendar.html">
-      <en>Calendar</en>
-    </item>
-    <item href="resources.html">
-      <en>Resources</en>
-    </item>
-    <item href="about.html">
-      <en>About</en>
-    </item>
-    <item href="contact.html">
-      <en>Contact</en>
+      <en>CFP</en>
     </item>
   </navigation>
 </site>

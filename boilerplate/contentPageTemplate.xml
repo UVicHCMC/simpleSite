@@ -12,8 +12,7 @@
     <link rel="canonical" href=""/>
     <!-- Compiled styles (includes page grid + layout system) -->
     <link rel="stylesheet" href="{?cssFile}"/>
-    <!-- Script -->
-    <script src="{?jsFile}" defer="defer"/>
+    <!-- This static Call for Papers page does not require JavaScript. -->
     <!-- Favicons / PWA -->
     <link rel="icon" href="{?faviconIco}" sizes="48x48"/>
     <link rel="icon" href="{?faviconSvg}" sizes="any" type="image/svg+xml"/>

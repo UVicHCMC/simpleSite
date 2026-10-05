@@ -1,265 +1,735 @@
 @use "custom-properties" as *;
 
-// Project font stacks and fluid typography scale
+// ==========================================================================
+// Content typography + vertical rhythm
+// - Works with content structured as a sequence of <section> blocks
+// - Handles a territorial acknowledgement <section id="territorial-acknowledgement">
+// - Keeps headings “attached” to the content that follows
+// ==========================================================================
 
-:root {
-    --font-sans:
-        "Inter Variable", Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-    --font-serif:
-        "Noto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times,
-        serif;
-    --font-japanese-serif: "Hiragino Mincho ProN", "Noto Serif JP", serif;
-    --font-mono:
-        ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+//path to the fonts location 
+$fontPath : "../fonts/";
 
-    --step--2: clamp(0.64rem, 0.7167rem + -0.099vw, 0.6944rem);
-    --step--1: clamp(0.8rem, 0.847rem + -0.0606vw, 0.8333rem);
-    --step-0: clamp(1rem, 1rem + 0vw, 1rem);
-    --step-1: clamp(1.2rem, 1.1795rem + 0.0909vw, 1.25rem);
-    --step-2: clamp(1.44rem, 1.3899rem + 0.2227vw, 1.5625rem);
-    --step-3: clamp(1.728rem, 1.6359rem + 0.4093vw, 1.9531rem);
-    --step-4: clamp(2.0736rem, 1.9231rem + 0.6687vw, 2.4414rem);
-    --step-5: clamp(2.4883rem, 2.2578rem + 1.0244vw, 3.0518rem);
-
-    // Fluid spacing derived from the body-text range
-    --space-1: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
-    --space-2: clamp(0.5rem, 0.4489rem + 0.2273vw, 0.625rem);
-    --space-3: clamp(0.75rem, 0.6733rem + 0.3409vw, 0.9375rem);
-    --space-4: var(--step-0);
-    --space-5: clamp(1.5rem, 1.3466rem + 0.6818vw, 1.875rem);
-    --space-6: clamp(2rem, 1.7954rem + 0.909vw, 2.5rem);
-
-    //Specifics
-    --font-size-h1: clamp(1.25rem, 0.8864rem + 2.7273vw, 2rem);
-    --font-size-h2: clamp(1rem, 0.7955rem + 0.9091vw, 1.5rem);
-    --font-body: clamp(0.875rem, 0.8239rem + 0.2273vw, 1rem);
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("#{$fontPath}Roboto-VariableFont.woff2") format("woff2");
+  font-display: swap;
 }
 
-// Typography and vertical rhythm for the site text container
-.text-column {
-    --flow-space: var(--space-3);
-    --flow-space-tight: var(--space-2);
-    --flow-space-loose: var(--space-5);
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url("#{$fontPath}Roboto-Italic-VariableFont.woff2") format("woff2");
+  font-display: swap;
+}
 
-    color: var(--grey-800);
-    font-family: var(--font-sans);
-    font-size: var(--step-0);
-    font-weight: 350;
-    line-height: 1.6;
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("#{$fontPath}RobotoCondensed-VariableFont.woff2") format("woff2");
+  font-display: swap;
+}
 
-    // Apply one flow system to direct content and nested sections
-    > * {
-        margin: 0;
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("#{$fontPath}InterVariable.woff2") format("woff2");
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-style: italic;
+  src: url("#{$fontPath}InterVariable-Italic.woff2") format("woff2");
+  font-display: swap;
+}
+
+//Alegreya sans, variable font has errors with french accents
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 100;
+  src: url("#{$fontPath}AlegreyaSans-Thin.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 100;
+  src: url("#{$fontPath}AlegreyaSans-ThinItalic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url("#{$fontPath}AlegreyaSans-Light.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 300;
+  src: url("#{$fontPath}AlegreyaSans-LightItalic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$fontPath}AlegreyaSans-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 400;
+  src: url("#{$fontPath}AlegreyaSans-Italic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("#{$fontPath}AlegreyaSans-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 500;
+  src: url("#{$fontPath}AlegreyaSans-MediumItalic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("#{$fontPath}AlegreyaSans-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 700;
+  src: url("#{$fontPath}AlegreyaSans-BoldItalic.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: normal;
+  font-weight: 800;
+  src: url("#{$fontPath}AlegreyaSans-ExtraBold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alegreya Sans";
+  font-style: italic;
+  font-weight: 800;
+  src: url("#{$fontPath}AlegreyaSans-ExtraBoldItalic.woff2") format("woff2");
+  font-display: swap;
+}
+
+
+:root {
+
+  // ------------------------------------------------------------------------
+  // Font families
+  // ------------------------------------------------------------------------
+
+  --font-sans-title:
+    "Alegreya Sans",
+    "Source Sans 3",
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  --font-sans-heading:
+    "Alegreya Sans",
+    system-ui,
+    "Noto Sans",
+    sans-serif;
+
+  --font-sans-body:
+    "Roboto",
+    "Noto Sans",
+    "Noto Sans Symbols",
+    "Noto Sans Symbols 2",
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  --font-sans:
+    "Roboto",
+    "Noto Sans",
+    "Noto Sans Symbols",
+    "Noto Sans Symbols 2",
+    "Segoe UI",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  --font-serif:
+    "Source Serif",
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  --font-serif-sc:
+    "Alegreya SC",
+    Georgia,
+    "Times New Roman",
+    Times,
+    serif;
+
+  --font-mono:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+  // ------------------------------------------------------------------------
+  // Modular scale (Minor Second)
+  // ------------------------------------------------------------------------
+
+  --ms-step-0: 1rem;
+  --ms-ratio: 1.067;
+
+  --ms-step--1: calc(var(--ms-step-0) / var(--ms-ratio));
+  --ms-step--2: calc(var(--ms-step--1) / var(--ms-ratio));
+  --ms-step--3: calc(var(--ms-step--2) / var(--ms-ratio));
+  --ms-step--4: calc(var(--ms-step--3) / var(--ms-ratio));
+
+  --ms-step-1: calc(var(--ms-step-0) * var(--ms-ratio));
+  --ms-step-2: calc(var(--ms-step-1) * var(--ms-ratio));
+  --ms-step-3: calc(var(--ms-step-2) * var(--ms-ratio));
+  --ms-step-4: calc(var(--ms-step-3) * var(--ms-ratio));
+  --ms-step-5: calc(var(--ms-step-4) * var(--ms-ratio));
+  --ms-step-6: calc(var(--ms-step-5) * var(--ms-ratio));
+  --ms-step-7: calc(var(--ms-step-6) * var(--ms-ratio));
+  --ms-step-8: calc(var(--ms-step-7) * var(--ms-ratio));
+  --ms-step-9: calc(var(--ms-step-8) * var(--ms-ratio));
+  --ms-step-10: calc(var(--ms-step-9) * var(--ms-ratio));
+  --ms-step-11: calc(var(--ms-step-10) * var(--ms-ratio));
+  --ms-step-12: calc(var(--ms-step-11) * var(--ms-ratio));
+
+  // ------------------------------------------------------------------------
+  // Weights + line heights
+  // ------------------------------------------------------------------------
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  --lh-tight: 1.15;
+  --lh-body: 1.6;
+
+  // ------------------------------------------------------------------------
+  // Baseline-derived spacing scale
+  // ------------------------------------------------------------------------
+
+  --baseline: calc(var(--ms-step-0) * var(--lh-body));
+
+  --space-1: calc(var(--baseline) * 0.25);
+  --space-2: calc(var(--baseline) * 0.5);
+  --space-3: calc(var(--baseline) * 0.75);
+  --space-4: var(--baseline);
+  --space-5: calc(var(--baseline) * 1.5);
+  --space-6: calc(var(--baseline) * 2);
+  --space-7:  calc(var(--baseline) * 2.5);
+  --space-8:  calc(var(--baseline) * 3);
+  --space-9:  calc(var(--baseline) * 3.5);
+  --space-10: calc(var(--baseline) * 4);
+  --space-11: calc(var(--baseline) * 4.5);
+  --space-12: calc(var(--baseline) * 5);
+  --space-13: calc(var(--baseline) * 5.5);
+  --space-14: calc(var(--baseline) * 6);
+
+  // ------------------------------------------------------------------------
+  // Colours
+  // ------------------------------------------------------------------------
+
+  --highlight: #0c6994;
+
+  --color-text-primary: #084a68;
+  --color-text-heading: #0c6994;
+  --color-text-secondary: #444444;
+  --color-text-muted: #6b6b6b;
+  --color-text-faint: #8a8a8a;
+
+  --color-bg-primary: #ffffff;
+
+  --color-link: var(--color-text-primary);
+  --color-link-hover: var(--highlight);
+  --underline: var(--color-text-primary);
+  --underline-hover: transparent;
+  --underline-offset: 0.15em;
+  --underline-thickness: from-font;
+
+  --color-code-bg: #000000;
+  --color-code-fg: #ffffff;
+
+  --figure-bg-color: transparent;
+  --figure-border-color: #333333;
+
+  --bg-territorial-acknowledgement: var(--grey-100);
+  
+  --color-text-footer: var(--highlight);
+}
+
+// ==========================================================================
+// Root typography initialization
+// ==========================================================================
+
+html,
+body {
+  background-color: var(--color-bg-primary);
+  font-size: var(--ms-step-0);
+}
+
+body {
+  font-family: var(--font-sans-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-primary);
+}
+
+// ==========================================================================
+// Main content grid + rhythm
+// ==========================================================================
+
+.page-grid {
+
+  // ==========================================================================
+  // FLOW SYSTEM (robust vertical rhythm)
+  // ==========================================================================
+  //
+  // Key idea:
+  // - Default spacing is applied between top-level blocks.
+  // - Sections are treated as the top-level blocks on “sectioned” pages.
+  // - Inside each section, spacing is handled similarly (local flow).
+  // - Headings have more space before and less after, so they read correctly.
+  // ==========================================================================
+
+  // Global flow densities (tune these three and you tune the whole page)
+  --flow-space: var(--space-3);
+  --flow-space-tight: var(--space-2);
+  --flow-space-loose: var(--space-5);
+
+  // --------------------------------------------------------------------------
+  // Top-level flow: children of .page-grid
+  // - This matches your DOM where the page is essentially:
+  //   h1, section, section, section, ...
+  // --------------------------------------------------------------------------
+
+  // ------------------------------------------------------------------------
+  // Top-level defaults (covers pages with NO sections)
+  // ------------------------------------------------------------------------
+
+  >* {
+    margin: 0;
+  }
+
+  // Generic spacing between top-level siblings (h1, p, ul, figure, etc.)
+  >*+* {
+    margin-block-start: var(--flow-space);
+  }
+
+
+  // ------------------------------------------------------------------------
+  // Sectioned pages: override only what needs overriding
+  // ------------------------------------------------------------------------
+
+  >h1+* {
+    margin-block-start: var(--space-4);
+  }
+
+  // Space between major sections (your boundary spacing)
+  >section+section {
+    margin-block-start: var(--flow-space-loose);
+  }
+
+  // ------------------------------------------------------------------------
+  // Section-local flow (applies only when sections exist)
+  // ------------------------------------------------------------------------
+
+  section {
+
+    >* {
+      margin: 0;
     }
 
-    > * + * {
-        margin-block-start: var(--flow-space);
+    >*+* {
+      margin-block-start: var(--flow-space);
     }
 
-    > * + :is(h2, h3, h4, h5, h6, section) {
-        margin-block-start: var(--flow-space-loose);
+    // Headings at the start of a section: no extra top gap
+    > :is(h2, h3, h4, h5, h6):first-child {
+      margin-block-start: 0;
     }
 
-    > :is(h1, h2, h3, h4, h5, h6) + :not(section) {
-        margin-block-start: var(--flow-space-tight);
+    // Headings after content: stronger separation
+    >*+ :is(h2, h3) {
+      margin-block-start: var(--space-4);
     }
 
-    // Repeat the same rhythm inside semantic sections
-    section {
-        > * {
-            margin: 0;
-        }
-
-        > * + * {
-            margin-block-start: var(--flow-space);
-        }
-
-        > * + :is(h2, h3, h4, h5, h6, section) {
-            margin-block-start: var(--flow-space-loose);
-        }
-
-        > :is(h2, h3, h4, h5, h6) + :not(section) {
-            margin-block-start: var(--flow-space-tight);
-        }
+    >*+ :is(h4, h5, h6) {
+      margin-block-start: var(--space-3);
     }
 
-    :is(h1) {
-        color: var(--blue-700);
-        font-family: var(--font-sans);
-        line-height: 1.2;
-        text-wrap: balance;
-    }
-    :is(h2, h3, h4, h5, h6) {
-        color: var(--blue-700);
-        font-family: var(--font-sans);
-        line-height: 1.4;
-        text-wrap: balance;
+    // Tight after headings
+    > :is(h2, h3, h4, h5, h6)+* {
+      margin-block-start: var(--flow-space-tight);
     }
 
-    // Use the Japanese serif stack when a heading or its child is Japanese
-    :is(h1, h2, h3, h4, h5, h6):lang(ja),
-    :is(h1, h2, h3, h4, h5, h6) > :lang(ja) {
-        font-family: var(--font-japanese-serif);
+  }
+
+  // ==========================================================================
+  // Headings: typography
+  // ==========================================================================
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-sans-heading);
+    color: var(--color-text-heading);
+    line-height: var(--lh-tight);
+    text-wrap: balance;
+  }
+
+  // Page title (direct child of .page-grid in your examples)
+  >h1 {
+    font-weight: var(--fw-semibold);
+    font-size: var(--ms-step-12);
+    text-align: center;
+
+    margin-block-start: var(--space-5);
+  }
+
+  h2 {
+    font-weight: var(--fw-medium);
+    font-size: var(--ms-step-6);
+  }
+
+  h3 {
+    font-weight: var(--fw-regular);
+    font-size: var(--ms-step-4);
+  }
+
+  h4 {
+    font-weight: var(--fw-regular);
+    font-size: var(--ms-step-2);
+  }
+
+  h5 {
+    font-weight: var(--fw-regular);
+    font-size: var(--ms-step-1);
+  }
+
+  h6 {
+    font-weight: var(--fw-regular);
+    font-size: var(--ms-step-0);
+  }
+
+  // ==========================================================================
+  // Paragraphs
+  // ==========================================================================
+
+  p {
+    font-family: var(--font-sans-body);
+    font-size: var(--ms-step-0);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-light);
+    text-wrap: pretty;
+    color: var(--color-text-primary);
+  }
+
+
+  >h1+section#territorial-acknowledgement {
+    // Slightly tighter than normal section spacing so it reads as a unit
+    margin-block-start: var(--space-3);
+  }
+
+  section#territorial-acknowledgement {
+
+    // Reduce internal “section flow” gap: acknowledgement is a single thought
+    --flow-space: var(--space-2);
+
+    
+
+    // Centre the acknowledgement block, but keep readable line-length
+    text-align: center;
+
+    // The paragraph is the styled component
+    .territorial-acknowledgement {
+      font-size: var(--ms-step--1);
+      font-style: italic;
+      line-height: var(--lh-body);
+      font-family: var((--font-sans));
+      
+      padding: var(--space-3);
+      background-color: var(--bg-territorial-acknowledgement);
+      border-radius: 0.5rem;
+
+    //  max-width: 70ch;
+      margin-inline: auto;
     }
 
-    > h1 {
-        font-size: var(--font-size-h1);
-        font-weight: 800;
-        text-box-edge: cap alphabetic;
-        text-box-trim: trim-both;
+    //more space following the territorial acknowlegement
+    &+* {
+      margin-block-start: var(--space-5);
     }
+  }
 
-    h2 {
-        font-size: var(--font-size-h2);
-        font-weight: 600;
+  // ==========================================================================
+  // Links
+  // ==========================================================================
+
+  a {
+    color: var(--color-link);
+    text-decoration-color: var(--underline);
+    text-decoration-thickness: var(--underline-thickness);
+    text-underline-offset: var(--underline-offset);
+    transition: text-decoration-color 0.3s ease-in-out;
+
+    &:is(:hover, :focus-visible) {
+      text-decoration-color: var(--underline-hover);
+      color: var(--color-link-hover);
     }
+  }
 
-    h3 {
-        font-size: var(--step-1);
-        font-weight: 600;
+  // ==========================================================================
+  // Lists
+  // ==========================================================================
+
+  :is(ul, ol) {
+    font-family: var(--font-sans-body);
+    font-size: var(--ms-step--1);
+    line-height: var(--lh-body);
+    font-weight: var(--fw-light);
+
+    // Marker indentation with padding is more stable than margin
+    padding-inline-start: 1.25rem;
+
+    
+  }
+
+  ul {
+    list-style: disc outside;
+    
+    & li {
+      margin-block-start: .25rem;
     }
+  }
 
-    h4 {
-        font-size: var(--step-0);
-        font-weight: 600;
+  ol {
+    list-style: decimal outside;
+    padding-inline-start: 1.5rem;
+    
+    & li {
+      margin-block-start: 1rem;
     }
+  }
 
-    h5,
-    h6 {
-        font-size: var(--step--1);
-        font-weight: 600;
-    }
+  li> :is(ul, ol) {
+    margin-block-start: var(--space-1);
+  }
 
-    p {
-        color: var(--grey-800);
-        font-family: var(--font-sans);
-        font-size: var(--font-body);
-        font-weight: 350;
-        line-height: 1.6;
-    }
+  // ==========================================================================
+  // Definition lists
+  // ==========================================================================
 
-    strong,
-    .bold {
-        font-weight: 700;
-    }
-
-    .italic {
-        font-style: italic;
-    }
-
-    small {
-        font-size: var(--step--1);
-    }
-
-    a {
-        color: var(--green-300);
-        text-decoration-color: var(--site-highlight);
-        text-decoration-thickness: 0.1em;
-        text-underline-offset: 0.16em;
-        transition:
-            color 0.2s ease-in-out,
-            text-decoration-color 0.2s ease-in-out;
-
-        &:is(:hover, :focus-visible) {
-            color: var(--site-highlight);
-            text-decoration-color: currentColor;
-        }
-    }
-
-    :where(ul, ol) {
-        padding-inline-start: 1.5rem;
-        color: var(--grey-800);
-        font-family: var(--font-sans);
-        font-size: var(--font-body);
-        font-weight: 350;
-        line-height: 1.6;
-    }
-
-    :where(ul) {
-        list-style: disc outside;
-    }
-
-    :where(ol) {
-        list-style: decimal outside;
-    }
-
-    :where(li + li, li > ul, li > ol) {
-        margin-block-start: var(--space-1);
-    }
-
+  dl {
     dt {
-        font-weight: 600;
+      font-family: var(--font-sans-body);
+      font-size: var(--ms-step-0);
+      font-weight: var(--fw-regular);
     }
 
     dd {
-        margin-inline-start: var(--space-4);
-    }
+      font-family: var(--font-sans-body);
+      font-size: var(--ms-step-0);
+      font-weight: var(--fw-light);
 
-    dd + dt {
+      &+dt {
         margin-block-start: var(--space-3);
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Blockquotes
+  // ==========================================================================
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--ms-step-0);
+    line-height: var(--lh-body);
+    color: var(--color-text-secondary);
+
+    margin-inline-start: var(--space-3);
+    padding-inline-start: var(--space-3);
+    border-inline-start: 3px solid var(--figure-border-color);
+
+    .blockquote-footer {
+      font-family: var(--font-sans-body);
+      font-size: var(--ms-step--1);
+      font-weight: var(--fw-regular);
+      margin-block-start: var(--space-2);
+      text-align: right;
     }
 
-    blockquote {
-        margin-inline: 0;
-        @media (width >= $breakpoint-md) {
-            margin-inline: var(--space-3);
-        }
-        padding-inline-start: var(--space-3);
-        border-inline-start: 3px solid var(--green-100);
-        color: var(--grey-600);
-        font-family: var(--font-serif);
-        font-size: var(--font-body);
-        font-style: normal;
-        line-height: 1.6;
-        display: block;
+    @media (min-width: $desktop-sm) {
+      font-size: var(--ms-step-1);
     }
+  }
 
-    figure {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-1);
-    }
-    //align attribution to the right
-    figure > blockquote + figcaption {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding-inline-start: 2rem;
-        @media (width >= $breakpoint-md) {
-            padding-inline-start: 0;
-        }
-    }
+  // ==========================================================================
+  // Figures
+  // ==========================================================================
 
-    figure > img {
-        border: 1px solid var(--grey-300);
-    }
+  figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    background-color: var(--figure-bg-color);
+  }
 
-    figcaption {
-        width: 100%;
-        color: var(--grey-600);
-        font-family: var(--font-sans);
-        font-size: var(--step--1);
-        line-height: 1.6;
-        text-align: start;
-    }
+  figure>img {
+    border: 1px solid var(--figure-border-color);
+  }
 
-    code {
-        font-family: var(--font-mono);
-        font-size: 0.95em;
-    }
+  figure:has(img.portrait) {
+    grid-column: content;
+  }
 
-    pre {
-        max-width: 100%;
-        overflow-x: auto;
-        padding: var(--space-2);
-        border-radius: 0.5rem;
-        background-color: var(--grey-100);
-        color: var(--grey-900);
-    }
+  figcaption {
+    font-family: var(--font-sans-body);
+    font-size: var(--ms-step--1);
+    line-height: var(--lh-body);
+    color: var(--color-text-muted);
+    align-self: flex-start;
+    text-align: center;
+    width: 100%;
+  }
 
-    pre code {
-        font-size: var(--step--1);
-    }
+  // ==========================================================================
+  // Code blocks
+  // ==========================================================================
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.95em;
+  }
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+    background-color: var(--color-code-bg);
+    padding: var(--space-2);
+    border-radius: 0.5rem;
+  }
+
+  pre code {
+    font-size: var(--ms-step--1);
+    color: var(--color-code-fg);
+  }
+
+  // ==========================================================================
+  // Maps
+  // ==========================================================================
+
+  div[id*="map"] {
+    // No explicit margins; section flow governs spacing
+  }
+
+}
+
+
+//changes that occur when text is in a .highlight section tag
+
+.highlight {
+  & h2 {
+    font-size: var(--ms-step-9);
+    text-align: center;
+    color: #fff;
+  }
+}
+
+//Centering
+
+.text-center {
+  text-align: center;
+}
+
+//Smallcaps
+.smallcaps {
+  font-variant-caps:all-small-caps;
+}
+
+//button style <a href="link">link</a>
+
+.button-style {
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: var(--fw-medium);
+  padding: .5rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+  background-color: var(--highlight);
+  color: #fff;
+  
+  &.dark-theme {
+    color: #fff;
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  
+  &.dark-theme:is(:hover, :focus-visible) {
+     color: #fff;
+     border: 1px solid var(--highlight);
+     background-color: var(--highlight);
+  }
+  
+  &:is(:hover, :focus-visible)  {
+    color: var(--color-text-footer);
+    background-color: transparent;
+    border: 1px solid var(--highlight);
+  }
+  
+  //different style for splash: 
+ #index &:is(:hover, :focus-visible) {
+   color: #fff;
+   border: 1px solid #fff;
+ }
+ 
 }
