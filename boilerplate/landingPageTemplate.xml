@@ -30,7 +30,7 @@
             </button>
             <ul>
               <li class="top-bar-logo">
-                <a href="index.html">
+                <a href="/">
                   <img class="site-logo-top" src="images/site-logo-internal.webp" alt="{?siteTitle}" />
                   <span class="siteTitle">
                     <?siteTitle?>
@@ -43,14 +43,8 @@
           <nav class="mobile-top-nav">
             <ul>
               <li>
-                <a href="index.html">
+                <a href="/">
                   <img class="site-logo-mobile" src="images/site-logo-internal.webp" width="100" height="38" alt="{?siteTitle}" />
-                </a>
-              </li>
-              <li>
-                <a class="search-link" href="search.html"> Search <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" class="magnifying-glass">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m14 14-4-4m1.333-3.333a4.667 4.667 0 1 1-9.333 0 4.667 4.667 0 0 1 9.333 0"> </path>
-                  </svg>
                 </a>
               </li>
             </ul>
@@ -130,7 +124,7 @@
           </ul>
         </div>
         <div class="footer-accent-container breakout">
-          <a href="index.html">
+          <a href="/">
             <img class="logo-footer" src="images/logo-footer.webp" alt="" />
           </a>
         </div>

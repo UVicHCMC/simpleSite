@@ -16,10 +16,18 @@
 
     <xsl:output method="xml" indent="yes" encoding="UTF-8" normalization-form="NFC"/>
 
+    <!-- Keep sitemap and canonical URLs aligned with the project metadata. -->
+    <xsl:variable name="propertiesDoc" as="document-node()"
+        select="document(resolve-uri('../properties.xml', static-base-uri()))"/>
+
     <xd:doc>
-        <xd:desc>The public base URL for the deployed site, with trailing slash.</xd:desc>
+        <xd:desc>The public base URL for the deployed site, sourced from properties.xml.</xd:desc>
     </xd:doc>
-    <xsl:param name="siteUrl" as="xs:string" select="'https://hcmc.uvic.ca/project/fina/'"/>
+    <xsl:param name="siteUrl" as="xs:string"
+        select="normalize-space(string($propertiesDoc/*[local-name() = 'site']/*[local-name() = 'metadata']/*[local-name() = 'siteUrl']))"/>
+
+    <xsl:variable name="normalizedSiteUrl" as="xs:string"
+        select="if (ends-with($siteUrl, '/')) then $siteUrl else concat($siteUrl, '/')"/>
 
     <xd:doc>
         <xd:desc>The relative directory containing generated site HTML files.</xd:desc>
@@ -29,9 +37,15 @@
     <xsl:template match="/">
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             <xsl:for-each select="uri-collection(concat('../', $outputDir, '/?select=*.html;recurse=yes'))">
+                <xsl:sort select="."/>
+                <xsl:variable name="relativePath" as="xs:string"
+                    select="substring-after(string(.), '/site/')"/>
+                <!-- Publish directory indexes at their clean canonical URLs. -->
+                <xsl:variable name="canonicalPath" as="xs:string"
+                    select="replace($relativePath, '(^|/)index\.html$', '$1')"/>
                 <url>
                     <loc>
-                        <xsl:value-of select="concat($siteUrl, substring-after(., '/site/'))"/>
+                        <xsl:value-of select="concat($normalizedSiteUrl, $canonicalPath)"/>
                     </loc>
                 </url>
             </xsl:for-each>
@@ -46,7 +60,7 @@
         <xsl:result-document method="text" href="robots.txt" indent="no"
             encoding="UTF-8">
             <xsl:text>Sitemap: </xsl:text>
-            <xsl:value-of select="concat($siteUrl, 'sitemap.xml')"/>
+            <xsl:value-of select="concat($normalizedSiteUrl, 'sitemap.xml')"/>
             <xsl:text>&#x0a;</xsl:text>
         </xsl:result-document>
     </xsl:template>

@@ -21,63 +21,128 @@
     </div>
     <ul class="event-photo-gallery" aria-label="Photographs from the Nick Estes Lansdowne Lecture">
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-1.webp" aria-label="View full-size photograph of two audience members listening during the lecture">
-          <img src="images/estes-event/estes-1.webp" width="800" height="1200" alt="Two audience members listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-1.webp">
+          <img src="images/event-estes/estes-1.webp" width="1200" height="800" alt="Guests arriving at the registration table before the Nick Estes lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-2.webp" aria-label="View full-size photograph of the audience gathered for the lecture">
-          <img src="images/estes-event/estes-2.webp" width="1200" height="800" alt="Audience members gathered and listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-2.webp">
+          <img src="images/event-estes/estes-2.webp" width="1200" height="800" alt="Attendees talking near the refreshment table before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-3.webp" aria-label="View full-size photograph of an audience member smiling during the lecture">
-          <img src="images/estes-event/estes-3.webp" width="800" height="1200" alt="An audience member smiling while listening to the lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-3.webp">
+          <img src="images/event-estes/estes-3.webp" width="1200" height="800" alt="Two seated audience members talking before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-4.webp" aria-label="View full-size photograph of a row of audience members listening during the lecture">
-          <img src="images/estes-event/estes-4.webp" width="800" height="1200" alt="A row of audience members listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-4.webp">
+          <img src="images/event-estes/estes-4.webp" width="1200" height="799" alt="Nick Estes standing and laughing with two attendees before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-5.webp" aria-label="View full-size photograph of audience members during the lecture">
-          <img src="images/estes-event/estes-5.webp" width="1200" height="800" alt="Audience members seated together during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-5.webp">
+          <img src="images/event-estes/estes-5.webp" width="1200" height="800" alt="An attendee checking in at the event registration table" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-6.webp" aria-label="View full-size photograph of Nick Estes smiling while speaking">
-          <img src="images/estes-event/estes-6.webp" width="800" height="1200" alt="Nick Estes smiling while speaking to the audience" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-6.webp">
+          <img src="images/event-estes/estes-6.webp" width="1200" height="800" alt="A large audience gathered in First Peoples House before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-7.webp" aria-label="View full-size photograph of Nick Estes gesturing while speaking">
-          <img src="images/estes-event/estes-7.webp" width="800" height="1200" alt="Nick Estes gesturing with one hand while speaking" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-7.webp">
+          <img src="images/event-estes/estes-7.webp" width="800" height="1200" alt="Poster for the Nick Estes lecture displayed beside an event photography notice" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-8.webp" aria-label="View full-size photograph of a speaker addressing the audience">
-          <img src="images/estes-event/estes-8.webp" width="800" height="1200" alt="A seated speaker addressing the audience with a handheld microphone" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-8.webp">
+          <img src="images/event-estes/estes-8.webp" width="1200" height="800" alt="An attendee standing and smiling before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-9.webp" aria-label="View full-size photograph of an audience member listening during the lecture">
-          <img src="images/estes-event/estes-9.webp" width="1168" height="800" alt="An audience member in a black toque listening during the lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-9.webp">
+          <img src="images/event-estes/estes-9.webp" width="1200" height="800" alt="Nick Estes seated between two guests before the lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-10.webp" aria-label="View full-size photograph of an audience member listening during the lecture">
-          <img src="images/estes-event/estes-10.webp" width="800" height="1200" alt="An audience member with long grey hair and glasses listening during the lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-10.webp">
+          <img src="images/event-estes/estes-10.webp" width="1200" height="800" alt="Three audience members listening during the Nick Estes lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-11.webp" aria-label="View full-size portrait of a speaker holding a microphone">
-          <img src="images/estes-event/estes-11.webp" width="800" height="1200" alt="A speaker holding a handheld microphone during the event" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-11.webp">
+          <img src="images/event-estes/estes-11.webp" width="1200" height="800" alt="A speaker introducing the event from a lectern between Critical Humanities Commons and Humanities banners" loading="lazy" decoding="async"/>
         </a>
       </li>
       <li>
-        <a class="event-photo-link" href="images/estes-event/estes-12.webp" aria-label="View full-size photograph of two audience members listening during the lecture">
-          <img src="images/estes-event/estes-12.webp" width="1200" height="800" alt="Two audience members listening attentively during the Nick Estes lecture" loading="lazy" decoding="async"/>
+        <a class="event-photo-link" href="images/event-estes/estes-12.webp">
+          <img src="images/event-estes/estes-12.webp" width="1200" height="800" alt="An audience member asking a question with a handheld microphone" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-13.webp">
+          <img src="images/event-estes/estes-13.webp" width="1200" height="799" alt="A speaker smiling as she addresses the audience from the lectern" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-14.webp">
+          <img src="images/event-estes/estes-14.webp" width="1200" height="800" alt="Wide view of First Peoples House filled with attendees during the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-15.webp">
+          <img src="images/event-estes/estes-15.webp" width="1200" height="800" alt="A speaker in a white jacket addressing the audience from the lectern" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-16.webp">
+          <img src="images/event-estes/estes-16.webp" width="1200" height="800" alt="A masked audience member gesturing while asking a question" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-17.webp">
+          <img src="images/event-estes/estes-17.webp" width="1200" height="800" alt="Nick Estes signing a book for an attendee after the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-18.webp">
+          <img src="images/event-estes/estes-18.webp" width="1200" height="800" alt="Nick Estes talking with attendees at the book signing table" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-19.webp">
+          <img src="images/event-estes/estes-19.webp" width="1200" height="800" alt="Nick Estes speaking at the lectern during his Lansdowne Lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-20.webp">
+          <img src="images/event-estes/estes-20.webp" width="1200" height="799" alt="Event attendees conversing after the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-21.webp">
+          <img src="images/event-estes/estes-21.webp" width="1200" height="800" alt="An audience member gesturing while asking a question with a microphone" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-22.webp">
+          <img src="images/event-estes/estes-22.webp" width="1200" height="800" alt="An audience member asking a question during the lecture" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-23.webp">
+          <img src="images/event-estes/estes-23.webp" width="1200" height="800" alt="An audience member speaking into a microphone among the seated crowd" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-24.webp">
+          <img src="images/event-estes/estes-24.webp" width="1200" height="799" alt="A seated audience member gesturing while speaking into a microphone" loading="lazy" decoding="async"/>
+        </a>
+      </li>
+      <li>
+        <a class="event-photo-link" href="images/event-estes/estes-25.webp">
+          <img src="images/event-estes/estes-25.webp" width="800" height="1200" alt="An audience member writing notes during the Nick Estes lecture" loading="lazy" decoding="async"/>
         </a>
       </li>
     </ul>

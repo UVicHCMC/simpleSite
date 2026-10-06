@@ -35,12 +35,28 @@
       <figcaption>Critical Encounters 2025–2026 schedule</figcaption>
     </figure>
   </section>
-  <section class="page-content content-width" aria-labelledby="event-recordings-heading">
+  <section class="event-resource-archive content-width" aria-labelledby="event-resources-heading">
     <div class="text-column">
-      <h2 id="event-recordings-heading">Event recordings</h2>
-      <p>Nick Estes Lansdowne Event: <a href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Indigenous Resistance &amp; the Colonialism of our Times</a></p>
-      <p><a href="lansdowne-lecture-nick-estes.html">View photographs from the Lansdowne Lecture with Nick Estes</a>.</p>
+      <h2 id="event-resources-heading">Recordings and galleries</h2>
     </div>
+
+    <section class="event-resource-year" aria-labelledby="event-resources-2025-2026">
+      <h3 id="event-resources-2025-2026" class="event-resource-year-heading">2025–2026</h3>
+      <ul class="event-resource-list">
+        <li>
+          <article class="event-resource-card" aria-labelledby="nick-estes-event-title">
+            <header class="event-resource-header">
+              <p class="event-resource-type">Lansdowne Lecture · Nick Estes</p>
+              <h4 id="nick-estes-event-title">Indigenous Resistance &amp; the Colonialism of our Times</h4>
+            </header>
+            <ul class="event-resource-links" aria-label="Resources for Indigenous Resistance and the Colonialism of our Times">
+              <li><a class="event-resource-link" href="https://dspace.library.uvic.ca/items/0f0208e7-1fb5-4307-8901-9878f7127fdf">Watch the recording</a></li>
+              <li><a class="event-resource-link" href="lansdowne-lecture-nick-estes.html">View the event gallery</a></li>
+            </ul>
+          </article>
+        </li>
+      </ul>
+    </section>
   </section>
 </div>
 <!--end of root-->

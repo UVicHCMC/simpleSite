@@ -139,7 +139,7 @@
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
-    <item href="index.html">
+    <item href="/">
       <en>Home</en>
     </item>
     <item href="critical-encounters.html">
