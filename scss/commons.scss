@@ -1187,16 +1187,20 @@ a.publication-link:focus-visible {
     background-color: var(--grey-150);
     box-shadow: var(--shadow-card);
 }
-
-.event-photo-link:focus-visible {
-    outline: 3px solid var(--blue-300);
-    outline-offset: 3px;
-}
-
 .event-photo-link img {
     display: block;
     inline-size: 100%;
     block-size: auto;
+    outline: 3px solid transparent;
+    transition: all 0.3s ease-in-out;
+}
+.event-photo-link:is(:focus-visible, :hover) {
+    outline: 3px solid var(--blue-300);
+    //outline-offset: 3px;
+
+    img {
+        scale: 1.2;
+    }
 }
 
 // Critical Encounters posters are standalone content aligned to their headings
