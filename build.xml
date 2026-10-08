@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="fullBuild" name="simpleSite" xmlns:if="ant:if"
+<project basedir="." default="fullBuild" name="bcstudies2027" xmlns:if="ant:if"
          xmlns:unless="ant:unless">
     <description>
         #####################################################################
@@ -687,7 +687,8 @@
             <arg value="-e"/>
             <arg value="ssh"/>
             <arg value="./site/"/>
-            <arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/${projectNameLower}"/>
+            <!--<arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/${projectNameLower}"/>-->
+            <arg value="inokhrin@nfs.hcmc.uvic.ca:/home1t/inokhrin/www/public/${projectNameLower}"/>
         </exec>
     </target>
     

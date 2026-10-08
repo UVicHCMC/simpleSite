@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <div id="root"><!--gets removed-->
-    <img class="conference-logo" src="images/logo-internal.svg" width="118" height="40" alt=""/>
-    
+    <div class="top-logo-container-internal">
+        <img class="conference-logo" src="images/UVIC-VRGB-UVIC-Blue.svg" width="300" height="40" alt=""/>
+        <p class="internal-header-text">
+        <span class="location">Victoria, British Columbia</span>
+        <span class="date">May 14-16, 2027</span>
+        </p>
+    </div>
     <h1>Living in Risky Times: BC Studies Conference 2027</h1><!--Page title-->
     
     <h2>Call For Papers</h2>

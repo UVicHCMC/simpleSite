@@ -31,8 +31,8 @@
   <files>
     <cssFile>css/bcstudies.css</cssFile>
     <!--<jsFile>js/ux.js</jsFile>-->
-    <faviconIco>images/favicon.ico</faviconIco>
-    <faviconSvg>images/favicon.svg</faviconSvg>
+    <faviconIco>images/uvic-favicon.png</faviconIco>
+    <!--<faviconSvg>images/favicon.svg</faviconSvg>-->
     <siteManifest>site.webmanifest</siteManifest>
   </files>
   <metadata>
@@ -58,11 +58,11 @@
         <en>Event Venue/Host</en>
       </place>
       <date>
-        <en>DATE</en>
+        <en>May 14-16, 2027</en>
       </date>
-      <dateIso>YYYY-MM-DD</dateIso>
+      <dateIso>2027-05-14/2027-05-16</dateIso>
       <location>
-        <en>Event Location/Host</en>
+        <en>University of Victoria</en>
       </location>
     </WhereWhen>
   </metadata>
