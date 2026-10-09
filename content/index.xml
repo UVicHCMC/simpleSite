@@ -1,41 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div id="root" xmlns="http://www.w3.org/1999/xhtml"><!--gets removed-->
-
-  <div class="text-column">
-    <!--Page title<h1>Main</h1>-->
-    <p>
-      <em>Rooted in care. Driven by ideas.</em>
-    </p>
-
-    <p>The Critical Humanities Commons is a space where interdisciplinary scholarship unfolds through creativity, conversation, and commitment to social justice. Located at the heart of the Faculty of Humanities, the Commons brings people together to think, learn, and teach across disciplines to create new approaches for public dialogue.</p>
-
-    <section id="pillars">
-
-      <p>Four pillars animate the Commons mission:</p>
-
-      <h2>Expertise</h2>
-      <p>We deepen scholarly inquiry and challenge the boundaries of disciplinary knowledge.</p>
-
-      <h2>Collaboration</h2>
-      <p>We work across fields to build sustained, trans-disciplinary research and relationships.</p>
-
-      <h2>Exchange</h2>
-      <p>We foster reciprocal learning and critical dialogue with diverse stakeholders.</p>
-
-      <h2>Dissemination</h2>
-      <p>We ensure scholarship and dialogue have a tangible impact on wider publics.</p>
-
-      <p>With care at the center of creative inquiry, these pillars frame a joyful space where humanist ideas are encouraged to engage with the urgent questions of our time and gesture towards a more equitable and accessed-centered world.</p>
-
-    </section>
-
-    <section id="subscsribe">
-
-      <p>Subscribe to the Commons listserve.</p>
-
-      <!--Add in a subscription button-->
-
-    </section>
-  </div>
+<div id="root" xmlns="http://www.w3.org/1999/xhtml">
+  <!-- Homepage content; shared navigation and footer come from the content template. -->
+      <div class="hero full-bleed inherit-page-grid">
+        <div class="hero-content-container breakout">
+          <div class="logo-container">
+            <img class="splash-logo" src="images/splash-logo.webp" alt="" />
+            <h1 class="visually-hidden">Critical Humanities Commons: Rooted in Care. Driven by Ideas</h1>
+          </div>
+          <div class="intro-text"> The Critical Humanities Commons is a space where interdisciplinary scholarship unfolds through creativity, conversation, and commitment to social justice. Located at the heart of the Faculty of Humanities, the Commons brings people together to think, learn, and teach across disciplines to create new approaches for public dialogue. </div>
+        </div>
+      </div>
+      <main id="content" class="full-bleed inherit-page-grid">
+        <div class="main-wrapper splash full-bleed inherit-page-grid">
+          <section class="event-band breakout" aria-labelledby="events-heading">
+            <div class="splash-band-wrapper">
+              <h2 id="events-heading" class="splash-heading">Upcoming events</h2>
+              <!-- Replace this article with any event article copied from content/calendar.xml. -->
+              <article class="event-container calendar-event" aria-labelledby="event-october-19-title">
+                <time class="event-date" datetime="2026-10-19">
+                  <span class="event-weekday">Monday</span>
+                  <span class="event-month">October</span>
+                  <span class="event-day">19</span>
+                  <span class="event-year">2026</span>
+                </time>
+                <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+                <div class="event-summary">
+                  <h3 id="event-october-19-title" class="calendar-event-title">When Historians Say ‘Genocide’: A Public History Roundtable</h3>
+                  <a class="event-button" href="https://events.uvic.ca/humanities/event/111544-public-history-talks-tours-series">Event details</a>
+                </div>
+              </article>
+              <a class="calendar-button" href="calendar.html">View full calendar</a>
+            </div>
+          </section>
+          <section class="pillars-section full-bleed inherit-page-grid" aria-labelledby="pillars-heading">
+            <h2 id="pillars-heading" class="pillars-heading breakout">Critical Humanities Commons: Four Pillars</h2>
+            <ul class="pillar-container breakout">
+              <li class="pillar">
+                <h3>Expertise</h3>
+                <p>We deepen scholarly inquiry and challenge the boundaries of disciplinary knowledge.</p>
+                <img class="pillar-icon" src="images/icon-expertise.svg" width="64" height="64" alt="" />
+              </li>
+              <li class="pillar">
+                <h3>Collaboration</h3>
+                <p>We work across fields to build sustained, trans-disciplinary research and relationships.</p>
+                <img class="pillar-icon" src="images/icon-collaboration.svg" width="64" height="64" alt="" />
+              </li>
+              <li class="pillar">
+                <h3>Exchange</h3>
+                <p>We foster reciprocal learning and critical dialogue with diverse stakeholders.</p>
+                <img class="pillar-icon" src="images/icon-exchange.svg" width="64" height="64" alt="" />
+              </li>
+              <li class="pillar">
+                <h3>Dissemination</h3>
+                <p>We ensure scholarship and dialogue have a tangible impact on wider publics.</p>
+                <img class="pillar-icon" src="images/icon-dissemination.svg" width="64" height="64" alt="" />
+              </li>
+            </ul>
+          </section>
+          <section class="subscribe-section" aria-labelledby="subscribe-heading">
+            <h2 id="subscribe-heading">Subscribe for more Critical Humanities Commons news and updates</h2>
+            <a class="subscribe-button" href="mailto:muktalawrence@uvic.ca">Subscribe by email</a>
+          </section>
+        </div>
+      </main>
 </div>
-<!--end of root-->

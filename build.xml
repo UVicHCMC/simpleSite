@@ -17,8 +17,11 @@
         All content for the site pages is expected to be in XML format in the /content/ directory. If the site is bilingual, the content must be in the appropriate subdirectories (eg. /content/en/ and /content/de/).
         At this stage, the file names have to be the same in both languages (eg. content/en/gettinghere.xml and content/fr/gettinghere.xml, not content/fr/venir.xml).
         
-        The templates for the landing page and content pages are in boilerplate/landingPageTemplate.xml and boilerplate/contentPageTemplate.xml respectively. 
+        The homepage mode is set by landingPageMode in properties.xml (simple, content, or complex).
+        Simple uses boilerplate/landingPageTemplate.xml and data supplied in properties.xml; content and complex use content/index.xml and boilerplate/contentPageTemplate.xml. Complex omits the shared navigation and footer.
+        
         These are processed to create language-specific templates in the /templates/ directory, which will then be used to process the content files.
+        
         DO NOT EDIT THE FILES IN THE /TEMPLATES/ DIRECTORY DIRECTLY. They are overwritten during the build process. If you want to make changes to the templates, edit the files in /boilerplate/ instead.  
         
         This build file does these basic tasks:
@@ -102,6 +105,29 @@
     <property name="languageCount" value="1"/>
     <property name="hasLanguageSelector" value="false"/>
     
+    <!-- Command-line -DlandingPageMode takes precedence over this default. -->
+    <property name="landingPageMode" value="simple"/>
+    <condition property="isSimpleLanding"><equals arg1="${landingPageMode}" arg2="simple"/></condition>
+    <condition property="isContentLanding"><equals arg1="${landingPageMode}" arg2="content"/></condition>
+    <condition property="isComplexLanding"><equals arg1="${landingPageMode}" arg2="complex"/></condition>
+    <condition property="usesIndexContent">
+        <or><isset property="isContentLanding"/><isset property="isComplexLanding"/></or>
+    </condition>
+    <condition property="omitHomepageChrome" value="true" else="false">
+        <isset property="isComplexLanding"/>
+    </condition>
+    <condition property="invalidLandingMode">
+        <not>
+            <or>
+                <isset property="isSimpleLanding"/>
+                <isset property="isContentLanding"/>
+                <isset property="isComplexLanding"/>
+            </or>
+        </not>
+    </condition>
+    <fail if="invalidLandingMode"
+          message="Invalid landingPageMode '${landingPageMode}'. Expected 'simple', 'content', or 'complex'."/>
+
     <!-- Determine if monolingual or multilingual -->
     <condition property="isMonolingual">
         <equals arg1="${languageCount}" arg2="1"/>
@@ -118,6 +144,11 @@
         </and>
     </condition>
     
+    <condition property="needsLanguageRedirect">
+        <and><isset property="isMultilingual"/><not><isset property="needsLanguageSelector"/></not></and>
+    </condition>
+
+    <echo message="Landing page mode: ${landingPageMode}"/>
     <echo message="Detected languages: ${languages}"/>
     <echo message="Default language: ${defaultLang}"/>
     <echo message="Language count: ${languageCount}"/>
@@ -129,7 +160,7 @@
     <!-- ========================================= -->
     
     <!-- Generate landing page template (monolingual or multilingual) -->
-    <target name="generateLandingTemplate" depends="copyWebResources">
+    <target name="generateLandingTemplate" depends="copyWebResources" if="isSimpleLanding">
         <description>Generates landing page template(s)</description>
         
         <!-- Monolingual: generate single template -->
@@ -233,62 +264,83 @@
         <echo message="Language selector page created at site/index.html"/>
     </target>
     
-    <!-- Process landing page into site/index.html (or site/{lang}/index.html) -->
-    <target name="makeLandingPage" depends="generateLandingTemplate">
-        <description>Creates landing page(s)</description>
-        
-        <!-- Multilingual: create redirect at site/index.html -->
-        <sequential if:true="${isMultilingual}">
-            <echo message="Creating language redirect at site/index.html..."/>
+    <!-- Exactly one selected source for each generated homepage. -->
+    <target name="makeLandingPage"
+            depends="generateLandingTemplate,generateContentTemplates,getImageDimensions">
+        <description>Creates the configured homepage for each language</description>
+
+        <sequential if:true="${needsLanguageRedirect}">
             <mkdir dir="site"/>
-            <java fork="true" classname="net.sf.saxon.Transform" 
-                  classpath="${saxon}" failonerror="true">
-                <arg value="-s:boilerplate/redirectTemplate.xml"/>
+            <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                <arg value="-s:properties.xml"/>
                 <arg value="-xsl:xsl/generateRedirect.xsl"/>
                 <arg value="-o:site/index.html"/>
-            </java>
-        </sequential>
-        
-        <!-- Monolingual: create site/index.html as default language -->
-        <sequential if:true="${isMonolingual}">
-            <echo message="Creating landing page at site/index.html (lang=${defaultLang})..."/>
-            <mkdir dir="site"/>
-            <java fork="true" classname="net.sf.saxon.Transform" 
-                  classpath="${saxon}" failonerror="true">
-                <arg value="-s:templates/landingPage.xml"/>
-                <arg value="-xsl:xsl/processLandingPage.xsl"/>
-                <arg value="-o:site/index.html"/>
-                <arg value="isMultilingual=${isMultilingual}"/>
                 <arg value="defaultLang=${defaultLang}"/>
-                <arg value="languages=${languages}"/>
             </java>
         </sequential>
-        
-        <!-- Create per-language landing pages for multilingual sites -->
+
+        <sequential if:true="${isMonolingual}">
+            <mkdir dir="site"/>
+            <sequential if:true="${isSimpleLanding}">
+                <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                    <arg value="-s:templates/landingPage.xml"/>
+                    <arg value="-xsl:xsl/processLandingPage.xsl"/>
+                    <arg value="-o:site/index.html"/>
+                    <arg value="isMultilingual=false"/>
+                    <arg value="defaultLang=${defaultLang}"/>
+                    <arg value="languages=${languages}"/>
+                </java>
+            </sequential>
+            <sequential if:true="${usesIndexContent}">
+                <fail message="Missing required homepage source: content/index.xml">
+                    <condition><not><available file="content/index.xml"/></not></condition>
+                </fail>
+                <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                    <arg value="-s:content/index.xml"/>
+                    <arg value="-xsl:xsl/processContent.xsl"/>
+                    <arg value="-o:site/index.html"/>
+                    <arg value="currentLang=${defaultLang}"/>
+                    <arg value="languages=${languages}"/>
+                    <arg value="omitSiteChrome=${omitHomepageChrome}"/>
+                </java>
+            </sequential>
+        </sequential>
+
         <sequential if:true="${isMultilingual}">
-            <echo message="Creating per-language landing pages..."/>
             <for list="${languages}" param="lang" delimiter=",">
                 <sequential>
-                    <echo message="  Creating landing page for @{lang}..."/>
                     <mkdir dir="site/@{lang}"/>
-                    <java fork="true" classname="net.sf.saxon.Transform" 
-                          classpath="${saxon}" failonerror="true">
-                        <arg value="-s:templates/@{lang}/landingPage.xml"/>
-                        <arg value="-xsl:xsl/processLandingPage.xsl"/>
-                        <arg value="-o:site/@{lang}/index.html"/>
-                        <arg value="isMultilingual=true"/>
-                        <arg value="currentLang=@{lang}"/>
-                        <arg value="defaultLang=${defaultLang}"/>
-                        <arg value="languages=${languages}"/>
-                    </java>
+                    <sequential if:true="${isSimpleLanding}">
+                        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                            <arg value="-s:templates/@{lang}/landingPage.xml"/>
+                            <arg value="-xsl:xsl/processLandingPage.xsl"/>
+                            <arg value="-o:site/@{lang}/index.html"/>
+                            <arg value="isMultilingual=true"/>
+                            <arg value="currentLang=@{lang}"/>
+                            <arg value="defaultLang=${defaultLang}"/>
+                            <arg value="languages=${languages}"/>
+                        </java>
+                    </sequential>
+                    <sequential if:true="${usesIndexContent}">
+                        <fail message="Missing required homepage source: content/@{lang}/index.xml">
+                            <condition><not><available file="content/@{lang}/index.xml"/></not></condition>
+                        </fail>
+                        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                            <arg value="-s:content/@{lang}/index.xml"/>
+                            <arg value="-xsl:xsl/processContent.xsl"/>
+                            <arg value="-o:site/@{lang}/index.html"/>
+                            <arg value="currentLang=@{lang}"/>
+                            <arg value="languages=${languages}"/>
+                            <arg value="omitSiteChrome=${omitHomepageChrome}"/>
+                        </java>
+                    </sequential>
                 </sequential>
             </for>
         </sequential>
-        
-        <!-- Generate language selector splash page if needed -->
+
         <antcall target="generateLanguageSelector"/>
     </target>
-    
+
     <!-- Process content files -->
     <target name="processContent" depends="generateContentTemplates,getImageDimensions">
         <description>Processes content files for all languages</description>
@@ -300,7 +352,7 @@
             <mkdir dir="site"/>
             <foreach target="processOneContent" param="content.file">
                 <path>
-                    <!-- index.html is created by makeLandingPage from the landing-page template. -->
+                    <!-- makeLandingPage owns index.html in every mode. -->
                     <fileset dir="content" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                 </path>
                 <param name="currentLang" value="${defaultLang}"/>
@@ -317,7 +369,7 @@
                     <mkdir dir="site/@{lang}"/>
                     <foreach target="processOneContent" param="content.file">
                         <path>
-                            <!-- Each language's index.html is created by makeLandingPage. -->
+                            <!-- makeLandingPage owns each language homepage. -->
                             <fileset dir="content/@{lang}" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                         </path>
                         <param name="currentLang" value="@{lang}"/>
@@ -351,6 +403,12 @@
         <fail unless="content.file"
               message="Missing required parameter: -Dcontent.file=content/yourpage.xml"/>
         
+        <!-- The selected homepage mode, not this convenience target, owns index.html. -->
+        <condition property="single.is.index">
+            <matches string="${content.file}" pattern="(^|/)index\.xml$"/>
+        </condition>
+        <fail if="single.is.index" message="Use ant makeLandingPage to rebuild index.html."/>
+
         <!-- Defaults for monolingual builds -->
         <var name="single.currentLang" value="${defaultLang}"/>
         <var name="single.outputDir" value="site"/>
@@ -435,7 +493,7 @@
         <echo message="${echo.separator}"/>
         <echo message="Building SCSS source to create CSS files in HTML folder."/>
         <mkdir dir="${basedir}/site/css"/>
-        <exec executable="sass">
+        <exec executable="sass" failonerror="true">
             <arg value="--embed-sources"/>
             <arg value="${basedir}/scss:${basedir}/css"/>
         </exec>

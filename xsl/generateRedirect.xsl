@@ -3,9 +3,10 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:hcmc="http://hcmc.uvic.ca/ns"
+                xmlns="http://www.w3.org/1999/xhtml"
                 xpath-default-namespace=""
                 exclude-result-prefixes="#all" version="3.0">
-  <!-- Extract language, homepage, and asset configuration as Ant properties.
+  <!-- Create the root redirect for multilingual sites without a language selector.
           Created on: 2026-10-09 
           Author: inokhrin -->
 
@@ -14,8 +15,9 @@
        *                         Output                             *
        *                                                            *
        **************************************************************-->
-  <xsl:output method="text" encoding="UTF-8" normalization-form="NFC"
-              exclude-result-prefixes="#all"/>
+  <xsl:output method="xhtml" html-version="5" encoding="UTF-8"
+              normalization-form="NFC" indent="yes" exclude-result-prefixes="#all"
+              omit-xml-declaration="yes" include-content-type="no"/>
 
   <!--**************************************************************
        *                                                            *
@@ -26,26 +28,30 @@
 
   <!--**************************************************************
        *                                                            *
+       *                      Parameters                            *
+       *                                                            *
+       **************************************************************-->
+  <!-- The default language chosen by the build. -->
+  <xsl:param name="defaultLang" as="xs:string" select="'en'"/>
+
+  <!--**************************************************************
+       *                                                            *
        *                        Templates                           *
        *                                                            *
        **************************************************************-->
-  <!-- Write the properties consumed by Ant; an absent homepage mode defaults to simple. -->
+  <!-- Emit a redirect with a visible link for browsers that do not follow refresh metadata. -->
   <xsl:template match="/">
-    <xsl:message>Extracting language, homepage, and asset settings.</xsl:message>
-    <xsl:text>languages=</xsl:text>
-    <xsl:value-of select="string-join(site/languages/lang/@code, ',')"/>
-    <xsl:text>&#10;defaultLang=</xsl:text>
-    <xsl:value-of select="(site/languages/lang[@default eq 'true']/@code, site/languages/lang[1]/@code)[1]"/>
-    <xsl:text>&#10;languageCount=</xsl:text>
-    <xsl:value-of select="count(site/languages/lang)"/>
-    <xsl:text>&#10;hasLanguageSelector=</xsl:text>
-    <xsl:value-of select="exists(site/languageSelector)"/>
-    <xsl:text>&#10;landingPageMode=</xsl:text>
-    <xsl:value-of select="if (site/landingPageMode) then normalize-space(site/landingPageMode) else 'simple'"/>
-    <xsl:text>&#10;cssFile=</xsl:text>
-    <xsl:value-of select="site/files/cssFile"/>
-    <xsl:text>&#10;jsFile=</xsl:text>
-    <xsl:value-of select="site/files/jsFile"/>
-    <xsl:text>&#10;</xsl:text>
+    <xsl:message>Creating root redirect to <xsl:value-of select="$defaultLang"/>/index.html.</xsl:message>
+    <html lang="{$defaultLang}">
+      <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="refresh" content="{'0; url=' || $defaultLang || '/index.html'}"/>
+        <title><xsl:value-of select="(site/metadata/siteTitle/*[local-name() eq $defaultLang], site/metadata/siteTitle)[1]"/></title>
+      </head>
+      <body>
+        <p><a href="{$defaultLang || '/index.html'}">Continue to the site</a></p>
+      </body>
+    </html>
   </xsl:template>
 </xsl:stylesheet>

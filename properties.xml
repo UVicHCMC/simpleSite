@@ -16,6 +16,13 @@
                     </siteTitle>
 -->
 <site>
+  <!-- Homepage source: simple template or content XML with or without shared site chrome.
+       Use simple in cases where you want a minimal landing page (eg. a conference website). This will build the landing page using data in properties.xml. 
+       It will overwrite any index.xml file present in the content directory/ies. 
+       Use content when you basically want the landing page to be a content page, with substantial content and the website chrome (ie. header and footer). 
+       Use complex for a custom landing page built from index.xml without the website chrome/header and footer.
+  -->
+  <landingPageMode>content</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
