@@ -90,6 +90,12 @@
         <arg value="printf '%s' &quot;${ant.project.name}&quot; | tr '[:upper:]' '[:lower:]'"/>
     </exec>
     
+    <!-- Using Vancouver's time zone for the build timestamp -->
+    <tstamp>
+        <format property="buildDateTime" pattern="yyyy-MM-dd'T'HH:mm:ssXXX"
+                timezone="America/Vancouver"/>
+    </tstamp>
+
     <!-- Load languages from properties.xml using XSLT -->
     <tempfile property="temp.languages.file" suffix=".properties" deleteonexit="true"/>
     
@@ -298,6 +304,7 @@
                 <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
                     <arg value="-s:content/index.xml"/>
                     <arg value="-xsl:xsl/processContent.xsl"/>
+                    <arg value="buildDateTime=${buildDateTime}"/>
                     <arg value="-o:site/index.html"/>
                     <arg value="currentLang=${defaultLang}"/>
                     <arg value="languages=${languages}"/>
@@ -328,6 +335,7 @@
                         <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
                             <arg value="-s:content/@{lang}/index.xml"/>
                             <arg value="-xsl:xsl/processContent.xsl"/>
+                            <arg value="buildDateTime=${buildDateTime}"/>
                             <arg value="-o:site/@{lang}/index.html"/>
                             <arg value="currentLang=@{lang}"/>
                             <arg value="languages=${languages}"/>
@@ -390,6 +398,7 @@
               classpath="${saxon}" failonerror="true">
             <arg value="-s:${content.file}"/>
             <arg value="-xsl:xsl/processContent.xsl"/>
+            <arg value="buildDateTime=${buildDateTime}"/>
             <arg value="-o:${outputDir}/${content.basename}.html"/>
             <arg value="currentLang=${currentLang}"/>
             <arg value="languages=${languages}"/>

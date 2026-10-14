@@ -11,15 +11,7 @@
       <section class="resource-section" aria-labelledby="newsletter-heading">
         <h2 id="newsletter-heading">Commons Newsletter</h2>
         <div class="newsletter-container">
-          <ul class="publication-list">
-            <li>
-              <article class="publication-card" aria-labelledby="newsletter-current-issue">
-                <p class="publication-type">Newsletter</p>
-                <h3 id="newsletter-current-issue">October 2026</h3>
-                <a class="publication-link" href="pdf/CHCNewsletter_October2026.pdf" type="application/pdf">Download newsletter</a>
-              </article>
-            </li>
-          </ul>
+          <?newsletterCards?>
           <aside class="newsletter-subscribe" aria-labelledby="newsletter-subscribe-heading">
             <h3 id="newsletter-subscribe-heading">Subscribe to the newsletter</h3>
             <p>Receive Critical Humanities Commons news and updates by email.</p>

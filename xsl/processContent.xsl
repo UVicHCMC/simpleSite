@@ -8,44 +8,31 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xpath-default-namespace="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="#all" version="3.0">
-  <!-- Render content XML through the shared page template, including content and complex homepages.
-       Created on: 2026-10-09 
-       Author: inokhrin -->
+  <xd:doc scope="stylesheet">
+    <xd:p><xd:b>Created on:</xd:b> 2026-10-09</xd:p>
+    <xd:p><xd:b>Author:</xd:b> inokhrin</xd:p>
+  </xd:doc>
 
-  <!--**************************************************************
-       *                                                            *
-       *                         Output                             *
-       *                                                            *
-       **************************************************************-->
+  <xsl:include href="module_html_functions.xsl"/>
+
   <xsl:output method="xhtml" html-version="5" encoding="UTF-8"
               normalization-form="NFC" indent="yes" exclude-result-prefixes="#all"
               omit-xml-declaration="yes" include-content-type="no"/>
 
-  <!--**************************************************************
-       *                                                            *
-       *                          Modes                             *
-       *                                                            *
-       **************************************************************-->
   <xsl:mode on-no-match="shallow-copy" exclude-result-prefixes="#all"/>
   <xsl:mode name="content" on-no-match="shallow-copy" exclude-result-prefixes="#all"/>
 
-  <!--**************************************************************
-       *                                                            *
-       *                      Parameters                            *
-       *                                                            *
-       **************************************************************-->
-  <!-- Explicit page language; otherwise infer it from the content path or site default. -->
-  <xsl:param name="currentLang" as="xs:string" select="''"/>
-  <!-- Comma-separated output languages supplied by Ant. -->
-  <xsl:param name="languages" as="xs:string" select="'en'"/>
-  <!-- String flag: 'true' omits the homepage's shared navigation and footer. -->
-  <xsl:param name="omitSiteChrome" as="xs:string" select="'false'"/>
 
+  <xsl:param name="currentLang" as="xs:string" select="''"/>
+  <xsl:param name="languages" as="xs:string" select="'en'"/>
+  <xsl:param name="omitSiteChrome" as="xs:string" select="'false'"/>
+  
   <!--**************************************************************
        *                                                            *
        *                        Variables                           *
        *                                                            *
        **************************************************************-->
+
   <xsl:variable name="currentFile" as="xs:string" select="tokenize(base-uri(/), '/')[last()]"/>
   <xsl:variable name="currentPage" as="xs:string" select="replace($currentFile, '\.xml$', '.html')"/>
   <xsl:variable name="isHomepage" as="xs:boolean" select="$currentPage eq 'index.html'"/>
@@ -70,25 +57,24 @@
                 select="normalize-space(string(($propertiesDoc/site/metadata/siteTitle/*[local-name() eq $lang],
                                                 $propertiesDoc/site/metadata/siteTitle)[1]))"/>
   <xsl:variable name="pageTitle" as="xs:string" select="normalize-space(string($contentRoot/*/@data-page-title))"/>
-  <!-- The homepage uses configured site metadata unless its content supplies a description. -->
   <xsl:variable name="metaDescription" as="xs:string" xpath-default-namespace=""
                 select="if ($contentRoot/*/@data-meta-description) then normalize-space(string($contentRoot/*/@data-meta-description))
                         else if ($isHomepage) then normalize-space(string(($propertiesDoc/site/metadata/metaDescription/*[local-name() eq $lang],
                                                                           $propertiesDoc/site/metadata/metaDescription)[1]))
                         else ''"/>
+
   <xsl:variable name="configuredSiteUrl" as="xs:string" xpath-default-namespace=""
                 select="normalize-space(string($propertiesDoc/site/metadata/siteUrl))"/>
   <xsl:variable name="siteUrl" as="xs:string"
                 select="if (ends-with($configuredSiteUrl, '/')) then $configuredSiteUrl else $configuredSiteUrl || '/'"/>
-  <!-- Whether resources are shared above language-specific output directories. -->
+
   <xsl:variable name="isMultilingual" as="xs:boolean" select="count(tokenize($languages, ',')) gt 1"/>
-  <!-- Homepage canonical URLs retain the site or language root rather than index.html. -->
   <xsl:variable name="canonicalUrl" as="xs:string"
                 select="$siteUrl || (if ($isMultilingual) then $lang || '/' else '') ||
                         (if ($isHomepage) then '' else $currentPage)"/>
   <xsl:variable name="txtDimensions" as="xs:string"
                 select="unparsed-text(resolve-uri('../utilities/imageDimensions.txt', static-base-uri()))"/>
-  <!-- Image paths mapped to intrinsic dimensions for hcmc:addImageDimensions. -->
+  
   <xsl:variable name="mapImgPathsToElements" as="map(xs:string, element(xh:img))">
     <xsl:map>
       <xsl:for-each select="distinct-values(tokenize($txtDimensions, '&#x0A;'))">
@@ -108,13 +94,20 @@
        *                        Templates                           *
        *                                                            *
        **************************************************************-->
-  <!-- Render the generated shared template using the source content as context. -->
+  
+  <xd:doc>
+    <xd:desc>Render the generated shared template using the source content as context.</xd:desc>
+  </xd:doc>
   <xsl:template match="/">
     <xsl:message>Rendering <xsl:value-of select="$currentPage"/> from content XML.</xsl:message>
     <xsl:apply-templates select="$template/*"/>
   </xsl:template>
 
-  <!-- Add intrinsic image dimensions and the existing aspect class while preserving other attributes. -->
+  <xd:doc>
+    <xd:desc>We add image dimensions and the existing aspect class while preserving other attributes.</xd:desc>
+    <xd:param name="img">The authored local image.</xd:param>
+    <xd:return>The image element with its dimensions and language-relative source path.</xd:return>
+  </xd:doc>
   <xsl:template name="hcmc:addImageDimensions">
     <xsl:param name="img" as="element(xh:img)"/>
     <xsl:variable name="normalizedSrc" as="xs:string" select="replace($img/@src, '^/', '')"/>
@@ -144,8 +137,10 @@
     </xsl:choose>
   </xsl:template>
 
-  <!-- Shared template mode. -->
-  <!-- Set the generated page identifier while preserving an authored template identifier. -->
+
+  <xd:doc>
+    <xd:desc>We set the generated page identifier while preserving an authored template identifier.</xd:desc>
+  </xd:doc>
   <xsl:template match="html" priority="3">
     <xsl:copy>
       <xsl:sequence select="@*[local-name() ne 'lang']"/>
@@ -157,37 +152,43 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Supply page-specific title metadata. -->
   <xsl:template match="title" priority="5">
     <title><xsl:value-of select="if ($pageTitle eq '' or $pageTitle eq $siteTitle) then $siteTitle else $pageTitle || ' | ' || $siteTitle"/></title>
   </xsl:template>
-  <!-- Supply the page description, including the configured homepage description. -->
   <xsl:template match="meta[@name eq 'description']" priority="5">
     <meta name="description" content="{$metaDescription}"/>
   </xsl:template>
-  <!-- Supply the configured canonical URL. -->
   <xsl:template match="link[@rel eq 'canonical']" priority="5">
     <link rel="canonical" href="{$canonicalUrl}"/>
   </xsl:template>
 
-  <!-- Omit the shared header and footer for complex homepages; otherwise use the normal template. -->
+  <xd:doc>
+    <xd:desc>We omit the shared header and footer for complex homepages; otherwise use the normal template.</xd:desc>
+  </xd:doc>
   <xsl:template match="div[tokenize(normalize-space(@class), '\s+') = 'top-wrapper'] | footer" priority="6">
     <xsl:if test="not($isComplexHomepage)">
       <xsl:next-match/>
     </xsl:if>
   </xsl:template>
 
-  <!-- Resolve relative head assets above multilingual page directories. -->
+  <xd:doc>
+    <xd:desc>We resolve relative head assets above multilingual page directories.</xd:desc>
+  </xd:doc>
   <xsl:template match="link/@href[not(starts-with(., 'http')) and not(starts-with(., '/'))] |
                        script/@src[not(starts-with(., 'http')) and not(starts-with(., '/'))]" priority="3">
     <xsl:attribute name="{local-name()}" select="(if ($isMultilingual) then '../' else '') || ."/>
   </xsl:template>
-  <!-- Adjust relative image paths, including images without recorded dimensions. -->
+
+  <xd:doc>
+    <xd:desc>Adjust relative image paths, including images without recorded dimensions.</xd:desc>
+  </xd:doc>
   <xsl:template match="img/@src[starts-with(., 'images/')]" mode="#default content" priority="4">
     <xsl:attribute name="src" select="(if ($isMultilingual) then '../' else '') || ."/>
   </xsl:template>
 
-  <!-- Preserve an authored homepage main and its sibling bands in their original positions. -->
+  <xd:doc>
+    <xd:desc>We preserve an authored homepage main and its sibling bands in their original positions.</xd:desc>
+  </xd:doc>
   <xsl:template match="main" priority="5">
     <xsl:choose>
       <xsl:when test="$isHomepage and $contentRoot/*/main">
@@ -199,16 +200,24 @@
     </xsl:choose>
   </xsl:template>
 
-  <!--Replace the template's docContent instruction with the wrapper's child elements.-->
+  <xd:doc>
+    <xd:desc>Replace the template's docContent instruction with the wrapper's child elements.</xd:desc>
+  </xd:doc>
   <xsl:template match="processing-instruction('docContent')" priority="5">
     <xsl:message>Inserting content for page: <xsl:value-of select="$currentPage"/></xsl:message>
     <xsl:apply-templates select="$contentRoot/*/*" mode="content"/>
   </xsl:template>
-  <!--Complete language-switch links using the generated filename.-->
+
+  <xd:doc>
+    <xd:desc>We complete language-switch links using the generated filename.</xd:desc>
+  </xd:doc>
   <xsl:template match="@href[contains(., '{{currentPage}}')]" priority="3">
     <xsl:attribute name="href" select="replace(., '\{\{currentPage\}\}', $currentPage)"/>
   </xsl:template>
-  <!--Mark the current navigation item; root links identify the homepage.-->
+
+  <xd:doc>
+    <xd:desc>We mark the current navigation item, using root links to identify the homepage.</xd:desc>
+  </xd:doc>
   <xsl:template match="a[tokenize(normalize-space(@class), '\s+') = 'item'][@href]" priority="4">
     <!--The target filename with any query string or fragment removed.-->
     <xsl:variable name="targetPage" as="xs:string" select="replace(tokenize(string(@href), '[?#]')[1], '^.*/', '')"/>
@@ -225,7 +234,9 @@
     </xsl:copy>
   </xsl:template>
 
-  <!--Retain ordinary pages' automatic section navigation. Authored homepages keep their custom layout.-->
+  <xd:doc>
+    <xd:desc>We retain ordinary pages' automatic section navigation and we keep authored homepages' custom layout.</xd:desc>
+  </xd:doc>
   <xsl:template match="body" priority="3">
     <!-- The localized secondary navigation label. -->
     <xsl:variable name="sectionNavLabel" as="xs:string" xpath-default-namespace=""
@@ -256,7 +267,9 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- Dimension local images in both the template and the authored content. -->
+  <xd:doc>
+    <xd:desc>Provide dimensions for local images in both the template and the authored content.</xd:desc>
+  </xd:doc>
   <xsl:template match="img[starts-with(@src, 'images/') or starts-with(@src, '/images/')]"
                 mode="#default content" priority="4">
     <xsl:call-template name="hcmc:addImageDimensions">
@@ -264,7 +277,9 @@
     </xsl:call-template>
   </xsl:template>
 
-  <!-- Accept legacy unnamespaced content and render it as XHTML. -->
+  <xd:doc>
+    <xd:desc>We accept legacy unnamespaced content and render it as XHTML.</xd:desc>
+  </xd:doc>
   <xsl:template match="*[namespace-uri() eq '']" mode="content" priority="1">
     <xsl:element name="{local-name()}" namespace="http://www.w3.org/1999/xhtml">
       <xsl:apply-templates select="@* | node()" mode="content"/>

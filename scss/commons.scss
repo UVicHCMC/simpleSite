@@ -53,6 +53,11 @@ $breakpoint-xl: 1280px;
     border: 0;
 }
 
+// Hide empty build-generated sections
+.display-none {
+    display: none !important;
+}
+
 // Enable automatic cross-page transitions
 @view-transition {
     navigation: auto;

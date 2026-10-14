@@ -39,6 +39,30 @@ The deployment target requires `rsync`, SSH access, and the appropriate HCMC cre
 
 The build is organized around `properties.xml`. This file contains the language list, site title, contact information, event metadata, navigation, interface labels, image settings, and paths to the site's CSS, JavaScript, favicons, and web manifest.
 
+### Landing Page modes
+
+Set `<landingPageMode>` in `properties.xml`. Use 'simple' for a landing page that is generate from the data in `properties.xml`. Use 'content' for a landing page that is populated with data from an `index.xml` file in the `content` directory and gets the full content page chrome (ie. the menu nav bar and footer). Use 'complex' for a landing page that gets content from an `index.html` file in the `content` directory but does not get the full page chrome. The build will fall back to 'simple' if no value is supplied. If you have a multilingual build, you will have to supply  `content/{lang}/index.xml` files for every configured language if using 'content' or 'complex' mode. 
+
+An authored landing page can include a top-level `<main>` inside its root wrapper, with sibling bands such as the Commons hero. These replace the content template's `<main>` through `<?docContent?>`, preserving the authored hierarchy and one main landmark. Homepages without an authored `<main>` use the template's normal main and content wrapper.
+
+### Automatic events and newsletters
+
+The Commons homepage uses an `<?upcomingEvents?>` processing instruction for its Upcoming Events section. The build
+reads active `calendar-event` articles from the adjacent `calendar.xml`, selects forthcoming events, and inserts only the earliest forthcoming event. If there are no such events, the build adds `display-none` to the Upcoming Events section.
+
+Ant supplies one `America/Vancouver` timestamp per build. For reproducible previews:
+
+The Commons resources page uses `<?newsletterCards?>` to generate the Newsletter and Newsletter
+Archive cards beside its authored subscription card. Add PDFs to `pdf/newsletters/`
+using `CHCNewsletter_MonthYYYY.pdf` as the name scheme (eg. `CHCNewsletter_October2026.pdf`).
+
+The newest filename-dated file becomes the current newsletter; all other PDFs appear in the expandable
+archive, newest first. Adding a new file automatically moves the previously-'new' file into the archive. 
+The archive uses native HTML details and direct PDF links and needs no JavaScript or separate page. 
+Generated links point to `pdf/newsletters/`, which the build copies recursively. If there are no files that follow the naming scheme, the Newsletter card displays a message saying "No archived newsletters yet".
+
+The events and newsletters section update each time the site is rebuilt.
+
 ### Languages
 
 Define every output language in the `<languages>` element. Exactly one language should be marked as the default:
@@ -120,14 +144,14 @@ Each file should have a single wrapper element. The wrapper itself is removed an
 </div>
 ```
 
-When a page contains two or more `<section>` elements, sections that have both an `id` and a heading are included in an automatically generated secondary navigation menu.
+When an ordinary content page contains two or more `<section>` elements, sections that have both an `id` and a heading are included in an automatically generated secondary navigation menu. Authored homepages retain their custom layout without this menu.
 
 ## Templates and placeholders
 
 If you wish to modify templates for either the landing/splash page or for content pages you can do some by modifying:
 
-- `boilerplate/landingPageTemplate.xml` for the landing/spash page; and/or
-- `boilerplate/contentPageTemplate.xml` for content pages.
+- `boilerplate/landingPageTemplate.xml` for simple homepages; and
+- `boilerplate/contentPageTemplate.xml` for ordinary pages and content/complex homepages.
 
 Do not edit files in `templates/`. They are generated from the boilerplate files for each configured language and are overwritten during every build.
 
@@ -152,6 +176,7 @@ Running a development build (eg. ant fullBuild) retains stable CSS and JavaScrip
 | Command | Purpose |
 | --- | --- |
 | `ant fullBuild` | Clean and rebuild the complete development site, including resources, content pages, landing pages, and the sitemap. |
+| `ant makeLandingPage` | Rebuild the configured homepage, including required resources. |
 | `ant processSingleContent -Dcontent.file=content/about.xml` | Rebuild one page in a monolingual site. |
 | `ant processSingleContent -Dcontent.file=content/fr/about.xml` | Rebuild one page in a multilingual site; the language and output directory are inferred from the path. |
 | `ant validateSite` | Run the VNU Validator over HTML files in `site/`. Review the console output for errors. |

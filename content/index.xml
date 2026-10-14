@@ -15,20 +15,7 @@
           <section class="event-band breakout" aria-labelledby="events-heading">
             <div class="splash-band-wrapper">
               <h2 id="events-heading" class="splash-heading">Upcoming events</h2>
-              <!-- Replace this article with any event article copied from content/calendar.xml. -->
-              <article class="event-container calendar-event" aria-labelledby="event-october-19-title">
-                <time class="event-date" datetime="2026-10-19">
-                  <span class="event-weekday">Monday</span>
-                  <span class="event-month">October</span>
-                  <span class="event-day">19</span>
-                  <span class="event-year">2026</span>
-                </time>
-                <img class="calendar-event-image" src="images/public-history-talks-tours.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
-                <div class="event-summary">
-                  <h3 id="event-october-19-title" class="calendar-event-title">When Historians Say ‘Genocide’: A Public History Roundtable</h3>
-                  <a class="event-button" href="https://events.uvic.ca/humanities/event/111544-public-history-talks-tours-series">Event details</a>
-                </div>
-              </article>
+              <?upcomingEvents?>
               <a class="calendar-button" href="calendar.html">View full calendar</a>
             </div>
           </section>
