@@ -16,11 +16,11 @@
                     </siteTitle>
 -->
 <site>
-  <!-- Homepage source: simple template or content XML with or without shared site chrome.
-       Use simple in cases where you want a minimal landing page (eg. a conference website). This will build the landing page using data in properties.xml. 
-       It will overwrite any index.xml file present in the content directory/ies. 
-       Use content when you basically want the landing page to be a content page, with substantial content and the website chrome (ie. header and footer). 
-       Use complex for a custom landing page built from index.xml without the website chrome/header and footer.
+  <!-- Landing Page source: properties.xml or index.xml with or without shared site chrome.
+       Use simple in cases where you want a minimal landing page (eg. a conference website). It will be built using the data in this file and will overwrite any index.xml file present in the content directory/ies.
+       Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer. It will be built using the data in content/index.xml.
+       Use complex for a custom landing page built from index.xml without the top navigation or footer. It will be built using the data in content/index.xml.
+       Multilingual builds using content or complex landing pages will need to have an index.xml file in each language subfolder in the content folder.
   -->
   <landingPageMode>content</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
@@ -75,7 +75,9 @@
             <de>Wählen Sie Ihre Sprache</de>
         </heading>
     </languageSelector>-->
+     
   <!--The element labels here follow CSS conventions. If you want to add an attribute to a specific element, add it as a child element. -->
+
   <!-- For nav.aria-label-->
   <nav-aria-label>
     <en>Language Selection</en>
