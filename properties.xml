@@ -145,8 +145,11 @@
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
+    <item href="index.html">
+      <en>Home</en>
+    </item>
     <item href="cfp.html">
       <en>CFP</en>
-    </item>
+    </item>    
   </navigation>
 </site>

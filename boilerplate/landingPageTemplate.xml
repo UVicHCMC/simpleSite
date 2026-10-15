@@ -30,12 +30,13 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12" />
                 </svg>
               </button>
-              <div class="popover-group-container">
+              <!-- Commenting out the nav for now -->
+              <!--<div class="popover-group-container">
                 <div class="popover-header">
                   <p class="popover-header-text"><?siteTitle?></p>
                 </div>
                 <ul class="popover-nav-items"><?navigation?></ul>
-              </div>
+              </div>-->
             </nav>
           </div>
         </div>
@@ -47,6 +48,8 @@
             <h2 class="pre-title"><?preTitle?></h2>
             <p class="location-one"><?place?></p>
             <p class="date"><?date?></p>
+            <br/>
+            <h2><a class="landing-page-link" href="cfp.html">Call for Papers</a></h2>
           </header>
         </div>
       </main>
