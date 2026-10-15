@@ -134,19 +134,7 @@ html:not(#index) body {
 body.splash {
  min-height: 100lvh;
  background:
-   linear-gradient(
-     180deg,
-     #1b91cd 0%,
-     rgb(164 215 241 / 0.8) 25%,
-     rgb(255 255 255 / 0) 30%
-   ),
-   linear-gradient(
-      0deg,
-      #1b91cd 0%,
-      rgb(164 215 241 / 0.8) 10%,
-      rgb(255 255 255 / 0) 25%
-    ),
-   url("../images/bg-splash.webp") center center / cover no-repeat;
+   url("../images/splash.jpg") center center / cover no-repeat;
 }
 
 //controls viewport padding and margins, centers main content
@@ -160,8 +148,9 @@ body.splash {
     background-color: transparent;
 }
 .top-logo-container-splash {
-  margin-block-start: 10vh;
+  margin-block-start: 1vh;
   display: flex;
+  align-self: flex-start;
   align-items: center;
   flex-direction: column;
   padding-inline: 1rem;
@@ -172,7 +161,7 @@ body.splash {
     0deg,
     rgba(6, 21, 29, 0) 0%,
     rgba(29, 96, 131, 0.35) 20%,
-    rgba(29, 96, 131, 0.5) 50%,
+    rgba(64, 66, 66, 0.5) 50%,
     rgba(6, 21, 29, 0) 100%
   );
   border-radius: 8px;
@@ -202,9 +191,8 @@ body.splash {
   }
   
   & .pre-title {
-    font-size: clamp(.8rem, 1rem + 1.2vw, 1.5rem);
+    font-size: clamp(1.5rem, 1rem + 2vw, 4rem);
     line-height: 1.2;
-    font-weight: var(--fw-regular);
 
   }
   
@@ -259,7 +247,8 @@ body.splash {
 }
 
 #index .popover-nav-items .item {
-  color:#fff;
+  color:var(--nav-items-font-color);
+  background: var(--nav-items-bg-color);
 }
 
 html:not(#index) .page-wrapper {
@@ -296,6 +285,11 @@ header {
   @media (width >= $desktop-break){
     background-color: transparent;
 }
+}
+
+// Content lists regain their markers inside .page-grid; keep the navigation list unmarked.
+#site-navigation .popover-nav-items {
+  list-style: none;
 }
 
 #index .nav-wrapper {

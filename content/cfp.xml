@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div id="root"><!--gets removed-->
+    <div class="top-logo-container-internal">
+        <img class="conference-logo" src="images/UVIC-VRGB-UVIC-Blue.svg" width="300" height="40" alt=""/>
+        <p class="internal-header-text">
+        <span class="location">Victoria, British Columbia</span>
+        <span class="date">May 14-16, 2027</span>
+        </p>
+    </div>
+    <h1>Living in Risky Times: BC Studies Conference 2027</h1><!--Page title-->
+
+    <!--<img src="images/hero.jpg" alt="Eagle flying above stormy ocean waters"/>-->
+    
+    <h2>Call For Papers</h2>
+
+    <p>The biennial, interdisciplinary BC Studies Conference 2027 will be held on the ancestral territory of the Lekwammen speaking Songhees and Esquimalt Peoples at the University of Victoria on May 14-16, 2027. </p>
+
+    <p>We invite proposals for panels, roundtables, and individual papers that focus on British Columbia’s past, present, and future. We extend a particular invitation to approaches that speak to pressing issues of our time, from the rights of Indigenous Peoples to climate justice and beyond.</p>
+
+    <p>Preference will be given to sessions/panels that are interdisciplinary and bring together presenters from more than one institution. Preference will also be given to proposals that link to the conference theme:</p>
+
+    <h3>Living in Risky Times</h3>
+
+    <p>Researchers from all disciplines are welcome to apply, including those in the arts and humanities, social sciences, law, education, policy, planning, and environmental sciences. Proposals about teaching and learning, collaborative research methods, and the digital humanities in BC are all welcome.</p>
+
+    <p>We especially encourage submissions from Indigenous scholars and researchers, as well as graduate students; museum, library, and/or archives professionals; public scholars; artists; and/or community-based scholars.</p>
+
+    <h2>Proposal information</h2>
+    <ul>
+        <li><b>Individual paper</b> (15-20 mins) proposals should include a paper title, abstract (up to 200 words), and up to 4 keywords.</li>
+        <li><b>Panel</b> (3-4 papers) proposals should include a panel title, panel abstract (max. 200 words), up to 4 keywords, a chair, and an abstract for each paper (max. 50 words each).</li>
+        <li><b>Roundtable</b> (3-6 speakers) proposals should include a roundtable title, abstract (up to 200 words), up to 4 key works, a chair, and names of speakers.</li>
+        <li><b>Non-traditional</b> we are open to proposals that break the standard conference format (ie. Walk and talk; lightning round; audience participation; be creative)</li>
+    </ul>
+
+    <p><b>Deadline for submissions: 1 December 2026</b> <a href="https://ubc.ca1.qualtrics.com/jfe/form/SV_0lmOcFttVdqlOPI">Submit proposals using the online form.</a></p>
+
+    <p>For more information or questions, email <a href="mailto:BCStudiesconf2027@gmail.com ">BCStudiesconf2027@gmail.com</a></p>
+
+
+</div>
+<!--end
+of root-->

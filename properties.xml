@@ -21,7 +21,7 @@
   Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer.
   Use complex for a custom landing page built from index.xml without the top navigation or footer.
   -->
-  <landingPageMode>complex</landingPageMode>
+  <landingPageMode>simple</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
@@ -30,7 +30,7 @@
   </languages>
   <files>
     <cssFile>css/bcstudies.css</cssFile>
-    <!--<jsFile>js/ux.js</jsFile>-->
+    <jsFile>js/pux.js</jsFile>
     <faviconIco>images/uvic-favicon.png</faviconIco>
     <!--<faviconSvg>images/favicon.svg</faviconSvg>-->
     <siteManifest>site.webmanifest</siteManifest>
@@ -45,17 +45,17 @@
       <en>Website for the BC Studies 2027 conference.</en>
     </metaDescription>
     <preTitle>
-      <en>Pre-title text in splash header stack, if any</en>
+      <en>BC Studies 2027</en>
     </preTitle>
     <organizationName>
       <en>Organization Name</en>
     </organizationName>
     <contactEmail>
-            info@bcstudies2027.uvic.ca <!--Check if this needs to be changed-->
+      BCStudiesconf2027@gmail.com  <!--Check if this needs to be changed-->
         </contactEmail>
     <WhereWhen>
       <place>
-        <en>Event Venue/Host</en>
+        <en>University of Victoria</en>
       </place>
       <date>
         <en>May 14-16, 2027</en>
@@ -83,7 +83,7 @@
   <splash-logo>
     <class>splash-logo</class>
     <src>images/logo-splash.webp</src>
-    <en>Alt text for main site logo, if any</en>
+    <!--<en>Alt text for main site logo, if any</en>-->
   </splash-logo>
   <!--For img.uvic-logo-->
   <uvic-logo>
@@ -96,7 +96,7 @@
   <!--For img.mobile-header splash page-->
   <mobile-header-splash>
     <class>mobile-header-splash</class>
-    <src>images/logo-mobile-header.webp</src>
+    <src>images/logo-mobile-header.svg</src>
     <alt>
       <en/>
     </alt>
@@ -104,10 +104,10 @@
   <!--For img.mobile-header internal pages-->
   <mobile-header-internal>
     <class>mobile-header-internal</class>
-    <src>images/logo-mobile-header.webp</src>
-    <alt>
+    <src>images/logo-mobile-header.svg</src>
+    <!--<alt>
       <en>Alt text for mobile header logo, if any. Change language element as needed.</en>
-    </alt>
+    </alt>-->
   </mobile-header-internal>
   <!--For popover.splash-icon. Assuming no alt text for this.-->
   <popover-splash-icon>
@@ -145,7 +145,7 @@
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
-    <item href="index.html">
+    <item href="cfp.html">
       <en>CFP</en>
     </item>
   </navigation>

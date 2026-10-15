@@ -489,7 +489,7 @@
         <echo message="${echo.separator}"/>
         <echo message="Building SCSS source to create CSS files in HTML folder."/>
         <mkdir dir="${basedir}/site/css"/>
-        <exec executable="sass">
+        <exec executable="sass" failonerror="true">
             <arg value="--embed-sources"/>
             <arg value="${basedir}/scss:${basedir}/css"/>
         </exec>
