@@ -1766,7 +1766,7 @@ html:not(#index) body {
 
 body.splash {
   min-height: 100lvh;
-  background: linear-gradient(180deg, #1b91cd 0%, rgba(164, 215, 241, 0.8) 25%, rgba(255, 255, 255, 0) 30%), linear-gradient(0deg, #1b91cd 0%, rgba(164, 215, 241, 0.8) 10%, rgba(255, 255, 255, 0) 25%), url("../images/bg-splash.webp") center center/cover no-repeat;
+  background: url("../images/splash.jpg") center center/cover no-repeat;
 }
 
 #index .page-wrapper {
@@ -1780,15 +1780,16 @@ body.splash {
 }
 
 .top-logo-container-splash {
-  margin-block-start: 10vh;
+  margin-block-start: 1vh;
   display: flex;
+  align-self: flex-start;
   align-items: center;
   flex-direction: column;
   padding-inline: 1rem;
   padding-block-start: 1rem;
   padding-block-end: 3rem;
   margin-inline: 1rem;
-  background: linear-gradient(0deg, rgba(6, 21, 29, 0) 0%, rgba(29, 96, 131, 0.35) 20%, rgba(29, 96, 131, 0.5) 50%, rgba(6, 21, 29, 0) 100%);
+  background: linear-gradient(0deg, rgba(4, 15, 20, 0) 0%, rgba(20, 58, 70, 0.48) 20%, rgba(38, 43, 43, 0.64) 50%, rgba(4, 15, 20, 0) 100%);
   border-radius: 8px;
 }
 @media (width >= 768px) {
@@ -1808,7 +1809,12 @@ body.splash {
   flex-direction: column;
   align-items: center;
 }
-.splash-header-stack :is(.pre-title, .site-title, .location-one, .location-two, .date, .contact-us) {
+.splash-header-stack :is(.pre-title,
+.site-title,
+.location-one,
+.location-two,
+.date,
+.contact-us) {
   font-family: var(--font-sans-heading);
   color: #fff;
   line-height: 1.5;
@@ -1816,9 +1822,8 @@ body.splash {
   margin-block-start: 0;
 }
 .splash-header-stack .pre-title {
-  font-size: clamp(0.8rem, 1rem + 1.2vw, 1.5rem);
+  font-size: clamp(1.5rem, 1rem + 2vw, 4rem);
   line-height: 1.2;
-  font-weight: var(--fw-regular);
 }
 .splash-header-stack .site-title {
   font-size: clamp(1.75rem, 2.5rem + 2vw, 5rem);
@@ -1859,7 +1864,8 @@ body.splash {
 }
 
 #index .popover-nav-items .item {
-  color: #fff;
+  color: var(--nav-items-font-color);
+  background: var(--nav-items-bg-color);
 }
 
 html:not(#index) .page-wrapper {
@@ -1893,6 +1899,10 @@ header {
   #index #site-navigation {
     background-color: transparent;
   }
+}
+
+#site-navigation .popover-nav-items {
+  list-style: none;
 }
 
 #index .nav-wrapper {
