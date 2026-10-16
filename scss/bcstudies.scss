@@ -134,6 +134,28 @@ body.splash {
     background: url("../images/splash.jpg") center center / cover no-repeat;
 }
 
+//small photo credit pinned to the bottom-right of the splash page
+.photo-credit {
+    position: fixed;
+    inset-block-end: 0.5rem;
+    inset-inline-end: 0.75rem;
+    z-index: 9999;
+    margin: 0;
+    font-family: var(--font-sans-heading);
+    font-size: 1rem;
+    line-height: 1.4;
+
+    & a {
+        color: #fff;
+        text-decoration: none;
+        text-shadow: 0 1px 3px rgba(4, 15, 20, 0.9);
+    }
+
+    & a:is(:hover, :focus-visible) {
+        text-decoration: underline;
+    }
+}
+
 //controls viewport padding and margins, centers main content
 #index .page-wrapper {
     display: flex;
