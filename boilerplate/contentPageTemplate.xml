@@ -1,92 +1,43 @@
-<?xml version="1.0"?>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-  <head xmlns="http://www.w3.org/1999/xhtml">
-    <title>
-      <?siteTitle?>
-    </title>
-    <!-- Core metadata -->
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="no-js">
+  <head>
+    <title><?siteTitle?></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <!-- Page-specific values are supplied by processContent.xsl. -->
+    <!-- The content transform supplies page metadata and configured canonical URLs. -->
     <meta name="description" content=""/>
     <link rel="canonical" href=""/>
-    <!-- Compiled styles (includes page grid + layout system) -->
     <link rel="stylesheet" href="{?cssFile}"/>
-    <!-- Script -->
     <script src="{?jsFile}" defer="defer"/>
-    <!-- Favicons / PWA -->
     <link rel="icon" href="{?faviconIco}" sizes="48x48"/>
     <link rel="icon" href="{?faviconSvg}" sizes="any" type="image/svg+xml"/>
     <link rel="manifest" href="{?siteManifest}"/>
   </head>
-  <body id="top">
-    <div class="content-wrapper page-grid">
-      <div class="top-wrapper full-bleed inherit-page-grid">
-        <header class="breakout">
-          <nav id="mainMenu" aria-label="{?site-navigation-label}">
-            <button class="mobile-menu-close">
-              Close
-              <svg xmlns="http://www.w3.org/2000/svg" class="x-closer" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-            <ul>
-              <li class="top-bar-logo">
-                <a href="index.html">
-                  <img class="site-logo-top" src="images/site-logo-internal.webp" alt="{?siteTitle}"/>
-                  <span class="siteTitle">
-                    <?siteTitle?>
-                  </span>
-                </a>
-              </li>
-              <?navigation?>
-            </ul>
+  <body id="top" class="loi-edition">
+    <a class="loi-skip-link" href="#content">Skip to main content</a>
+    <div class="loi-page">
+      <!-- Keep the shared shell identifiable for content/complex homepage modes. -->
+      <div class="top-wrapper">
+        <header class="loi-masthead">
+          <nav class="loi-masthead__inner" aria-label="Project websites">
+            <a class="loi-brand" href="https://www.landscapesofinjustice.com/">
+              <img src="images/loi-logo.png" alt="Landscapes of Injustice"/>
+            </a>
+            <a class="loi-partner" href="https://pastwrongsfuturechoices.com/">
+              <img src="images/pwfc-logo.svg" alt="Past Wrongs Future Choices"/>
+            </a>
           </nav>
-          <nav class="mobile-top-nav">
-            <ul>
-              <li>
-                <a href="index.html">
-                  <img class="site-logo-mobile" src="images/site-logo-internal.webp" width="100" height="38" alt="{?siteTitle}"/>
-                </a>
-              </li>
-              <li>
-                <a class="search-link" href="search.html">
-                  Search
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" class="magnifying-glass"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m14 14-4-4m1.333-3.333a4.667 4.667 0 1 1-9.333 0 4.667 4.667 0 0 1 9.333 0">
-                                  </path></svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <button class="mobile-menu-open" aria-controls="mainMenu" aria-expanded="false">
-            Menu
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 18 18" class="menu-burger"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 9h13.5M2.25 4.5h13.5m-13.5 9h13.5"/></svg>
-          </button>
         </header>
       </div>
-      <main class="full-bleed inherit-page-grid" id="content">
-        <div class="main-wrapper full-bleed inherit-page-grid">
-          <!-- NOTE: This processing-instruction will be replaced by the document
-                             content. -->
-          <?docContent?>
-        </div>
+      <main id="content">
+        <?docContent?>
       </main>
-      <footer class="full-bleed inherit-page-grid">
-        <div class="footer-wrapper inline breakout">
-          <ul class="footer-list">
-            <?navigation?>
-          </ul>
-        </div>
-        <div class="footer-accent-container breakout">
-          <a href="index.html">
-            <img class="logo-footer" src="images/logo-footer.webp" alt=""/>
-          </a>
+      <footer class="loi-footer">
+        <div class="loi-footer__inner">
+          <p><a href="https://www.landscapesofinjustice.com/">Landscapes of Injustice</a></p>
+          <p><a href="https://pastwrongsfuturechoices.com/">Past Wrongs Future Choices</a></p>
         </div>
       </footer>
     </div>
-    <a class="scroll-to-top" href="#top" aria-hidden="true" inert="">
-      <svg xmlns="http://www.w3.org/2000/svg" class="up-caret" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 12 5-5 5 5"/>
-      </svg>
-      <span>Back to top</span>
-    </a>
   </body>
 </html>

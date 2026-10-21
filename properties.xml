@@ -16,10 +16,11 @@
                     </siteTitle>
 -->
 <site>
-  <!-- Homepage source: simple template or content XML with or without shared site chrome.
-  Use simple in cases where you want a minimal landing page (eg. a conference website)
-  Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer.
-  Use complex for a custom landing page built from index.xml without the top navigation or footer.
+  <!-- Landing Page source: properties.xml or index.xml with or without shared site chrome.
+       Use simple in cases where you want a minimal landing page (eg. a conference website). It will be built using the data in this file. 
+       Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer. It will be built using the data in content/index.xml.
+       Use complex for a custom landing page built from index.xml without the top navigation or footer. It will be built using the data in content/index.xml.
+       Multilingual builds using content or complex landing pages will need to have an index.xml file in each language subfolder in the content folder.
   -->
   <landingPageMode>content</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
@@ -36,8 +37,8 @@
     <siteManifest>site.webmanifest</siteManifest>
   </files>
   <metadata>
-    <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
-    <siteUrl>https://commons.uvic.ca/</siteUrl>
+    <!-- Set the discovery site public URL before deployment; blank omits canonical links and sitemap output. -->
+    <siteUrl/>
     <siteTitle>
       <en>LOI Discovery Interface</en>
     </siteTitle>
@@ -145,29 +146,6 @@
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
-    <item href="index.html">
-      <en>Home</en>
-    </item>
-    <item href="critical-encounters.html">
-      <en>Critical encounters</en>
-    </item>
-    <item href="our-space.html">
-      <en>Our space</en>
-    </item>
-    <item href="public-hums-grants.html">
-      <en>Grants</en>
-    </item>
-    <item href="calendar.html">
-      <en>Calendar</en>
-    </item>
-    <item href="resources.html">
-      <en>Resources</en>
-    </item>
-    <item href="about.html">
-      <en>About</en>
-    </item>
-    <item href="contact.html">
-      <en>Contact</en>
-    </item>
+    <item href="index.html"><en>Explore</en></item>
   </navigation>
 </site>

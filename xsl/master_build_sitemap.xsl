@@ -1,55 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
-    exclude-result-prefixes="#all" xpath-default-namespace="http://www.w3.org/1999/xhtml"
-    xmlns="http://www.w3.org/1999/xhtml" xmlns:hcmc="http://hcmc.uvic.ca/ns" version="3.0">
-    <xd:doc scope="stylesheet">
-        <xd:desc>
-            <xd:p><xd:b>Created on:</xd:b> March 5, 2018</xd:p>
-            <xd:p>
-                <xd:b>Author:</xd:b>
-                <xd:a href="mol:HOLM3">mholmes</xd:a>
-            </xd:p>
-            <xd:p>Creates a sitemap file for Google Search.</xd:p>
-        </xd:desc>
-    </xd:doc>
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+  xmlns:hcmc="http://hcmc.uvic.ca/ns"
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xpath-default-namespace="" exclude-result-prefixes="#all" version="3.0">
+  <xd:doc scope="stylesheet">
+    <xd:desc>Builds search-engine metadata using the same public URL as content-page canonical links.</xd:desc>
+    <xd:p><xd:b>Created on:</xd:b> 2018-03-05; revised 2026-10-02</xd:p>
+    <xd:p><xd:b>Author:</xd:b> Martin Holmes; HCMC</xd:p>
+  </xd:doc>
 
-    <xsl:output method="xml" indent="yes" encoding="UTF-8" normalization-form="NFC"/>
+  <!--**************************************************************
+       *                                                            *
+       *                          Output                            *
+       *                                                            *
+       **************************************************************-->
+  <xsl:output method="xml" encoding="UTF-8" normalization-form="NFC" indent="yes" exclude-result-prefixes="#all"/>
 
-    <xd:doc>
-        <xd:desc>The public base URL for the deployed site, with trailing slash.</xd:desc>
-    </xd:doc>
-    <xsl:param name="siteUrl" as="xs:string" select="'https://hcmc.uvic.ca/project/fina/'"/>
+  <!--**************************************************************
+       *                                                            *
+       *                           Modes                            *
+       *                                                            *
+       **************************************************************-->
+  <xsl:mode on-no-match="shallow-skip" exclude-result-prefixes="#all"/>
 
-    <xd:doc>
-        <xd:desc>The relative directory containing generated site HTML files.</xd:desc>
-    </xd:doc>
-    <xsl:param name="outputDir" as="xs:string" select="'site'"/>
+  <!--**************************************************************
+       *                                                            *
+       *                         Parameters                         *
+       *                                                            *
+       **************************************************************-->
+  <xd:doc><xd:desc>The configured public URL, supplied by Ant.</xd:desc></xd:doc>
+  <xsl:param name="siteUrl" as="xs:string" select="normalize-space(doc(resolve-uri('../properties.xml', static-base-uri()))/site/metadata/siteUrl)"/>
+  <xd:doc><xd:desc>The generated site directory, relative to the project root.</xd:desc></xd:doc>
+  <xsl:param name="outputDir" as="xs:string" select="'site'"/>
 
-    <xsl:template match="/">
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <xsl:for-each select="uri-collection(concat('../', $outputDir, '/?select=*.html;recurse=yes'))">
-                <url>
-                    <loc>
-                        <xsl:value-of select="concat($siteUrl, substring-after(., '/site/'))"/>
-                    </loc>
-                </url>
-            </xsl:for-each>
-        </urlset>
-        <xsl:call-template name="robotsTxt"/>
-    </xsl:template>
+  <!--**************************************************************
+       *                                                            *
+       *                          Variables                         *
+       *                                                            *
+       **************************************************************-->
+  <xd:doc scope="component"><xd:desc>The normalized public base address.</xd:desc></xd:doc>
+  <xsl:variable name="baseUrl" as="xs:string" select="replace(normalize-space($siteUrl), '/+$', '') || '/'"/>
+  <xd:doc scope="component"><xd:desc>The absolute directory of generated pages.</xd:desc></xd:doc>
+  <xsl:variable name="siteDirectory" as="xs:anyURI" select="resolve-uri('../' || $outputDir || '/', static-base-uri())"/>
 
-    <xd:doc>
-        <xd:desc>Create a robots.txt file which points at the sitemap.</xd:desc>
-    </xd:doc>
-    <xsl:template name="robotsTxt">
-        <xsl:result-document method="text" href="robots.txt" indent="no"
-            encoding="UTF-8">
-            <xsl:text>Sitemap: </xsl:text>
-            <xsl:value-of select="concat($siteUrl, 'sitemap.xml')"/>
-            <xsl:text>&#x0a;</xsl:text>
-        </xsl:result-document>
-    </xsl:template>
-
-
+  <!--**************************************************************
+       *                                                            *
+       *                          Templates                         *
+       *                                                            *
+       **************************************************************-->
+  <xd:doc><xd:desc>Lists generated HTML pages and writes their robots.txt sitemap reference.</xd:desc></xd:doc>
+  <xsl:template match="/">
+    <xsl:if test="normalize-space($siteUrl) eq ''"><xsl:message terminate="yes">Sitemap: PROBLEM: Configure a public siteUrl before generating search-engine metadata.</xsl:message></xsl:if>
+    <xsl:message select="'Building sitemap for ' || $baseUrl"/>
+    <urlset>
+      <xsl:for-each select="sort(uri-collection($siteDirectory || '?select=*.html;recurse=yes'))">
+        <url><loc><xsl:sequence select="$baseUrl || substring-after(., $siteDirectory)"/></loc></url>
+      </xsl:for-each>
+    </urlset>
+    <xsl:result-document href="robots.txt" method="text" encoding="UTF-8" normalization-form="NFC" exclude-result-prefixes="#all">
+      <xsl:sequence select="'Sitemap: ' || $baseUrl || 'sitemap.xml' || '&#10;'"/>
+    </xsl:result-document>
+  </xsl:template>
 </xsl:stylesheet>

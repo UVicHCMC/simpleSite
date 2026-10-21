@@ -83,6 +83,8 @@
     <!-- Properties with default values -->
     <property name="templates.dir" value="templates"/>
     <property name="saxon" value="lib/saxon-he-12.jar"/>
+    <!-- Override for installations whose Sass launcher cannot run in the build environment. -->
+    <property name="sass.executable" value="sass"/>
     <exec executable="sh" outputproperty="projectNameLower">
         <arg value="-c"/>
         <arg value="printf '%s' &quot;${ant.project.name}&quot; | tr '[:upper:]' '[:lower:]'"/>
@@ -261,9 +263,20 @@
         <echo message="Language selector page created at site/index.html"/>
     </target>
     
+    <!-- Rebuild the intermediate catalogue so homepage changes always follow the CSV. -->
+    <target name="convertDiscoveryData">
+        <description>Converts discovery CSV records to a generated XML catalogue</description>
+        <mkdir dir="templates/data"/>
+        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+            <arg value="-s:properties.xml"/>
+            <arg value="-xsl:xsl/master_convert_discovery_csv.xsl"/>
+            <arg value="-o:templates/data/items.xml"/>
+        </java>
+    </target>
+
     <!-- Exactly one selected source owns each generated homepage. -->
     <target name="makeLandingPage"
-            depends="generateLandingTemplate,generateContentTemplates,getImageDimensions">
+            depends="convertDiscoveryData,generateLandingTemplate,generateContentTemplates,getImageDimensions">
         <description>Creates the configured homepage for each language</description>
 
         <sequential if:true="${needsLanguageRedirect}">
@@ -295,6 +308,7 @@
                 <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
                     <arg value="-s:content/index.xml"/>
                     <arg value="-xsl:xsl/processContent.xsl"/>
+                    <arg value="publicSiteUrl=${siteUrl}"/>
                     <arg value="-o:site/index.html"/>
                     <arg value="currentLang=${defaultLang}"/>
                     <arg value="languages=${languages}"/>
@@ -325,6 +339,7 @@
                         <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
                             <arg value="-s:content/@{lang}/index.xml"/>
                             <arg value="-xsl:xsl/processContent.xsl"/>
+                            <arg value="publicSiteUrl=${siteUrl}"/>
                             <arg value="-o:site/@{lang}/index.html"/>
                             <arg value="currentLang=@{lang}"/>
                             <arg value="languages=${languages}"/>
@@ -387,6 +402,7 @@
               classpath="${saxon}" failonerror="true">
             <arg value="-s:${content.file}"/>
             <arg value="-xsl:xsl/processContent.xsl"/>
+            <arg value="publicSiteUrl=${siteUrl}"/>
             <arg value="-o:${outputDir}/${content.basename}.html"/>
             <arg value="currentLang=${currentLang}"/>
             <arg value="languages=${languages}"/>
@@ -489,7 +505,7 @@
         <echo message="${echo.separator}"/>
         <echo message="Building SCSS source to create CSS files in HTML folder."/>
         <mkdir dir="${basedir}/site/css"/>
-        <exec executable="sass">
+        <exec executable="${sass.executable}" failonerror="true">
             <arg value="--embed-sources"/>
             <arg value="${basedir}/scss:${basedir}/css"/>
         </exec>
@@ -624,13 +640,22 @@
         </description>
         <echo message="${echo.separator}"/>
         <echo message="Building the sitemap required by Google search indexing."/>
-        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
-            <jvmarg value="-Xmx1024m"/>
-            <arg value="-s:xsl/master_build_sitemap.xsl"/>
-            <arg value="-xsl:xsl/master_build_sitemap.xsl"/>
-            <arg value="-o:site/sitemap.xml"/>
-            <arg value="--suppressXsltNamespaceCheck:on"/>
-        </java>
+        <if>
+            <equals arg1="${siteUrl}" arg2=""/>
+            <then>
+                <echo message="No public siteUrl configured; omitting sitemap.xml and robots.txt."/>
+                <delete file="site/sitemap.xml"/>
+                <delete file="site/robots.txt"/>
+            </then>
+            <else>
+                <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+                    <arg value="-s:properties.xml"/>
+                    <arg value="-xsl:xsl/master_build_sitemap.xsl"/>
+                    <arg value="-o:site/sitemap.xml"/>
+                    <arg value="siteUrl=${siteUrl}"/>
+                </java>
+            </else>
+        </if>
     </target>
     
     <target name="validateSite">
@@ -646,8 +671,9 @@
         <echo message="${echo.separator}"/>
         <echo message="Validating the HTML pages produced in the build using the VNU validator."/>
         <copy file="${basedir}/lib/vnu.jarx" tofile="${basedir}/lib/vnu.jar"/>
-        <java jar="${basedir}/lib/vnu.jar" failonerror="false" fork="true">
-            <arg value="--format text"/>
+        <java jar="${basedir}/lib/vnu.jar" failonerror="true" fork="true">
+            <arg value="--format"/>
+            <arg value="text"/>
             <arg value="--skip-non-html"/>
             <arg value="--errors-only"/>
             <arg value="${basedir}/site"/>

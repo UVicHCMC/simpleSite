@@ -56,6 +56,17 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 1.5em;
 }
 
 /* Make images easier to work with */
@@ -4532,6 +4543,42 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
   font-weight: 600;
 }
 
+/* Align both card groups with the collection; the casefile card stays full-width. */
+.loi-casefile-cards,
+.loi-about-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  inline-size: min(calc(100% - 2rem), var(--pageMaxWidth));
+  margin-inline: auto;
+  margin-block-end: 3rem;
+}
+
+.loi-casefile-cards .casefile-card,
+.loi-about-cards .about-card {
+  min-inline-size: 0;
+  padding: 1.5rem;
+  border: 1px solid var(--loi-rule);
+  background: var(--loi-wash);
+  overflow-wrap: anywhere;
+}
+
+.loi-casefile-cards .casefile-card h3,
+.loi-about-cards .about-card h3 {
+  margin-block-end: 0.75rem;
+}
+
+@media (min-width: 48rem) {
+  .loi-casefile-cards,
+  .loi-about-cards {
+    inline-size: min(calc(100% - 3rem), var(--pageMaxWidth));
+  }
+
+  .loi-about-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .loi-edition footer.loi-footer {
   margin-top: auto;
   display: block;
@@ -4598,4 +4645,280 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+
+
+/* Discovery catalogue: priorities are internal layout data, with no public tier labels. */
+.loi-edition .loi-brand img {
+  /* The build adds intrinsic dimensions; let the fixed height determine the display width. */
+  inline-size: auto;
+  max-inline-size: 100%;
+  block-size: 58px;
+}
+
+.loi-edition .loi-page > main {
+  inline-size: 100%;
+  flex: 1;
+}
+
+.loi-edition .discovery-intro,
+.loi-edition .discovery-catalogue {
+  inline-size: min(calc(100% - 2rem), var(--pageMaxWidth));
+  margin-inline: auto;
+}
+
+.loi-edition .discovery-intro {
+  padding-block: clamp(2rem, 5vw, 4rem) 2rem;
+}
+
+.loi-edition .discovery-intro h1 {
+  color: var(--headerColor);
+  font-family: var(--primarySans);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+  margin-block-end: 1rem;
+  text-align: center;
+}
+
+.loi-edition .discovery-intro p {
+  max-inline-size: 48rem;
+  margin-inline: auto;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.loi-edition .discovery-catalogue {
+  padding-block-end: 4rem;
+}
+
+.loi-edition .discovery-catalogue [hidden] {
+  display: none !important;
+}
+
+.loi-edition .discovery-filters {
+  margin-block-end: 2rem;
+  padding: 1rem;
+  background: var(--loi-wash);
+  border: 1px solid var(--loi-rule);
+}
+
+.loi-edition .discovery-filters fieldset {
+  min-inline-size: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.loi-edition .discovery-filters legend {
+  padding: 0;
+  color: var(--loi-ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.loi-edition .discovery-category-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-block: 0.75rem;
+}
+
+.loi-edition .discovery-category-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-block-size: 2.75rem;
+  color: var(--loi-ink);
+  cursor: pointer;
+}
+
+.loi-edition .discovery-category-options input {
+  appearance: auto;
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  margin: 0;
+  accent-color: var(--loi-blue-dark);
+}
+
+/* Native checkboxes already draw their own checkmark. */
+.loi-edition .discovery-category-options input:checked::after {
+  content: none;
+}
+
+.loi-edition .discovery-catalogue button {
+  min-block-size: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--loi-blue-dark);
+  border-radius: 0.25rem;
+  color: var(--loi-blue-dark);
+  background: #fff;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.loi-edition .discovery-catalogue button:hover {
+  background: var(--loi-wash);
+}
+
+.loi-edition :is(a, button, input, [tabindex]):focus-visible {
+  outline: 3px solid var(--loi-blue-dark);
+  outline-offset: 4px;
+}
+
+.loi-edition #discovery-results-heading {
+  margin-block-end: 0.5rem;
+  font-family: var(--primarySans);
+  font-size: 1.5rem;
+  scroll-margin-block-start: 1rem;
+}
+
+.loi-edition .discovery-status,
+.loi-edition .discovery-empty {
+  margin-block-end: 1.5rem;
+}
+
+.loi-edition .discovery-tier {
+  --discovery-columns: 1;
+  --discovery-padding: 1rem;
+  --discovery-title-size: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  list-style: none;
+  margin-block: 0 2.5rem;
+  padding: 0;
+}
+
+.loi-edition .discovery-tier[data-priority="1"] {
+  --discovery-padding: 1.25rem;
+  --discovery-title-size: 1.25rem;
+}
+
+.loi-edition .discovery-tier[data-priority="2"] {
+  --discovery-padding: 1.25rem;
+  --discovery-title-size: 1.0625rem;
+}
+
+.loi-edition .discovery-tier[data-priority="4"] {
+  --discovery-padding: 0.875rem;
+  --discovery-title-size: 0.9rem;
+}
+
+/* Use the archive's plain panels; priority changes size rather than decoration. */
+.loi-edition .discovery-card {
+  flex: 0 0 calc((100% - (var(--discovery-columns) - 1) * 1rem) / var(--discovery-columns));
+  min-inline-size: 0;
+  border: 1px solid var(--borderColor);
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.loi-edition .discovery-tier[data-priority="4"] .discovery-card {
+  background: #f5f5f5;
+}
+
+.loi-edition .discovery-card article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  block-size: 100%;
+  min-block-size: 10rem;
+  padding: var(--discovery-padding);
+}
+
+.loi-edition .discovery-tier[data-priority="1"] .discovery-card article {
+  min-block-size: 18rem;
+}
+
+.loi-edition .discovery-tier[data-priority="2"] .discovery-card article {
+  min-block-size: 12rem;
+}
+
+.loi-edition .discovery-tier[data-priority="4"] .discovery-card article {
+  min-block-size: 8rem;
+}
+
+.loi-edition .discovery-card h3 {
+  margin: 0;
+  color: var(--headerColor);
+  font-family: var(--primarySans);
+  font-size: var(--discovery-title-size);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: start;
+}
+
+.loi-edition .discovery-card h3 a {
+  color: var(--highlightColor);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--linkUnderlineColor);
+  text-underline-offset: 0.2em;
+}
+
+.loi-edition .discovery-card h3 a:hover {
+  text-decoration-color: currentColor;
+}
+
+.loi-edition .discovery-card-category {
+  margin: 0;
+  color: var(--loi-muted);
+  font-family: var(--primarySans);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  text-align: start;
+}
+
+.loi-edition .discovery-link-unavailable {
+  color: var(--loi-muted);
+  margin: 0;
+  font-size: 0.8125rem;
+  font-style: italic;
+  text-align: start;
+}
+
+.loi-edition .discovery-card .discovery-category-action {
+  margin-block-start: auto;
+  inline-size: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--highlightColor);
+  background: transparent;
+  font-size: 0.8125rem;
+  text-align: start;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.loi-edition .discovery-card .discovery-category-action:hover {
+  color: var(--loi-blue-dark);
+  background: transparent;
+}
+
+.loi-edition .discovery-card-image {
+  inline-size: 100%;
+  block-size: 18rem;
+  object-fit: contain;
+}
+
+@media (min-width: 48rem) {
+  .loi-edition .discovery-intro,
+  .loi-edition .discovery-catalogue {
+    inline-size: min(calc(100% - 3rem), var(--pageMaxWidth));
+  }
+  .loi-edition .discovery-tier { --discovery-columns: 2; }
+}
+
+@media (min-width: 64rem) {
+  /* Fit four featured cards per row; let wrapped titles determine their height. */
+  .loi-edition .discovery-tier[data-priority="1"] {
+    --discovery-columns: 4;
+    --discovery-padding: 1.25rem;
+  }
+  .loi-edition .discovery-tier[data-priority="2"] { --discovery-columns: 3; }
+  .loi-edition .discovery-tier[data-priority="3"] { --discovery-columns: 4; }
+  .loi-edition .discovery-tier[data-priority="4"] { --discovery-columns: 4; }
+}

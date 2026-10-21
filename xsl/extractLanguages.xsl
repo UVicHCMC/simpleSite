@@ -21,6 +21,13 @@
 
   <!--**************************************************************
        *                                                            *
+       *                          Modes                             *
+       *                                                            *
+       **************************************************************-->
+  <xsl:mode on-no-match="shallow-skip" exclude-result-prefixes="#all"/>
+
+  <!--**************************************************************
+       *                                                            *
        *                        Templates                           *
        *                                                            *
        **************************************************************-->
@@ -40,6 +47,8 @@
       <xsl:text>&#10;landingPageMode=</xsl:text>
       <xsl:value-of select="normalize-space(/site/landingPageMode)"/>
     </xsl:if>
+    <xsl:text>&#10;siteUrl=</xsl:text>
+    <xsl:value-of select="normalize-space(/site/metadata/siteUrl)"/>
     <xsl:text>&#10;cssFile=</xsl:text>
     <xsl:value-of select="/site/files/cssFile"/>
     <xsl:text>&#10;jsFile=</xsl:text>

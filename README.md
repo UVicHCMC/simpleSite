@@ -69,21 +69,11 @@ Provide translations for all user-visible metadata, navigation items, and interf
 
 To use a language-selection splash page for a multilingual site, uncomment and configure `<languageSelector>` in `properties.xml`.
 
-### Homepage modes
+### Landing Page modes
 
-Set `<landingPageMode>` directly under `<site>` in `properties.xml`:
+Set `<landingPageMode>` in `properties.xml`. Use 'simple' for a landing page that is generate from the data in `properties.xml`. Use 'content' for a landing page that is populated with data from an `index.xml` file in the `content` directory and gets the full content page chrome (ie. the menu nav bar and footer). Use 'complex' for a landing page that gets content from an `index.html` file in the `content` directory but does not get the full page chrome. The build will fall back to 'simple' if no value is supplied. If you have a multilingual build, you will have to supply  `content/{lang}/index.xml` files for every configured language if using 'content' or 'complex' mode. 
 
-| Value | Source of `index.html` | Shared navigation and footer |
-| --- | --- | --- |
-| `simple` | `boilerplate/landingPageTemplate.xml` | Supplied by that template |
-| `content` | `content/index.xml` through `boilerplate/contentPageTemplate.xml` | Included as on other content pages |
-| `complex` | `content/index.xml` through `boilerplate/contentPageTemplate.xml` | Omitted from the homepage |
-
-The default when the setting is absent is `simple`. An Ant command-line property overrides the file for one build, for example `ant -DlandingPageMode=simple fullBuild`. Unknown values stop the build with an error.
-
-The Commons site uses `content`: its hero and homepage sections are in `content/index.xml`. In either content-based mode, the index XML uses the same wrapper and page metadata attributes as other content files. Its child elements are inserted at `<?docContent?>` in the content template. Complex mode uses that same template and content format, but the build omits its top navigation area and footer on the homepage. Other content pages retain them.
-
-For a multilingual site, provide `content/{lang}/index.xml` for every configured language when using `content` or `complex`. The build writes each language's homepage at `site/{lang}/index.html`; the root `site/index.html` is either the configured language selector or a redirect to the default language. In all modes, the build handles `index.xml` separately from ordinary content files. Use `ant makeLandingPage` to rebuild it; `processSingleContent` is for other pages.
+An authored landing page can include a top-level `<main>` inside its root wrapper, with sibling bands such as the Commons hero. These replace the content template's `<main>` through `<?docContent?>`, preserving the authored hierarchy and one main landmark. Homepages without an authored `<main>` use the template's normal main and content wrapper.
 
 ### Navigation
 
