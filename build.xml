@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="fullBuild" name="simpleSite" xmlns:if="ant:if"
+<project basedir="." default="fullBuild" name="commons" xmlns:if="ant:if"
          xmlns:unless="ant:unless">
     <description>
         #####################################################################
@@ -360,7 +360,7 @@
             <mkdir dir="site"/>
             <foreach target="processOneContent" param="content.file">
                 <path>
-                    <!-- makeLandingPage owns index.html in every mode. -->
+                    <!-- Do not process index.xml as a content page. It is processed as a landing page -->
                     <fileset dir="content" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                 </path>
                 <param name="currentLang" value="${defaultLang}"/>
@@ -377,7 +377,7 @@
                     <mkdir dir="site/@{lang}"/>
                     <foreach target="processOneContent" param="content.file">
                         <path>
-                            <!-- makeLandingPage owns each language homepage. -->
+                            <!-- Do not process index.xml as a content page. It is processed as a landing page -->
                             <fileset dir="content/@{lang}" includes="*.xml" excludes="index.xml" erroronmissingdir="false"/>
                         </path>
                         <param name="currentLang" value="@{lang}"/>
@@ -412,7 +412,7 @@
         <fail unless="content.file"
               message="Missing required parameter: -Dcontent.file=content/yourpage.xml"/>
         
-        <!-- The selected homepage mode, not this convenience target, owns index.html. -->
+        <!-- The convenience wrapper for processing a single content file should not handle index.xml -->
         <condition property="single.is.index">
             <matches string="${content.file}" pattern="(^|/)index\.xml$"/>
         </condition>
@@ -700,7 +700,7 @@
             <arg value="-e"/>
             <arg value="ssh"/>
             <arg value="./site/"/>
-            <arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/${projectNameLower}"/>
+            <arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/commons"/>
         </exec>
     </target>
     
