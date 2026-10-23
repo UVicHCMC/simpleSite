@@ -48,18 +48,14 @@ An authored landing page can include a top-level `<main>` inside its root wrappe
 ### Automatic events and newsletters
 
 The Commons homepage uses an `<?upcomingEvents?>` processing instruction for its Upcoming Events section. The build
-reads active `calendar-event` articles from the adjacent `calendar.xml`, selects forthcoming events, and inserts only the earliest forthcoming event. If there are no such events, the build adds `display-none` to the Upcoming Events section.
-
-Ant supplies one `America/Vancouver` timestamp per build. For reproducible previews:
+reads active `calendar-event` articles from the adjacent `calendar.xml`, selects forthcoming events, and inserts only the earliest forthcoming event. If there are no such events, the build adds `display-none` to the Upcoming Events section. It uses a timestamp that is supplied by Ant to determine whether events are forthcoming or past. 
 
 The Commons resources page uses `<?newsletterCards?>` to generate the Newsletter and Newsletter
 Archive cards beside its authored subscription card. Add PDFs to `pdf/newsletters/`
-using `CHCNewsletter_MonthYYYY.pdf` as the name scheme (eg. `CHCNewsletter_October2026.pdf`).
+using the name scheme `CHCNewsletter_MonthYYYY.pdf` (eg. `CHCNewsletter_October2026.pdf`). 
 
-The newest filename-dated file becomes the current newsletter; all other PDFs appear in the expandable
-archive, newest first. Adding a new file automatically moves the previously-'new' file into the archive. 
-The archive uses native HTML details and direct PDF links and needs no JavaScript or separate page. 
-Generated links point to `pdf/newsletters/`, which the build copies recursively. If there are no files that follow the naming scheme, the Newsletter card displays a message saying "No archived newsletters yet".
+The filename with the most recent date becomes the current newsletter and all other PDFs appear in the expandable
+archive. This uses filenames for dates rather than looking into file metadata (eg. modified date/creation date), since such metadata is not always available in the files. Adding a new file to `pdf/newsletters` automatically moves the previously-'new' file into the archive. 
 
 The events and newsletters section update each time the site is rebuilt.
 
