@@ -49,6 +49,21 @@
           <figcaption>Presentation screen and seating in the Commons Hub</figcaption>
         </figure>
       </li>
+      <li>
+        <figure>
+          <a class="space-gallery-link"
+            href="images/Hub 4.jpg"
+            aria-label="View the full-size image of the Hub set up for an exhibition">
+            <img src="images/Hub 4.jpg"
+              width="800"
+              height="600"
+              alt=""
+              loading="lazy"
+              decoding="async"/>
+          </a>
+          <figcaption>Hub set up for an exhibition</figcaption>
+        </figure>
+      </li>
     </ul>
   </section>
   <section id="lounge" class="space-gallery-section full-bleed inherit-page-grid" aria-labelledby="lounge-heading">
@@ -81,7 +96,37 @@
           <figcaption>Meeting table and whiteboard in the Commons Lounge</figcaption>
         </figure>
       </li>
+      <li>
+        <figure>
+          <a class="space-gallery-link"
+            href="images/Lounge 4.jpg"
+            aria-label="View the full-size image of the Lounge set up for a community conversation">
+            <img src="images/Lounge 4.jpg"
+              width="800"
+              height="600"
+              alt=""
+              loading="lazy"
+              decoding="async"/>
+          </a>
+          <figcaption>Lounge set up for a community conversation</figcaption>
+        </figure>
+      </li>
     </ul>
   </section>
+  
+  <section class="page-content content-width accessibility-notes" aria-labelledby="accessibility-notes-heading">
+    <div class="text-column">
+      <h2 id="accessibility-notes-heading">Accessibility Notes</h2>
+      
+      <p>The Critical Humanities Commons is committed to making our space as welcoming and accessible as possible. All hosted events are hybrid for increased inclusion, with opportunities for audience participation. Auto-captioning is provided for virtual audiences and displayed clearly in the physical space. For Lansdowne lectures, we strive to provide ASL interpretation.</p>
+      
+      <p>The Commons is on the third floor of the <a href="https://www.google.com/maps/place/Clearihue+Building/@48.4638287,-123.3105448,17z/data=!4m6!3m5!1s0x548f71575b8c6b8f:0x1af7ffb57063ad79!8m2!3d48.46422!4d-123.3103946!16s%2Fg%2F11b75mf1qy?entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D">Clearihue Building</a> in the C wing. There is an elevator located just outside the Commons’ main entrance, on the left; across from the entrance is administrative assistant Sarah Lawrence’s office. Washrooms are down the hall, to the left of the elevator. An accessible and all-gender washroom is available on the first floor of the Clearihue Building; a full list of all-gender washrooms with menstrual products is available on the <a href="https://www.uvic.ca/campus/all-gender-washrooms/index.php">campus website</a>.</p>
+      
+      <p>We welcome participants to share any access needs or requests in advance by <a href="mailto:muktalawrence@uvic.ca">emailing Sarah</a>. At the start of an event, we will additionally review our accessibility provisions and respond flexibly to access needs as they arise.</p>
+      
+      <p>We recognize that accessibility is an ongoing practice and are committed to creating a more inclusive space for everyone.</p>
+    </div>
+  </section>
+  
 </div>
 <!--end of root-->
