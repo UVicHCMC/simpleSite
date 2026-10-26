@@ -37,6 +37,17 @@
     <faviconSvg>images/favicon.svg</faviconSvg>
     <siteManifest>site.webmanifest</siteManifest>
   </files>
+
+  <categoryBlurbs>
+    <archive>Lorem ipsum dolor sit amet</archive>
+    <community-stories>Lorem ipsum dolor sit amet</community-stories>
+    <film>Lorem ipsum dolor sit amet</film>
+    <museum-output>Lorem ipsum dolor sit amet</museum-output>
+    <org>Lorem ipsum dolor sit amet</org>
+    <scholarship>Lorem ipsum dolor sit amet</scholarship>
+    <teaching-resources>Lorem ipsum dolor sit amet</teaching-resources>
+  </categoryBlurbs>
+
   <metadata>
     <!-- Set the discovery site public URL before deployment; blank omits canonical links and sitemap output. -->
     <siteUrl/>

@@ -1,202 +1,31 @@
-# simpleSite
+# LOI Discovery Interface
 
-`simpleSite` is an Ant-based static-site build system for small HCMC websites that do not require large datasets. It was initially created for conference websites, although it may be used for other types of sites in future. 
+## Data and build process
 
-The build reads site-wide configuration from `properties.xml`, combines well-formed XML content with XHTML boilerplate templates, compiles SCSS, and writes the finished site to the `site/` directory. It is written to support both monolingual and multilingual output.
+Data is supplied by a CSV file that is defined in `properties.xml`. Currently, this is `data/data.csv`, which is an export from https://uvic.sharepoint.com/:x:/r/sites/HCMCHumanitiesComputingMediaCentreO/Shared%20Documents/LOI%20Discovery%20Interface/LegacyWebsiteAssetListSorted%209-9-26.xlsx?d=w31c513b0f5fd40faa94c7bf196105930&csf=1&web=1&e=AQudhc. To add data, change the SharePoint file, export to CSV, and either replace the current file or save the new file and change the filename in `properties.xml`. You can also edit the current `data.csv` file directly. 
 
-**For internal (HCMC) users, please create a new branch for each new site developed using this repo. External users are welcome to fork the repository and use it for their needs**
+The CSV is processed into `items.xml` using XSLT. A separate XML file is then created for each category in the Category column and placed in `content/generated`. The build pulls from the `<categoryBlurbs>` section of `properties.xml` to insert a blurb describing each category into the  category HTML files. The build process also generates cards for each item in the data file and uses those cards to populate the main view in the `index.html` file. 
 
-## Requirements
+Any XML files in the `conent` directory are also processed into separate HTML pages with the site chrome as part of the build.
 
-The build requires:
+Run `ant fullBuild` or just `ant` to rebuild the whole site. If you want only part of the build process, run `ant convertDiscoveryData` to refresh the catalogue, `ant makeCategoryPages` to generate category page sources and HTML, or `ant makeLandingPage` to rebuild the index.html page. `ant productionReady` builds a version of the site with hashed CSS/JavaScript assets and validates the HTML. The `ant rsyncToLiveServer` target currently doesn't work.
 
-- Java 11 or newer;
-- Apache Ant;
-- [ant-contrib](https://ant-contrib.sourceforge.net/) (the build expects `lib/ant-contrib-1.0b3.jar`, although it may also be installed in Ant's classpath);
-- the Saxon HE and VNU Validator JARs referenced in `build.xml`;
-- Dart Sass, available as the `sass` command;
-- ImageMagick, available as the `identify` command; and
-- a Bash-compatible shell.
+After a full build, run `ant validateSite` to validate the 
 
-The deployment target requires `rsync`, SSH access, and the appropriate HCMC credentials. The contents of `lib/`, generated templates, compiled CSS, and the generated site are ignored by Git, so a fresh clone may require the local dependencies to be supplied before it can build.
+## CSV columns
 
-## Quick start
+Keep the existing named columns and use a CSV editor that quotes fields containing commas, quotes, or newlines. An unnamed trailing column is supported. Additional columns, such as `HCMC`, are preserved in XML but do not appear on cards.
 
-1. Edit `properties.xml` to describe the site, its languages, navigation, metadata, and asset paths.
-2. Add or edit page content in `content/`.
-3. Customize the source templates in `boilerplate/` and styles in `scss/` as needed.
-4. Run the development build:
-
-   ```sh
-   ant fullBuild
-   ```
-
-5. Open `site/index.html` in a browser and review the generated pages.
-
-`fullBuild` is the default target, so running `ant` by itself has the same effect. It cleans the existing `site/` directory before rebuilding it.
-
-## Configuration
-
-The build is organized around `properties.xml`. This file contains the language list, site title, contact information, event metadata, navigation, interface labels, image settings, and paths to the site's CSS, JavaScript, favicons, and web manifest.
-
-### Languages
-
-Define every output language in the `<languages>` element. Exactly one language should be marked as the default:
-
-```xml
-<languages>
-  <lang code="en" label="English" default="true"/>
-  <lang code="fr" label="Français"/>
-</languages>
-```
-
-For a monolingual site, a property's text can appear directly inside its element:
-
-```xml
-<siteTitle>Title of Site</siteTitle>
-```
-
-For a multilingual site, put each translation in a child element whose name matches a language code:
-
-```xml
-<siteTitle>
-  <en>Title of Site</en>
-  <fr>Titre du site</fr>
-</siteTitle>
-```
-
-Provide translations for all user-visible metadata, navigation items, and interface labels. The language marked `default="true"` becomes the site's default language; if none is marked, the build uses the first language in the list.
-
-To use a language-selection splash page for a multilingual site, uncomment and configure `<languageSelector>` in `properties.xml`.
-
-### Landing Page modes
-
-Set `<landingPageMode>` in `properties.xml`. Use 'simple' for a landing page that is generate from the data in `properties.xml`. Use 'content' for a landing page that is populated with data from an `index.xml` file in the `content` directory and gets the full content page chrome (ie. the menu nav bar and footer). Use 'complex' for a landing page that gets content from an `index.html` file in the `content` directory but does not get the full page chrome. The build will fall back to 'simple' if no value is supplied. If you have a multilingual build, you will have to supply  `content/{lang}/index.xml` files for every configured language if using 'content' or 'complex' mode. 
-
-An authored landing page can include a top-level `<main>` inside its root wrapper, with sibling bands such as the Commons hero. These replace the content template's `<main>` through `<?docContent?>`, preserving the authored hierarchy and one main landmark. Homepages without an authored `<main>` use the template's normal main and content wrapper.
-
-### Navigation
-
-Each navigation entry supplies a target file and a label for every language:
-
-```xml
-<navigation>
-  <item href="about.html">
-    <en>About</en>
-    <fr>À propos</fr>
-  </item>
-</navigation>
-```
-
-Content filenames and navigation `href` values must agree. The build marks the navigation link for the current page with `class="active"` and `aria-current="page"`.
-
-## Content
-
-Store page content as well-formed XML in `content/`.
-
-For a monolingual site, place XML files directly in that directory:
-
-```text
-content/
-├── about.xml
-└── schedule.xml
-```
-
-For a multilingual site, create one subdirectory per language and provide a translated version of every page in the corresponding XML files. Corresponding XML files currently need the same filename in every language:
-
-```text
-content/
-├── en/
-│   ├── about.xml
-│   └── schedule.xml
-└── fr/
-    ├── about.xml
-    └── schedule.xml
-```
-
-Each file should have a single wrapper element. The wrapper itself is removed and its children are inserted at `<?docContent?>` in the content-page template. The existing `content/about.xml` provides a starting example:
-
-```xml
-<div id="root" xmlns="http://www.w3.org/1999/xhtml">
-  <h1>About</h1>
-  <section id="organization">
-    <h2>Organization</h2>
-    <p>Page content goes here.</p>
-  </section>
-</div>
-```
-
-When a page contains two or more `<section>` elements, sections that have both an `id` and a heading are included in an automatically generated secondary navigation menu.
-
-## Templates and placeholders
-
-If you wish to modify templates for either the landing/splash page or for content pages you can do some by modifying:
-
-- `boilerplate/landingPageTemplate.xml` for a simple homepage; or
-- `boilerplate/contentPageTemplate.xml` for content pages and both content-based homepage modes.
-
-Do not edit files in `templates/`. They are generated from the boilerplate files for each configured language and are overwritten during every build.
-
-Templates can retrieve values from `properties.xml` in two ways:
-
-- use a processing instruction such as `<?siteTitle?>` where elements or text should be inserted; and
-- use an attribute placeholder such as `href="{?faviconSvg}"` where a property should become part of an attribute value.
-
-The `<?navigation?>` and `<?docContent?>` processing instructions have special build-time behavior. Other placeholder names are resolved against elements in `properties.xml`.
-
-## Assets and styling
-
-- Edit SCSS in `scss/`. The build compiles it into `css/` and copies the result into `site/css/`.
-- Store shared images in `images/`. The image-dimension utility records their dimensions so the XSLT can add `width`, `height`, and an aspect-ratio class to generated `<img>` elements.
-- Store JavaScript in `js/`, fonts in `fonts/`, and downloadable PDFs in `pdf/`.
-- Supply the primary CSS and JavaScript filenames in `<files>` in `properties.xml`.
-
-Running a development build (eg. ant fullBuild) retains stable CSS and JavaScript filenames and the CSS source map. A production build (ant productionReady) gives the primary CSS and JavaScript files content-hashed names, removes the source-map reference, and creates `site/.htaccess` with cache-control rules.
-
-## Ant targets
-
-| Command | Purpose |
+| Column | Purpose |
 | --- | --- |
-| `ant fullBuild` | Clean and rebuild the complete development site, including resources, content pages, landing pages, and the sitemap. |
-| `ant -DlandingPageMode=complex fullBuild` | Build once with the complex homepage mode, overriding `properties.xml`. |
-| `ant processSingleContent -Dcontent.file=content/about.xml` | Rebuild one page in a monolingual site. |
-| `ant processSingleContent -Dcontent.file=content/fr/about.xml` | Rebuild one page in a multilingual site; the language and output directory are inferred from the path. |
-| `ant validateSite` | Run the VNU Validator over HTML files in `site/`. Review the console output for errors. |
-| `ant productionReady` | Run a clean production build with cache-busted assets, then validate it. |
-| `ant clean` | Remove generated contents from `site/`. |
-| `ant rsyncToLiveServer` | Deploy `site/` to the configured HCMC server using `rsync --delete`. |
+| `Number` | REQUIRED. Unique ID number. Must be a positive integer. |
+| `Asset Name` | REQUIRED. Card title. |
+| `Priority Level` | REQUIRED. Number 1–4; Determines the priority level of each item. 1 = high. 4 = low. |
+| `Category` | REQUIRED. Category label for each item. |
+| `Current URL` | OPTIONAL. URL for the item. Blank, TBD, or other unavailable values lead to a card that says "Link Unavailable". |
+| `Notes` | NOT CURRENTLY PROCESSED. |
+| `Image Filename` | OPTIONAL. image filename. Eg. `adachi.jpg`. Only available for priority 1 items. All images must be placed in the `content/images` directory. |
+| `Image Alt Text` | OPTIONAL. image alt text. Use meaningful text if the image conveys information beyond the card title. |
 
-Additional component targets can be listed with `ant -p`.
+Rows missing an ID, title, category, or valid priority do not produce cards or categories. Missing usable URLs will a warning but will not exclude items from the build. Duplicate nonblank numbers, malformed CSV quoting, and missing or duplicate named headings will cause the build to fail immediately. Rows with the wrong field count are reported and omitted. Empty or duplicate categories will cause category generation to fail.
 
-## Production setup and deployment
-
-Before producing or deploying a real site:
-
-1. Set the public base URL in the `siteUrl` parameter in `xsl/master_build_sitemap.xsl`; it is used in both `sitemap.xml` and `robots.txt`.
-2. Review the project name and the destination in `rsyncToLiveServer` in `build.xml`. The current destination is derived from the lowercase Ant project name.
-3. Run `ant productionReady` and resolve any validation errors reported in the console.
-4. Inspect the generated `site/` directory.
-5. Run `ant rsyncToLiveServer` only when the remote destination is correct. This target uses `--delete`, so files that exist remotely but not in `site/` will be removed.
-
-## Repository layout
-
-```text
-boilerplate/   XHTML page templates
-content/       XML page content
-fonts/         Web fonts copied to the output
-images/        Shared site images
-js/            JavaScript copied to the output
-lib/           Local Java dependencies
-pdf/           Downloadable PDF documents
-scss/          Sass source files
-site/          Generated website
-templates/     Generated language-specific templates
-utilities/     Build helper scripts and generated image data
-xsl/           XSLT build transforms
-build.xml      Ant targets and deployment configuration
-properties.xml Site-wide configuration and translated interface text
-```
-
-## License
-
-See [LICENSE](LICENSE).

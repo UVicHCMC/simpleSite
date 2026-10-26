@@ -28,7 +28,12 @@
     <xsl:variable name="pageCategory" as="xs:string" select="if ($category ne '') then $category else string(ancestor::*[@data-category][1]/@data-category)"/>
     <xsl:variable name="items" as="element(item)*" select="$allItems[if ($pageCategory eq '') then true() else @category eq $pageCategory]"/>
     <div class="discovery-catalogue">
-      <div class="category-blurb"></div>
+      <div class="category-blurb">
+        <xsl:if test="$pageCategory ne ''">
+          <xsl:variable name="categorySlug" as="xs:string" select="replace(lower-case(replace(normalize-space($pageCategory), '[^A-Za-z0-9]+', '-')), '(^-+|-+$)', '')"/>
+          <xsl:value-of select="doc(resolve-uri('../properties.xml', static-base-uri()))/site/categoryBlurbs/*[local-name() eq $categorySlug]"/>
+        </xsl:if>
+      </div>
       <xsl:if test="$pageCategory ne ''"><p class="discovery-item-count"><xsl:sequence select="count($items) || (if (count($items) eq 1) then ' item' else ' items')"/></p></xsl:if>
       <div class="discovery-results">
         <xsl:for-each-group select="$items" group-by="@priority">
