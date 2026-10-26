@@ -58,7 +58,7 @@
           </div>
         </article>
       </li>-->
-      <li>
+      <!--<li>
         <article class="event-container calendar-event" aria-labelledby="event-october-22-title">
           <time class="event-date" datetime="2026-10-22">
             <span class="event-weekday">Thursday</span>
@@ -72,7 +72,7 @@
             <a class="event-button" href="https://events.uvic.ca/event/111266-lost-in-translation-homers-odyssey-catullus-in">Event details</a>
           </div>
         </article>
-      </li>
+      </li>-->
       <li>
         <article class="event-container calendar-event" aria-labelledby="event-october-27-title">
           <time class="event-date" datetime="2026-10-27">
@@ -96,7 +96,7 @@
             <span class="event-day">30</span>
             <span class="event-year">2026</span>
           </time>
-          <img class="calendar-event-image" src="images/10388_CSPT_colloquium_oct_2026.webp" width="400" height="560" alt="" loading="lazy" decoding="async" />
+          <img class="calendar-event-image" src="images/cspt-colloquium-oct2026.webp" width="400" height="560" alt="" loading="lazy" decoding="async" />
           <div class="event-summary">
             <h3 id="event-october-30-title" class="calendar-event-title">CSPT 2026-2027 Colloquium Series — Halloween Edition</h3>
             <a class="event-button" href="https://events.uvic.ca/cspt/event/112086-cspt-2026-2027-colloquium-series-halloween">Event details</a>
@@ -111,7 +111,7 @@
             <span class="event-day">3</span>
             <span class="event-year">2026</span>
           </time>
-          <img class="calendar-event-image" src="images/Disability, Indigeneity.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
+          <img class="calendar-event-image" src="images/disability-indigeneity-art.webp" width="400" height="400" alt="" loading="lazy" decoding="async" />
           <div class="event-summary">
             <h3 id="event-november-3-title" class="calendar-event-title">Disability, Indigeneity, and Art: A Conversation with bailey macabre &amp; Eliza Chandler</h3>
             <a class="event-button" href="https://events.uvic.ca/event/111804-disability-indigeneity-and-art-a-conversation-with-ba">Event details</a>
@@ -126,7 +126,7 @@
             <span class="event-day">1</span>
             <span class="event-year">2026</span>
           </time>
-          <img class="calendar-event-image" src="images/CSPT 2026.webp" width="400" height="518" alt="" loading="lazy" decoding="async" />
+          <img class="calendar-event-image" src="images/social-symposium.webp" width="400" height="518" alt="" loading="lazy" decoding="async" />
           <div class="event-summary">
             <h3 id="event-december-1-title" class="calendar-event-title">CSPT 2026 Social Symposium feat. New Faculty Members</h3>
             <a class="event-button" href="https://events.uvic.ca/event/112099-cspt-2026-social-symposium-feat-new-faculty">Event details</a>
@@ -141,14 +141,14 @@
             <span class="event-day">26</span>
             <span class="event-year">2027</span>
           </time>
-          <img class="calendar-event-image" src="images/Exhumations.webp" width="400" height="440" alt="" loading="lazy" decoding="async" />
+          <img class="calendar-event-image" src="images/joanne-leow.webp" width="400" height="440" alt="" loading="lazy" decoding="async" />
           <div class="event-summary">
             <h3 id="event-january-26-title" class="calendar-event-title">Exhumations: Inside the Body of a Petrostate — Joanne Leow (Simon Fraser University)</h3>
             <a class="event-button" href="https://events.uvic.ca/event/111807-exhumations-inside-the-body-of-a-petrostate-joanne">Event details</a>
           </div>
         </article>
       </li>
-      
+
       <li>
         <article class="event-container calendar-event" aria-labelledby="event-february-2-title">
           <time class="event-date" datetime="2027-02-02">
@@ -159,7 +159,7 @@
           </time>
           <img
             class="calendar-event-image"
-            src="images/A conversation on Gender.webp"
+            src="images/hums-week2027.webp"
             width="200"
             height="200"
             alt=""
@@ -172,7 +172,7 @@
           </div>
         </article>
       </li>
-      
+
     </ol>
   </section>
 </div>
