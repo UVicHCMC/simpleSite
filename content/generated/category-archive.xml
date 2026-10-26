@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     id="root"
+     data-category="Archive"
+     data-page-title="Archive"
+     data-meta-description="Explore Archive resources in the Landscapes of Injustice and Past Wrongs Future Choices collection.">
+   <h1>Archive</h1>
+   <?discoveryCards?>
+</div>

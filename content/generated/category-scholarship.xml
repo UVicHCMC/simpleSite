@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     id="root"
+     data-category="Scholarship"
+     data-page-title="Scholarship"
+     data-meta-description="Explore Scholarship resources in the Landscapes of Injustice and Past Wrongs Future Choices collection.">
+   <h1>Scholarship</h1>
+   <?discoveryCards?>
+</div>

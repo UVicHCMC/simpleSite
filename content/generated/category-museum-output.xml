@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<div xmlns="http://www.w3.org/1999/xhtml"
+     id="root"
+     data-category="Museum Output"
+     data-page-title="Museum Output"
+     data-meta-description="Explore Museum Output resources in the Landscapes of Injustice and Past Wrongs Future Choices collection.">
+   <h1>Museum Output</h1>
+   <?discoveryCards?>
+</div>
