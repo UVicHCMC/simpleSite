@@ -28,6 +28,7 @@
             </a>
           </nav>
         </header>
+        <nav class="loi-site-nav" aria-label="Main navigation"><?categoryNav?></nav>
       </div>
       <main id="content">
         <?docContent?>

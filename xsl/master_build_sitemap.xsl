@@ -8,7 +8,7 @@
   <xd:doc scope="stylesheet">
     <xd:desc>Builds search-engine metadata using the same public URL as content-page canonical links.</xd:desc>
     <xd:p><xd:b>Created on:</xd:b> 2018-03-05; revised 2026-10-02</xd:p>
-    <xd:p><xd:b>Author:</xd:b> Martin Holmes; HCMC</xd:p>
+    <xd:p><xd:b>Author:</xd:b> Martin Holmes</xd:p>
   </xd:doc>
 
   <!--**************************************************************
@@ -56,7 +56,8 @@
     <xsl:message select="'Building sitemap for ' || $baseUrl"/>
     <urlset>
       <xsl:for-each select="sort(uri-collection($siteDirectory || '?select=*.html;recurse=yes'))">
-        <url><loc><xsl:sequence select="$baseUrl || substring-after(., $siteDirectory)"/></loc></url>
+        <xsl:variable name="pagePath" as="xs:string" select="substring-after(., $siteDirectory)"/>
+        <url><loc><xsl:sequence select="$baseUrl || (if ($pagePath eq 'index.html') then '' else $pagePath)"/></loc></url>
       </xsl:for-each>
     </urlset>
     <xsl:result-document href="robots.txt" method="text" encoding="UTF-8" normalization-form="NFC" exclude-result-prefixes="#all">

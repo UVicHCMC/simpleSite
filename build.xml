@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="fullBuild" name="simpleSite" xmlns:if="ant:if"
+<project basedir="." default="fullBuild" name="discovery" xmlns:if="ant:if"
          xmlns:unless="ant:unless">
     <description>
         #####################################################################
@@ -266,15 +266,35 @@
     <!-- Rebuild the intermediate catalogue so homepage changes always follow the CSV. -->
     <target name="convertDiscoveryData">
         <description>Converts discovery CSV records to a generated XML catalogue</description>
-        <mkdir dir="templates/data"/>
+        <mkdir dir="data"/>
         <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
             <arg value="-s:properties.xml"/>
             <arg value="-xsl:xsl/master_convert_discovery_csv.xsl"/>
-            <arg value="-o:templates/data/items.xml"/>
+            <arg value="-o:data/items.xml"/>
         </java>
     </target>
 
-    <!-- Exactly one selected source owns each generated homepage. -->
+    <target name="makeCategoryPages" depends="convertDiscoveryData,generateContentTemplates,getImageDimensions">
+        <description>Generates and renders static pages for eligible categories</description>
+        <delete dir="content/generated"/>
+        <mkdir dir="content/generated"/>
+        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+            <arg value="-s:data/items.xml"/>
+            <arg value="-xsl:xsl/make_category_sources.xsl"/>
+            <arg value="-o:${basedir}/content/generated/.generation-index.xml"/>
+            <arg value="outputDir=file:${basedir}/content/generated"/>
+        </java>
+        <delete file="content/generated/.generation-index.xml"/>
+        <delete>
+            <fileset dir="site" includes="category-*.html" erroronmissingdir="false"/>
+        </delete>
+        <foreach target="processOneContent" param="content.file">
+            <path><fileset dir="content/generated" includes="category-*.xml"/></path>
+            <param name="currentLang" value="${defaultLang}"/>
+            <param name="outputDir" value="site"/>
+        </foreach>
+    </target>
+
     <target name="makeLandingPage"
             depends="convertDiscoveryData,generateLandingTemplate,generateContentTemplates,getImageDimensions">
         <description>Creates the configured homepage for each language</description>
@@ -415,7 +435,7 @@
     <target name="processSingleContent" depends="generateContentTemplates,getImageDimensions">
         <fail unless="content.file"
               message="Missing required parameter: -Dcontent.file=content/yourpage.xml"/>
-        <!-- The selected homepage mode, not this convenience target, owns index.html. -->
+        <!-- Create index.html using the Landing Page mode set in properties.xml -->
         <condition property="single.is.index">
             <matches string="${content.file}" pattern="(^|/)index\.xml$"/>
         </condition>
@@ -458,7 +478,7 @@
     </target>
     
     <!-- Full build target -->
-    <target name="fullBuild" depends="clean, getImageDimensions, copyWebResources,makeLandingPage,processContent,buildSitemap">
+    <target name="fullBuild" depends="clean, getImageDimensions, copyWebResources,makeLandingPage,processContent,makeCategoryPages,buildSitemap">
         <description>Full multilingual build (DEFAULT)</description>
         <echo message="Build complete! Languages: ${languages}"/>
     </target>
@@ -540,10 +560,6 @@
             <fileset dir="${basedir}/js"/>
         </copy>
         
-        <echo message="Copying PDFs to site/pdf folder."/>
-        <copy todir="${basedir}/site/pdf" preservelastmodified="true">
-            <fileset dir="${basedir}/pdf"/>
-        </copy>
 
         <echo message="Copying images to the 'site/images' folder."/>
         <path id="image.files">

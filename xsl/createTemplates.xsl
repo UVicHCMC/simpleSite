@@ -190,6 +190,9 @@
     
     <xsl:choose>
       <!-- Special handling for specific PIs that need custom logic -->
+      <xsl:when test="$piName eq 'categoryNav'">
+        <xsl:processing-instruction name="categoryNav"/>
+      </xsl:when>
       <xsl:when test="$piName = 'other-lang'">
         <xsl:value-of select="$properties/lang-config/*[local-name() = $lang]/other-lang"/>
       </xsl:when>

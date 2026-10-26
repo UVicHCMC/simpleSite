@@ -100,6 +100,18 @@
        *                          Templates                         *
        *                                                            *
        **************************************************************-->
+  <xd:doc><xd:desc>Generates navigation links from the eligible categories in the catalogue.</xd:desc></xd:doc>
+  <xsl:template match="processing-instruction('categoryNav')" priority="5">
+    <xsl:message>Rendering shared category navigation.</xsl:message>
+    <xsl:variable name="categories" as="xs:string*" select="sort(distinct-values(doc(resolve-uri('../data/items.xml', static-base-uri()))/items/item[@eligible eq 'true']/@category ! string(.)))"/>
+    <xh:ul class="loi-site-nav__links">
+      <xh:li><xh:a class="item{if ($currentPage eq 'index.html') then ' active' else ''}" href="index.html"><xsl:if test="$currentPage eq 'index.html'"><xsl:attribute name="aria-current">page</xsl:attribute></xsl:if>Home</xh:a></xh:li>
+      <xh:li><xh:details><xh:summary>Categories</xh:summary><xh:ul><xsl:for-each select="$categories"><xsl:variable name="filename" as="xs:string" select="'category-' || replace(lower-case(replace(normalize-space(.), '[^A-Za-z0-9]+', '-')), '(^-+|-+$)', '') || '.html'"/><xh:li><xh:a class="item{if ($filename eq $currentPage) then ' active' else ''}" href="{$filename}"><xsl:if test="$filename eq $currentPage"><xsl:attribute name="aria-current">page</xsl:attribute></xsl:if><xsl:sequence select="."/></xh:a></xh:li></xsl:for-each></xh:ul></xh:details></xh:li>
+      <xh:li><xh:a class="item{if ($currentPage eq 'about.html') then ' active' else ''}" href="about.html"><xsl:if test="$currentPage eq 'about.html'"><xsl:attribute name="aria-current">page</xsl:attribute></xsl:if>About</xh:a></xh:li>
+      <xh:li><xh:a class="item{if ($currentPage eq 'team.html') then ' active' else ''}" href="team.html"><xsl:if test="$currentPage eq 'team.html'"><xsl:attribute name="aria-current">page</xsl:attribute></xsl:if>Team</xh:a></xh:li>
+    </xh:ul>
+  </xsl:template>
+
   <xd:doc><xd:desc>Processes the generated template in the context of the source content.</xd:desc></xd:doc>
   <xsl:template match="/">
     <xsl:message select="'Processing ' || $currentPage || (if ($isComplexHomepage) then ' without shared navigation and footer' else '') || '.'"/>

@@ -393,70 +393,9 @@
   };
 
   /**
-   * Filter the generated catalogue without fetching data or changing card order.
-   */
-  const initDiscoveryCards = () => {
-    const catalogue = document.querySelector("[data-discovery-catalogue]");
-    if (!catalogue) return;
-
-    const form = catalogue.querySelector(".discovery-filters");
-    const checkboxes = [...form.querySelectorAll('input[name="category"]')];
-    const cards = [...catalogue.querySelectorAll(".discovery-card")];
-    const tiers = [...catalogue.querySelectorAll(".discovery-tier")];
-    const actions = [...catalogue.querySelectorAll("[data-only-category]")];
-    const status = catalogue.querySelector(".discovery-status");
-    const empty = catalogue.querySelector(".discovery-empty");
-    const heading = catalogue.querySelector("#discovery-results-heading");
-
-    const update = () => {
-      const selected = new Set(
-        checkboxes.filter((input) => input.checked).map((input) => input.value)
-      );
-      let visible = 0;
-      for (const card of cards) {
-        card.hidden = selected.size > 0 && !selected.has(card.dataset.category);
-        if (!card.hidden) visible += 1;
-      }
-      for (const tier of tiers) {
-        tier.hidden = [...tier.children].every((card) => card.hidden);
-      }
-      empty.hidden = visible > 0;
-      const description = selected.size > 0
-        ? ` in ${[...selected].join(", ")}`
-        : " across all categories";
-      status.textContent = `${visible} ${visible === 1 ? "item" : "items"}${description}.`;
-    };
-
-    // Both the top controls and card actions use the same filter state.
-    form.addEventListener("submit", (event) => event.preventDefault());
-    form.addEventListener("change", update);
-    form.querySelector("[data-show-all]").addEventListener("click", () => {
-      for (const input of checkboxes) input.checked = false;
-      update();
-    });
-    for (const action of actions) {
-      action.addEventListener("click", () => {
-        for (const input of checkboxes) {
-          input.checked = input.value === action.dataset.onlyCategory;
-        }
-        update();
-        heading.focus({ preventScroll: true });
-        // Instant scrolling also respects visitors who prefer reduced motion.
-        heading.scrollIntoView({ block: "start", behavior: "instant" });
-      });
-    }
-
-    // Reveal controls only after their handlers and initial state are ready.
-    update();
-    form.hidden = false;
-    for (const action of actions) action.hidden = false;
-  };
-
-  /**
    * Initialize UX features independently.
    */
   const init = () => {
-    initDiscoveryCards();
     initMobileMenu();
     initScrollButton();
 

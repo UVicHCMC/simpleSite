@@ -30,7 +30,8 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <cssFile>css/loi.css</cssFile>
+    <dataFile>data/data.csv</dataFile>
+    <cssFile>css/discovery.css</cssFile>
     <jsFile>js/ux.js</jsFile>
     <faviconIco>images/favicon.ico</faviconIco>
     <faviconSvg>images/favicon.svg</faviconSvg>
@@ -146,6 +147,9 @@
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
-    <item href="index.html"><en>Explore</en></item>
+    <item href="index.html"><en>Home</en></item>
+    <item><en>Categories</en></item>
+    <item href="about.html"><en>About</en></item>
+    <item href="team.html"><en>Team</en></item>
   </navigation>
 </site>
