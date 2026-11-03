@@ -9,6 +9,9 @@ To-do:
 
 - Ongoing: Pull events from LiveWhale and add to calendar page (search for "Critical Humanities Commons" and add in anything not already in the calendar)
 - Monthly: Update newsletter; add old newsletter to archive
-- Update text on Our space page; added Access text to the bottom of the page (use document labelled "AccessNote")
-- Add Hub photo #4 with the caption "Hub set up for an exhibition"
-- Add Lounge photo #4 with the caption "Lounge set up for a community conversation"
+- Update styling for "Our Space" photos to accommodate 4 images
+- Create carousel of upcoming events for home page
+- Incorporate social media (with direction for Jai)
+- ~~Update text on Our space page; added Access text to the bottom of the page (use document labelled "AccessNote")~~
+- ~~Add Hub photo #4 with the caption "Hub set up for an exhibition"~~
+- ~~Add Lounge photo #4 with the caption "Lounge set up for a community conversation"~~
