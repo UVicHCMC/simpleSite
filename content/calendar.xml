@@ -73,7 +73,7 @@
           </div>
         </article>
       </li>-->
-      <li>
+      <!--<li>
         <article class="event-container calendar-event" aria-labelledby="event-october-27-title">
           <time class="event-date" datetime="2026-10-27">
             <span class="event-weekday">Tuesday</span>
@@ -102,7 +102,7 @@
             <a class="event-button" href="https://events.uvic.ca/cspt/event/112086-cspt-2026-2027-colloquium-series-halloween">Event details</a>
           </div>
         </article>
-      </li>
+      </li>-->
       <li>
         <article class="event-container calendar-event" aria-labelledby="event-november-3-title">
           <time class="event-date" datetime="2026-11-03">
