@@ -39,6 +39,8 @@
         * Takes the properties of the properties XML file and uses them to fill in templates 
         
         * Takes the content XML files and processes them into HTML files using the templates
+
+        * Comments out past calendar events in the source before generating pages
         
         It requires java libraries that are in the /lib/ folder.
         
@@ -272,7 +274,7 @@
     
     <!-- Exactly one selected source for each generated homepage. -->
     <target name="makeLandingPage"
-            depends="generateLandingTemplate,generateContentTemplates,getImageDimensions">
+            depends="archivePastCalendarEvents,generateLandingTemplate,generateContentTemplates,getImageDimensions">
         <description>Creates the configured homepage for each language</description>
 
         <sequential if:true="${needsLanguageRedirect}">
@@ -350,7 +352,7 @@
     </target>
 
     <!-- Process content files -->
-    <target name="processContent" depends="generateContentTemplates,getImageDimensions">
+    <target name="processContent" depends="archivePastCalendarEvents,generateContentTemplates,getImageDimensions">
         <description>Processes content files for all languages</description>
         <echo message="Processing content files..."/>
         
@@ -408,7 +410,7 @@
     </target>
     
     <!-- Convenience wrapper: process a single content file with one required parameter -->
-    <target name="processSingleContent" depends="generateContentTemplates,getImageDimensions">
+    <target name="processSingleContent" depends="archivePastCalendarEvents,generateContentTemplates,getImageDimensions">
         <fail unless="content.file"
               message="Missing required parameter: -Dcontent.file=content/yourpage.xml"/>
         
@@ -463,6 +465,34 @@
     <!-- ========================================= -->
     <!-- UTILITY TARGETS                           -->
     <!-- ========================================= -->
+
+    <!-- Update calendar, commenting out events with datetimes before the current build time -->
+    <target name="archivePastCalendarEvents">
+        <description>Comments out past events in calendar.xml, retaining them in the source</description>
+        <foreach target="archiveOneCalendar" param="calendar.file">
+            <path>
+                <fileset dir="content" includes="calendar.xml,*/calendar.xml"/>
+            </path>
+        </foreach>
+    </target>
+
+    <target name="archiveOneCalendar">
+        <tempfile property="calendar.temp.file" suffix=".xml" deleteonexit="true"/>
+        <makeurl property="calendar.temp.uri" file="${calendar.temp.file}" validate="false"/>
+        <java fork="true" classname="net.sf.saxon.Transform" classpath="${saxon}" failonerror="true">
+            <arg value="-s:${calendar.file}"/>
+            <arg value="-xsl:xsl/archive_calendar_events.xsl"/>
+            <arg value="buildDateTime=${buildDateTime}"/>
+            <arg value="archiveUri=${calendar.temp.uri}"/>
+        </java>
+        <!-- Replace the calendar XML file only if there arepast events. -->
+        <if>
+            <available file="${calendar.temp.file}"/>
+            <then>
+                <move file="${calendar.temp.file}" tofile="${calendar.file}" overwrite="true"/>
+            </then>
+        </if>
+    </target>
     
     <target name="clean">
         <description>

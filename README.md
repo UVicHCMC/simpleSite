@@ -50,6 +50,11 @@ An authored landing page can include a top-level `<main>` inside its root wrappe
 The Commons homepage uses an `<?upcomingEvents?>` processing instruction for its Upcoming Events section. The build
 reads active `calendar-event` articles from the adjacent `calendar.xml`, selects forthcoming events, and inserts only the earliest forthcoming event. If there are no such events, the build adds `display-none` to the Upcoming Events section. It uses a timestamp that is supplied by Ant to determine whether events are forthcoming or past. 
 
+Before building the homepage or content pages, `archivePastCalendarEvents` checks
+`content/calendar.xml` and comments out each past event. Existing
+comments and upcoming events are retained, and the calendar.xml file is only overwritten if there are events to be archived.
+ Invalid or missing dates produce a diagnostic and remain active.
+
 The Commons resources page uses `<?newsletterCards?>` to generate the Newsletter and Newsletter
 Archive cards beside its authored subscription card. Add PDFs to `pdf/newsletters/`
 using the name scheme `CHCNewsletter_MonthYYYY.pdf` (eg. `CHCNewsletter_October2026.pdf`). 
@@ -173,6 +178,7 @@ Running a development build (eg. ant fullBuild) retains stable CSS and JavaScrip
 | --- | --- |
 | `ant fullBuild` | Clean and rebuild the complete development site, including resources, content pages, landing pages, and the sitemap. |
 | `ant makeLandingPage` | Rebuild the configured homepage, including required resources. |
+| `ant archivePastCalendarEvents` | Comment out past calendar events in the source without rebuilding the site. |
 | `ant processSingleContent -Dcontent.file=content/about.xml` | Rebuild one page in a monolingual site. |
 | `ant processSingleContent -Dcontent.file=content/fr/about.xml` | Rebuild one page in a multilingual site; the language and output directory are inferred from the path. |
 | `ant validateSite` | Run the VNU Validator over HTML files in `site/`. Review the console output for errors. |
