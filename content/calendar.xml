@@ -164,7 +164,7 @@
         </article>
       </li>
       <li>
-        <article class="event-container calendar-event" aria-labelledby="event-february-9-title">
+        <article class="event-container calendar-event" aria-labelledby="event-february-2-title">
           <time class="event-date" datetime="2027-02-02">
             <span class="event-weekday">Tuesday</span>
             <span class="event-month">February</span>
