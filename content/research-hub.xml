@@ -1,132 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<div xmlns="http://www.w3.org/1999/xhtml" id="root" data-page-title="Our Space" data-meta-description="Learn about the Critical Humanities Commons Hub and Lounge, view the spaces, and find information about booking an event.">
+<div xmlns="http://www.w3.org/1999/xhtml"
+     id="root"
+     data-page-title="Research Hub"
+     data-meta-description="Explore the Research Hub at the Critical Humanities Commons, University of Victoria.">
   <!--gets removed-->
-  <section class="page-hero space-hero full-bleed inherit-page-grid" aria-labelledby="space-heading">
+
+  <!-- Research Hub hero -->
+  <section class="page-hero space-hero full-bleed inherit-page-grid" aria-labelledby="research-hub-heading">
     <div class="page-hero-content">
-      <h1 id="space-heading">Critical Humanities Commons <span class="sub-title">Our Space</span></h1>
+      <h1 id="research-hub-heading">
+        Critical Humanities Commons
+        <span class="sub-title">Research Hub</span>
+      </h1>
     </div>
   </section>
-  <aside class="page-callout content-width" aria-labelledby="space-booking-heading">
-    <div class="page-callout-copy">
-      <h2 id="space-booking-heading">Book the Commons</h2>
-      <p>Reserve the Commons Hub, Lounge, or both for your event.</p>
-    </div>
-    <a class="page-callout-link" href="https://bookings.cloud.microsoft/book/HUMSCommonsLab-bookings@uvic.ca/?ismsaljsauthenabled=true">Book the space</a>
-  </aside>
+
+  <!-- Introduction -->
   <div class="page-content content-width">
     <div class="text-column">
-      <p>Located on the third floor of the Clearihue Building in room C305, the Commons evokes the spirit of its original architectural design as the heart of the Faculty of Humanities. The space is freely available for Humanities Faculty and Students for booking events, in consultation with the Commons Director.</p>
-      <p>The space is divided into two sections:</p>
+      <h2>About the Research Hub</h2>
+      <p>
+        Information about the Research Hub will be added here.
+      </p>
     </div>
   </div>
-  <section id="hub" class="space-gallery-section full-bleed inherit-page-grid" aria-labelledby="hub-heading">
+
+  <!-- Research section -->
+  <section class="space-gallery-section full-bleed inherit-page-grid" aria-labelledby="research-heading">
     <div class="text-column content-width">
-      <h2 id="hub-heading">Commons Hub</h2>
-      <p>A multimodal space accommodating up to 50 people, equipped with accessible meeting technology, including ceiling-mounted microphones, an 180-degree camera, and whiteboard screen. The <em>Critical Encounter</em> speaker series will be hosted here, along with other Commons programming. Seating can be reconfigured to match event needs as required.</p>
-    </div>
-    <ul class="space-gallery breakout" aria-label="Commons Hub photo gallery">
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/hub1.webp" aria-label="View the full-size image of the Commons Hub arranged for a presentation">
-            <img src="images/hub1-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Commons Hub arranged for a presentation</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/hub2.webp" aria-label="View the full-size image of flexible seating in the Commons Hub">
-            <img src="images/hub2-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Flexible seating in the Commons Hub</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/hub3.webp" aria-label="View the full-size image of the Commons Hub presentation screen and seating">
-            <img src="images/hub3-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Presentation screen and seating in the Commons Hub</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link"
-            href="images/hub-4.jpg"
-            aria-label="View the full-size image of the Hub set up for an exhibition">
-            <img src="images/hub-4.jpg"
-              width="800"
-              height="600"
-              alt=""
-              loading="lazy"
-              decoding="async"/>
-          </a>
-          <figcaption>Hub set up for an exhibition</figcaption>
-        </figure>
-      </li>
-    </ul>
-  </section>
-  <section id="lounge" class="space-gallery-section full-bleed inherit-page-grid" aria-labelledby="lounge-heading">
-    <div class="text-column content-width">
-      <h2 id="lounge-heading">Commons Lounge</h2>
-      <p>A welcoming collective area designed for informal social gatherings, open dialogue, and interdisciplinary exchange. The Lounge is a flexible, inclusive space where faculty, students, and visitors can meet casually, host drop-in conversations, or engage in spontaneous collaborations for teaching, research, creative, or community.</p>
-    </div>
-    <ul class="space-gallery breakout" aria-label="Commons Lounge photo gallery">
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/lounge1.webp" aria-label="View the full-size image of meeting and lounge seating in the Commons Lounge">
-            <img src="images/lounge1-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Meeting and lounge seating in the Commons Lounge</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/lounge2.webp" aria-label="View the full-size image of the Commons Lounge overlooking the courtyard">
-            <img src="images/lounge2-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Commons Lounge looking outside</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link" href="images/lounge3.webp" aria-label="View the full-size image of the Commons Lounge meeting table and whiteboard">
-            <img src="images/lounge3-thumb.webp" width="800" height="600" alt="" loading="lazy" decoding="async"/>
-          </a>
-          <figcaption>Meeting table and whiteboard in the Commons Lounge</figcaption>
-        </figure>
-      </li>
-      <li>
-        <figure>
-          <a class="space-gallery-link"
-            href="images/lounge-4.jpg"
-            aria-label="View the full-size image of the Lounge set up for a community conversation">
-            <img src="images/lounge-4.jpg"
-              width="800"
-              height="600"
-              alt=""
-              loading="lazy"
-              decoding="async"/>
-          </a>
-          <figcaption>Lounge set up for a community conversation</figcaption>
-        </figure>
-      </li>
-    </ul>
-  </section>
-  
-  <section class="page-content content-width accessibility-notes" aria-labelledby="accessibility-notes-heading">
-    <div class="text-column">
-      <h2 id="accessibility-notes-heading">Accessibility Notes</h2>
-      
-      <p>The Critical Humanities Commons is committed to making our space as welcoming and accessible as possible. All hosted events are hybrid for increased inclusion, with opportunities for audience participation. Auto-captioning is provided for virtual audiences and displayed clearly in the physical space. For Lansdowne lectures, we strive to provide ASL interpretation.</p>
-      
-      <p>The Commons is on the third floor of the <a href="https://www.google.com/maps/place/Clearihue+Building/@48.4638287,-123.3105448,17z/data=!4m6!3m5!1s0x548f71575b8c6b8f:0x1af7ffb57063ad79!8m2!3d48.46422!4d-123.3103946!16s%2Fg%2F11b75mf1qy?entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D">Clearihue Building</a> in the C wing. There is an elevator located just outside the Commons’ main entrance, on the left; across from the entrance is administrative assistant Sarah Lawrence’s office. Washrooms are down the hall, to the left of the elevator. An accessible and all-gender washroom is available on the first floor of the Clearihue Building; a full list of all-gender washrooms with menstrual products is available on the <a href="https://www.uvic.ca/campus/all-gender-washrooms/index.php">campus website</a>.</p>
-      
-      <p>We welcome participants to share any access needs or requests in advance by <a href="mailto:muktalawrence@uvic.ca">emailing Sarah</a>. At the start of an event, we will additionally review our accessibility provisions and respond flexibly to access needs as they arise.</p>
-      
-      <p>We recognize that accessibility is an ongoing practice and are committed to creating a more inclusive space for everyone.</p>
+      <h2 id="research-heading">Research Projects</h2>
+      <p>
+        Details about research projects and initiatives will be added here.
+      </p>
     </div>
   </section>
-  
+
 </div>
 <!--end of root-->
