@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="fullBuild" name="bcstudies2027" xmlns:if="ant:if"
+<project basedir="." default="fullBuild" name="rra" xmlns:if="ant:if"
          xmlns:unless="ant:unless">
     <description>
         #####################################################################
@@ -632,6 +632,32 @@
             <arg value="--suppressXsltNamespaceCheck:on"/>
         </java>
     </target>
+
+    <target name="createHtaccess">
+        <description>
+            TARGET createHtaccess
+            This puts a simple .htaccess file in the site directory,
+            so that it will be uploaded along with everything else.
+        </description>
+        <echo message="${echo.separator}"/>
+        <echo message="Creating .htaccess..."/>
+        <echo file="site/.htaccess"><![CDATA[
+        DirectoryIndex index.html
+        Options +Indexes
+
+        AuthType Basic
+        AuthName "NetLink ID, please."
+        AuthBasicProvider ldap
+
+        <RequireAny>
+            Require env allow_redirect
+            Require valid-user
+        </RequireAny>
+
+        <Files ".htaccess">
+            Require all denied
+        </Files>]]></echo>
+    </target>
     
     <target name="validateSite">
         <description>
@@ -667,6 +693,30 @@
         <antcall target="validateSite"/>
     </target>
     
+    <target name="rsyncToDevServer">
+        <description>
+            TARGET rsyncToDevServer
+            This pushes the content up to the simpleSite folder on the HCMC server.
+            This will overwrite the existing site. Use with care.
+        </description>
+        <echo message="${echo.separator}"/>
+        <echo message="Pushing content up to the dev site."/>
+        <exec executable="rsync" dir="${basedir}">
+            <arg value="--stats"/>
+            <arg value="--recursive"/>
+            <arg value="--times"/>
+            <arg value="--verbose"/>
+            <arg value="--delete"/>
+            <arg value="--progress"/>
+            <arg value="--compress"/>
+            <arg value="-e"/>
+            <arg value="ssh"/>
+            <arg value="./site/"/>
+            <!--<arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/${projectNameLower}"/>-->
+            <arg value="inokhrin@nfs.hcmc.uvic.ca:/home1t/inokhrin/www/public/${projectNameLower}"/>
+        </exec>
+    </target>
+
     <target name="rsyncToLiveServer">
         <description>
             TARGET rsyncToLiveServer
@@ -688,8 +738,10 @@
             <arg value="ssh"/>
             <arg value="./site/"/>
             <!--<arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/${projectNameLower}"/>-->
-            <arg value="inokhrin@nfs.hcmc.uvic.ca:/home1t/inokhrin/www/public/${projectNameLower}"/>
+            <arg value="hcmc@nfs.hcmc.uvic.ca:/home1t/hcmc/www/project/rra"/>
         </exec>
     </target>
+
+    
     
 </project>

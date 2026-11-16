@@ -21,7 +21,7 @@
   Use content when you basically want the landing page to be a content page, with lots of content, a top menu, and a footer.
   Use complex for a custom landing page built from index.xml without the top navigation or footer.
   -->
-  <landingPageMode>complex</landingPageMode>
+  <landingPageMode>simple</landingPageMode>
   <!--This list of languages defines all of the languages that the site will be built in.
          The build process will pull this list of languages and use that to create the necessary build targets and outputs.
          You can overwrite this logic by running the build with -Dlanguages and specifying just the language(s) you want -->
@@ -29,20 +29,23 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <cssFile>css/bcstudies.css</cssFile>
-    <!--<jsFile>js/ux.js</jsFile>-->
+    <cssFile>css/rra.css</cssFile>
+    <jsFile>js/ux.js</jsFile>
     <faviconIco>images/uvic-favicon.png</faviconIco>
     <!--<faviconSvg>images/favicon.svg</faviconSvg>-->
     <siteManifest>site.webmanifest</siteManifest>
   </files>
   <metadata>
     <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
-    <siteUrl>https://bcstudies2027.uvic.ca/</siteUrl>
+    <siteUrl>https://FutureOfRRA.uvic.ca/</siteUrl>
     <siteTitle>
-      <en>Living in Risky Times</en>
+      <en>Shaping the Future of Research Assessment</en> 
     </siteTitle>
+    <siteSubtitle>
+      <en>A Canadian Strategy</en>
+    </siteSubtitle>
     <metaDescription>
-      <en>Website for the BC Studies 2027 conference.</en>
+      <en>Website for the Shaping the Future of Research Assessment—A Canadian Strategy workshop</en>
     </metaDescription>
     <preTitle>
       <en>Pre-title text in splash header stack, if any</en>
@@ -51,16 +54,16 @@
       <en>Organization Name</en>
     </organizationName>
     <contactEmail>
-            info@bcstudies2027.uvic.ca <!--Check if this needs to be changed-->
+            info@FutureOfRRA.uvic.ca <!--Check if this needs to be changed-->
         </contactEmail>
     <WhereWhen>
       <place>
-        <en>Event Venue/Host</en>
+        <en>University Club</en>
       </place>
       <date>
-        <en>May 14-16, 2027</en>
+        <en>June 8-10, 2027</en>
       </date>
-      <dateIso>2027-05-14/2027-05-16</dateIso>
+      <dateIso>2027-06-09/2027-06-10</dateIso>
       <location>
         <en>University of Victoria</en>
       </location>
@@ -87,10 +90,11 @@
   </splash-logo>
   <!--For img.uvic-logo-->
   <uvic-logo>
-    <href>https://hcmc.uvic.ca</href>
-    <src>images/logo-uvic.svg</src>
+    <href>https://uvic.ca</href>
+    <src>images/UVIC-VRGB-Blue.svg</src>
+    <width>300</width>
     <alt>
-      <en>University of Victoria Humanities Computing and Media Centre</en>
+      <en>University of Victoria</en>
     </alt>
   </uvic-logo>
   <!--For img.mobile-header splash page-->
@@ -146,7 +150,25 @@
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
     <item href="index.html">
-      <en>CFP</en>
+      <en>Home</en>
+    </item>
+    <item href="about.html">
+      <en>About</en>
+    </item>
+    <item href="program.html">
+      <en>Program</en>
+    </item>
+    <item href="speakers.html">
+      <en>Speakers</en>
+    </item>
+    <item href="registration.html">
+      <en>Registration</en>
+    </item>
+    <item href="gettinghere.html">
+      <en>Getting Here</en>
+    </item>
+    <item href="information.html">
+      <en>Information</en>
     </item>
   </navigation>
 </site>
