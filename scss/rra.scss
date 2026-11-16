@@ -4,6 +4,7 @@
 @use "reset" as *;
 @use "hcmc-table" as *;
 @use "popover-nav-fullscreen" as *;
+@use "mobile-menu" as *;
 @use "page-grid" as *;
 @use "cards" as *;
 
@@ -136,17 +137,17 @@ body.splash {
  background:
    linear-gradient(
      180deg,
-     #1b91cd 0%,
-     rgb(164 215 241 / 0.8) 25%,
-     rgb(255 255 255 / 0) 30%
+     rgb(53 133 83 / 0.70) 0%,
+     rgb(78 157 103 / 0.48) 24%,
+     rgb(37 112 70 / 0) 43%
    ),
    linear-gradient(
       0deg,
-      #1b91cd 0%,
-      rgb(164 215 241 / 0.8) 10%,
-      rgb(255 255 255 / 0) 25%
+      rgb(53 133 83 / 0.66) 0%,
+      rgb(78 157 103 / 0.42) 13%,
+      rgb(37 112 70 / 0) 31%
     ),
-   url("../images/bg-splash.webp") center center / cover no-repeat;
+   url("../images/uvic-splash.jpg") center center / cover no-repeat;
 }
 
 //controls viewport padding and margins, centers main content
@@ -159,6 +160,7 @@ body.splash {
     min-height: 100dvh;
     background-color: transparent;
 }
+
 .top-logo-container-splash {
   margin-block-start: 10vh;
   display: flex;
@@ -170,10 +172,10 @@ body.splash {
   margin-inline: 1rem;
   background: linear-gradient(
     0deg,
-    rgba(6, 21, 29, 0) 0%,
-    rgba(29, 96, 131, 0.35) 20%,
-    rgba(29, 96, 131, 0.5) 50%,
-    rgba(6, 21, 29, 0) 100%
+    rgb(15 54 31 / 0) 0%,
+    rgba(23, 68, 39, 0.69) 18%,
+    rgba(20, 59, 34, 0.75) 50%,
+    rgba(20, 59, 34, 0.45) 100%
   );
   border-radius: 8px;
   
@@ -191,8 +193,11 @@ body.splash {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-inline-size: 0;
+  text-align: center;
+  overflow-wrap: anywhere;
   
-  & :is(.pre-title, .site-title, .location-one, .location-two, .date, .contact-us) {
+  & :is(.pre-title, .site-title, .site-subtitle, .location-one, .location-two, .date, .contact-us) {
     font-family: var(--font-sans-heading);
     color: #fff;
     line-height: 1.5;
@@ -209,9 +214,15 @@ body.splash {
   }
   
   & .site-title {
-   font-size: clamp(1.75rem, 2.5rem + 2vw, 5rem);
+   font-size: clamp(1.75rem, 1.25rem + 2vw, 3rem);
    line-height: 1.2;
   }
+
+  & .site-subtitle {
+   font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+   line-height: 1.5;
+  }
+
   & .location-one {
     font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
 
@@ -281,9 +292,6 @@ html:not(#index) .page-wrapper {
     padding-block-start: var(--space-3);
     background-color: transparent;
     
-    & .item {
-      color: #fff;
-    }
 }
 
 //non splash page header bg color
@@ -425,7 +433,7 @@ header {
 }
 
 .splash-logo {
-    width: 60%;
+    width: 40%;
     height: auto;
 }
 

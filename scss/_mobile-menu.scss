@@ -1,0 +1,100 @@
+// Navigation used by the shared content and landing-page templates.
+#mainMenu ul,
+.mobile-top-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#mainMenu a {
+    color: inherit;
+}
+
+#mainMenu ul {
+    justify-content: center;
+}
+
+.site-logo-top,
+.site-logo-mobile {
+    inline-size: 150px;
+    block-size: auto;
+}
+
+.mobile-menu-open,
+.mobile-menu-close {
+    display: none;
+}
+
+.js .mobile-menu-open,
+.js .mobile-menu-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+}
+
+.js #mainMenu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 4rem 1.5rem 1.5rem;
+    background-color: #fff;
+}
+
+.js #mainMenu.is-open {
+    display: block;
+}
+
+.js #mainMenu ul {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.js .mobile-menu-close {
+    position: absolute;
+    inset-block-start: 1rem;
+    inset-inline-end: 1rem;
+}
+
+body.menu-is-open {
+    overflow: hidden;
+}
+
+.mobile-menu-open:focus-visible,
+.mobile-menu-close:focus-visible,
+#mainMenu a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+@media (width > 768px) {
+    .mobile-top-nav,
+    .js .mobile-menu-open,
+    .js .mobile-menu-close {
+        display: none;
+    }
+
+    .js #mainMenu {
+        display: block;
+        position: static;
+        inset: auto;
+        z-index: auto;
+        overflow: visible;
+        padding: 1rem;
+    }
+
+    .js #mainMenu ul {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -141,8 +141,11 @@
         <xsl:variable name="currImg" select="."/>
         <xsl:for-each select="$imgTag">
           <xsl:copy>
-            <xsl:copy-of select="@width"/>
-            <xsl:copy-of select="@height"/>
+            <xsl:attribute name="width" select="if ($currImg/@width) then $currImg/@width else @width"/>
+            <xsl:attribute name="height"
+                           select="if ($currImg/@height) then $currImg/@height
+                                   else if ($currImg/@width) then round(number(@height) * number($currImg/@width) div number(@width))
+                                   else @height"/>
              <xsl:variable name="aspectClass">
               <xsl:choose>
                 <xsl:when test="number(@width) = number(@height)">
