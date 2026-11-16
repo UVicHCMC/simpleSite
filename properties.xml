@@ -157,8 +157,9 @@
     <item href="our-space.html">
       <en>Our space</en>
     </item>
-      <en>Reaserch Hub</en>
-    </item>
+    <!--<item href="research-hub.html">
+      <en>Research Hub</en>
+    </item>-->
     <item href="public-hums-grants.html">
       <en>Grants</en>
     </item>
