@@ -50,6 +50,7 @@
             <p class="date"><?date?></p>
             <br/>
             <h2><a class="landing-page-link" href="cfp.html">Call for Papers</a></h2>
+            <h2><a class="landing-page-link" href="https://event.fourwaves.com/bcstudies27">Submit a Proposal</a></h2>
           </header>
         </div>
       </main>
