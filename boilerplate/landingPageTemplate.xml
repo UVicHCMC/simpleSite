@@ -45,7 +45,8 @@
         <div class="top-logo-container-splash">
           <header class="splash-header-stack">
             <h1 class="site-title"><?siteTitle?></h1>
-            <h2 class="pre-title"><?preTitle?></h2>
+            <!--<h2 class="pre-title"><?preTitle?></h2>-->
+            <h3 class="sub-title">Conference for <?organizationName?></h3>
             <p class="location-one"><?place?></p>
             <p class="date"><?date?></p>
             <br/>
@@ -53,7 +54,7 @@
           </header>
         </div>
       </main>
-      <p class="photo-credit"><a href="https://www.bccontenthub.com/media/?filterType=add&amp;field=metaproperty_Credit&amp;value=Destination_BC_Mike_Seehagel">Photo Credit: Destination BC/Mike Seehagel</a></p>
+      <p class="photo-credit"><a href="https://www.uvic.ca/brand/templates-downloads/image-gallery/index.php">Photo Credit: UVic Image Gallery</a></p>
     </div>
   </body>
 </html>

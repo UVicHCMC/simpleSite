@@ -47,6 +47,14 @@
         margin-block-start: var(--flow-space);
     }
 
+    > h3 {
+        font-weight: var(--fw-semibold);
+        font-size: var(--ms-step-6);
+        text-align: center;
+        color: white;
+        max-width: 70%;
+    }
+
     > h1 {
         font-weight: var(--fw-semibold);
         font-size: var(--ms-step-12);
@@ -197,14 +205,22 @@ body.splash {
     opacity: 1;
 }
 .splash-header-stack {
+    gap: 0.75rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-inline: clamp(0.5rem, 2vw, 2rem);
+    text-align: center;
+
+    > * {
+        margin-block: 0;
+    }
 
     &
         :is(
             .pre-title,
             .site-title,
+            .sub-title,
             .location-one,
             .location-two,
             .date,
@@ -224,11 +240,22 @@ body.splash {
         line-height: 1.2;
     }
 
+    & .sub-title {
+        font-size: clamp(1.25rem, 1rem + 1vw, 2rem);
+        margin-block-start: 0.5rem;
+        line-height: 1.4;
+        max-width: min(100%, 65ch);
+        text-wrap: balance;
+    }
+
     & .site-title {
         font-size: clamp(1.75rem, 2.5rem + 2vw, 5rem);
         line-height: 1.2;
+        max-width: 80%;
+        text-wrap: balance;
     }
     & .location-one {
+        margin-block-start: 0.5rem;
         font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
     }
     & .location-two {
@@ -236,6 +263,14 @@ body.splash {
     }
     & .date {
         font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
+    }
+
+    > br {
+        display: none;
+    }
+
+    > h2 {
+        margin-block-start: 1rem;
     }
 
     & .contact-us {

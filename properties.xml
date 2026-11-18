@@ -29,7 +29,7 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <cssFile>css/bcstudies.css</cssFile>
+    <cssFile>css/rwcd.css</cssFile>
     <jsFile>js/pux.js</jsFile>
     <faviconIco>images/uvic-favicon.png</faviconIco>
     <!--<faviconSvg>images/favicon.svg</faviconSvg>-->
@@ -37,30 +37,30 @@
   </files>
   <metadata>
     <!-- Public base URL used to generate canonical links. Keep the trailing slash. -->
-    <siteUrl>https://bcstudies2027.uvic.ca/</siteUrl>
+    <siteUrl>https://rwcd.uvic.ca/</siteUrl>
     <siteTitle>
-      <en>Living in Risky Times</en>
+      <en>Rhetoric, Writing, Community, <br/>and Discourse</en>
     </siteTitle>
     <metaDescription>
-      <en>Website for the BC Studies 2027 conference.</en>
+      <en>Website for the Canadian Association for the Study of Discourse and Writing and the Canadian Writing Centre Association conference.</en>
     </metaDescription>
     <preTitle>
-      <en>BC Studies 2027</en>
+      <en>Rhetoric, Writing, Community, and Discourse </en>
     </preTitle>
     <organizationName>
-      <en>Organization Name</en>
+      <en>Canadian Association for the Study of Discourse and Writing and the Canadian Writing Centre Association</en>
     </organizationName>
     <contactEmail>
-      BCStudiesconf2027@gmail.com  <!--Check if this needs to be changed-->
+      rwcdconf2027@gmail.com  <!--Check if this needs to be changed-->
         </contactEmail>
     <WhereWhen>
       <place>
         <en>University of Victoria</en>
       </place>
       <date>
-        <en>May 14-16, 2027</en>
+        <en>May 25-27, 2027</en>
       </date>
-      <dateIso>2027-05-14/2027-05-16</dateIso>
+      <dateIso>2027-05-25/2027-05-27</dateIso>
       <location>
         <en>University of Victoria</en>
       </location>
