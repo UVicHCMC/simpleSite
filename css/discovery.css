@@ -4839,9 +4839,9 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
 }
 
 @media (min-width: 64rem) {
-  /* Fit four featured cards per row; let wrapped titles determine their height. */
+  /* Fit five featured cards per row; let wrapped titles determine their height. */
   .loi-edition .discovery-tier[data-priority="1"] {
-    --discovery-columns: 4;
+    --discovery-columns: 5;
     --discovery-padding: 1.25rem;
   }
   .loi-edition .discovery-tier[data-priority="2"] { --discovery-columns: 3; }

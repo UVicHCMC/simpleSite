@@ -30,7 +30,7 @@
     <lang code="en" label="English" default="true"/>
   </languages>
   <files>
-    <dataFile>data/data.csv</dataFile>
+    <dataFile>data/data-20261124.csv</dataFile>
     <cssFile>css/discovery.css</cssFile>
     <jsFile>js/ux.js</jsFile>
     <faviconIco>images/favicon.ico</faviconIco>

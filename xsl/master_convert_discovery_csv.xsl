@@ -84,7 +84,11 @@
           <xsl:if test="matches($number, '^[1-9][0-9]*$')"><xsl:attribute name="id" select="'item-' || $number"/></xsl:if>
           <title><xsl:sequence select="$title"/></title>
           <url><xsl:sequence select="$url"/></url>
-          <image src="{normalize-space(hcmc:csvField(., $headers, 'Image'))}" alt="{hcmc:csvField(., $headers, 'Image Alt')}"/>
+          <xsl:variable name="imageSrc" as="xs:string"
+            select="normalize-space((hcmc:csvField(., $headers, 'Image Filename'), hcmc:csvField(., $headers, 'Image'))[. ne ''][1])"/>
+          <xsl:variable name="imageAlt" as="xs:string"
+            select="normalize-space(((hcmc:csvField(., $headers, 'Image Alt Text'), hcmc:csvField(., $headers, 'Image Alt'))[normalize-space(.) ne ''][1], '')[1])"/>
+          <image src="{replace($imageSrc, '^/?content/images/', 'images/')}" alt="{normalize-space($imageAlt)}"/>
           <source>
             <xsl:for-each select="field">
               <xd:doc xsl:use-when="false()" scope="component"><xd:desc>The source column position.</xd:desc></xd:doc>
