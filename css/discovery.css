@@ -4826,8 +4826,11 @@ main.loiBornDigital.loiAbout div#text div[data-el=body] div[data-el=p] {
 
 .loi-edition .discovery-card-image {
   inline-size: 100%;
-  block-size: 18rem;
-  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  block-size: auto;
+  margin-block-start: auto;
+  display: block;
+  object-fit: cover;
 }
 
 @media (min-width: 48rem) {
