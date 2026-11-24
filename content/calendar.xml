@@ -149,6 +149,21 @@
         </article>
       </li>
       <li>
+        <article class="event-container calendar-event" aria-labelledby="event-december-3-title">
+          <time class="event-date" datetime="2026-12-03">
+            <span class="event-weekday">Thursday</span>
+            <span class="event-month">December</span>
+            <span class="event-day">3</span>
+            <span class="event-year">2026</span>
+          </time>
+          <img class="calendar-event-image" src="images/Tapestery.webp" width="400" height="518" alt="" loading="lazy" decoding="async"/>
+          <div class="event-summary">
+            <h3 id="event-december-3-title" class="calendar-event-title">Tapestry of Life, circle of biodiversity: Conversation with Jane Goodall Institute</h3>
+            <a class="event-button" href="https://events.uvic.ca/event/112774-tapestry-of-life-circle-of-biodiversity">Event details</a>
+          </div>
+        </article>
+      </li>
+      <li>
         <article class="event-container calendar-event" aria-labelledby="event-january-26-title">
           <time class="event-date" datetime="2027-01-26">
             <span class="event-weekday">Tuesday</span>
