@@ -569,6 +569,12 @@
         <copy todir="${basedir}/site/images" preservelastmodified="true">
             <path refid="image.files"/>
         </copy>
+
+        <echo message="Copying htaccess and README file to the 'site' folder."/>
+        <copy file="${basedir}/utilities/.htaccess" tofile="${basedir}/site/.htaccess" preservelastmodified="true"/>
+        <copy file="${basedir}/utilities/README_BEFORE_CHANGING_ANYTHING.txt" tofile="${basedir}/site/README_BEFORE_CHANGING_ANYTHING.txt" preservelastmodified="true"/>
+
+
         <pathconvert property="copied.images" refid="image.files" pathsep=", ">
             <mapper>
                 <regexpmapper from="^${basedir}/(.*)$" to="\1"/>
