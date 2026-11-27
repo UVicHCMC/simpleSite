@@ -909,6 +909,7 @@ button.popover-nav-close:is(:focus-visible, :hover) {
     width: auto;
     max-width: 100%;
     height: max-content;
+    overflow: visible;
     border: none;
     inset: 0;
     margin-inline: auto;
@@ -1083,6 +1084,67 @@ body:has(#site-navigation[popover]:popover-open) {
   .popover-nav-items li {
     transition: none;
     margin-bottom: 0;
+  }
+}
+.popover-nav-items .nav-dropdown {
+  position: relative;
+}
+.popover-nav-items .nav-dropdown details {
+  display: block;
+}
+.popover-nav-items .nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+.popover-nav-items .nav-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+.popover-nav-items .nav-dropdown summary::after {
+  content: "";
+  display: inline-block;
+  inline-size: 0.4em;
+  block-size: 0.4em;
+  margin-inline-start: 0.45em;
+  border-inline-end: 1px solid currentColor;
+  border-block-end: 1px solid currentColor;
+  vertical-align: 0.2em;
+  transform: rotate(45deg);
+}
+.popover-nav-items .nav-dropdown details[open] summary::after {
+  vertical-align: 0;
+  transform: rotate(225deg);
+}
+.popover-nav-items .nav-dropdown .nav-dropdown-menu {
+  list-style: none;
+  padding-inline-start: 1rem;
+}
+@media (width >= 768px) {
+  .popover-nav-items .nav-dropdown .nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: max-content;
+    padding: 0.75rem 1rem;
+    background: var(--popover-bg-color);
+    border: 1px solid var(--highlight);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.18);
+    z-index: 1;
+  }
+}
+.popover-nav-items .nav-dropdown .nav-dropdown-menu li {
+  margin: 0;
+}
+.popover-nav-items .nav-dropdown .nav-dropdown-menu .item {
+  margin-block-start: 0.75rem;
+}
+@media (width >= 768px) {
+  .popover-nav-items .nav-dropdown .nav-dropdown-menu .item {
+    margin-block-start: 0.25rem;
+    color: var(--popover-color);
+    text-decoration-color: var(--popover-text-decoration-color);
+  }
+  .popover-nav-items .nav-dropdown .nav-dropdown-menu .item:is(:hover, :focus-visible) {
+    border-bottom-color: var(--popover-color);
   }
 }
 .popover-nav-items .item {
@@ -1400,6 +1462,10 @@ figure.content--full > figcaption {
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
+}
+
+.top-logo-container-internal > .conference-logo {
+  margin-block-end: var(--space-3);
 }
 
 .logo-internal, .logo-popover {
@@ -1805,6 +1871,18 @@ body.splash {
   background-color: transparent;
 }
 
+#index main {
+  inline-size: 100%;
+}
+@media (width >= 768px) {
+  #index main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 .top-logo-container-splash {
   margin-block-start: 1vh;
   display: flex;
@@ -1820,14 +1898,30 @@ body.splash {
 }
 @media (width >= 768px) {
   .top-logo-container-splash {
-    padding: 3rem;
-    margin-block-start: 20vh;
+    inline-size: min(100% - 4rem, 72rem);
+    align-self: center;
+    margin-inline: auto;
+    margin-block: 2rem;
+    padding-block: clamp(2rem, 4vh, 3rem);
+    padding-inline: clamp(2rem, 4vw, 4rem);
   }
 }
 
 .logo-splash {
   filter: drop-shadow(0 1px 2px rgba(10, 13, 18, 0.1)) drop-shadow(0 1px 3px rgba(10, 13, 18, 0.1));
   opacity: 1;
+}
+
+@media (width >= 768px) {
+  .splash-header-stack > .uvic-logo {
+    display: block;
+    inline-size: clamp(13rem, 18vw, 17rem);
+    margin-block-end: 1rem;
+  }
+  .splash-header-stack > .uvic-logo img {
+    inline-size: 100%;
+    block-size: auto;
+  }
 }
 
 .splash-header-stack {
@@ -1879,13 +1973,74 @@ body.splash {
   font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
 }
 .splash-header-stack .date {
-  font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
+  font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem);
+  font-weight: 700;
 }
 .splash-header-stack > br {
   display: none;
 }
 .splash-header-stack > h2 {
   margin-block-start: 1rem;
+}
+.splash-header-stack > .cfp-heading {
+  margin-block-start: 1.75rem;
+  font-family: var(--font-sans-heading);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.splash-header-stack > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.splash-header-stack .landing-page-link {
+  display: inline-block;
+  padding-block: 0.625rem;
+  padding-inline: 0.75rem;
+  font-family: var(--font-sans-heading);
+  font-size: 1.375rem;
+  line-height: 1.4;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.06em;
+}
+.splash-header-stack .conference-date {
+  display: block;
+  color: #fff;
+  font-family: var(--font-sans-heading);
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+@media (width >= 768px) {
+  .splash-header-stack {
+    gap: 1rem;
+  }
+  .splash-header-stack > .site-title {
+    max-inline-size: 22ch;
+    max-width: 100%;
+    font-size: clamp(3rem, 4.5vw, 4.25rem);
+    line-height: 1.1;
+  }
+  .splash-header-stack > .date {
+    margin-block-start: 0.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .splash-header-stack > .date,
+  .splash-header-stack > .cfp-heading {
+    font-size: clamp(1.375rem, 1.75vw, 1.75rem);
+  }
+  .splash-header-stack .landing-page-link {
+    font-size: clamp(1.375rem, 1.5vw, 1.5rem);
+  }
+  .splash-header-stack > ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 1.5rem;
+  }
 }
 .splash-header-stack .contact-us {
   margin-block-start: 1rem;
@@ -2134,8 +2289,13 @@ header {
   width: 100%;
 }
 
+.cfp-heading {
+  color: #fff;
+}
+
 .landing-page-link {
   color: #fff;
+  font-weight: 700;
 }
 
 span.affil {

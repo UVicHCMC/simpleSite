@@ -214,6 +214,7 @@ button.popover-nav-close {
         width: auto;
         max-width: 100%;
         height: max-content;
+        overflow: visible;
         border: none;
         inset: 0;
         margin-inline: auto;
@@ -397,6 +398,75 @@ body:has(#site-navigation[popover]:popover-open) {
 
             transition: none;
             margin-bottom: 0;
+        }
+    }
+
+    & .nav-dropdown {
+        position: relative;
+
+        details {
+            display: block;
+        }
+
+        summary {
+            list-style: none;
+            cursor: pointer;
+
+            &::-webkit-details-marker {
+                display: none;
+            }
+
+            &::after {
+                content: "";
+                display: inline-block;
+                inline-size: 0.4em;
+                block-size: 0.4em;
+                margin-inline-start: 0.45em;
+                border-inline-end: 1px solid currentColor;
+                border-block-end: 1px solid currentColor;
+                vertical-align: 0.2em;
+                transform: rotate(45deg);
+            }
+        }
+
+        details[open] summary::after {
+            vertical-align: 0;
+            transform: rotate(225deg);
+        }
+
+        .nav-dropdown-menu {
+            list-style: none;
+            padding-inline-start: 1rem;
+
+            @media (width >=768px) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: max-content;
+                padding: 0.75rem 1rem;
+                background: var(--popover-bg-color);
+                border: 1px solid var(--highlight);
+                box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.18);
+                z-index: 1;
+            }
+
+            li {
+                margin: 0;
+            }
+
+            .item {
+                margin-block-start: 0.75rem;
+
+                @media (width >=768px) {
+                    margin-block-start: 0.25rem;
+                    color: var(--popover-color);
+                    text-decoration-color: var(--popover-text-decoration-color);
+
+                    &:is(:hover, :focus-visible) {
+                        border-bottom-color: var(--popover-color);
+                    }
+                }
+            }
         }
     }
 

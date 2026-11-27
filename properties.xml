@@ -88,7 +88,8 @@
   <!--For img.uvic-logo-->
   <uvic-logo>
     <href>https://hcmc.uvic.ca</href>
-    <src>images/logo-uvic.svg</src>
+    <src>images/uvic-logo.svg</src>
+    <class>uvic-logo</class>
     <alt>
       <en>University of Victoria Humanities Computing and Media Centre</en>
     </alt>
@@ -142,14 +143,31 @@
       </item>
     </items>
   </footer-content>
+  <!-- Conference links and dates displayed on the landing page. -->
+  <conference-cfps>
+    <items>
+      <item><a class="landing-page-link" href="cwca_accr_cfp.html">CWCA/ACCR</a><span class="conference-date">May 25–27</span></item>
+      <item><a class="landing-page-link" href="casdw_acr_cfp.html">CASDW/ACR</a><span class="conference-date">May 25–27</span></item>
+      <item><a class="landing-page-link" href="rhetcanada_cfp.html">RhetCanada</a><span class="conference-date">May 26–28</span></item>
+    </items>
+  </conference-cfps>
   <!-- For div.popover-nav-items. Replace these with your actual navigation items.
          If you are doing a bilingual build, supply each item with an element for each language (eg. <en> and <fr>). -->
   <navigation>
     <item href="index.html">
       <en>Home</en>
     </item>
-    <item href="cfp.html">
-      <en>CFP</en>
+    <item>
+      <en>CFPs</en>
+      <item href="cwca_accr_cfp.html">
+        <en>CWCA/ACCR</en>
+      </item>
+      <item href="casdw_acr_cfp.html">
+        <en>CASDW/ACR</en>
+      </item>
+      <item href="rhetcanada_cfp.html">
+        <en>RhetCanada</en>
+      </item>
     </item>    
   </navigation>
 </site>

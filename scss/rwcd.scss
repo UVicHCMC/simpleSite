@@ -174,6 +174,18 @@ body.splash {
     min-height: 100dvh;
     background-color: transparent;
 }
+
+#index main {
+    inline-size: 100%;
+
+    @media (width >= $desktop-break) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
 .top-logo-container-splash {
     margin-block-start: 1vh;
     display: flex;
@@ -194,8 +206,12 @@ body.splash {
     border-radius: 8px;
 
     @media (width >= $desktop-break) {
-        padding: 3rem;
-        margin-block-start: 20vh;
+        inline-size: min(100% - 4rem, 72rem);
+        align-self: center;
+        margin-inline: auto;
+        margin-block: 2rem;
+        padding-block: clamp(2rem, 4vh, 3rem);
+        padding-inline: clamp(2rem, 4vw, 4rem);
     }
 }
 
@@ -204,6 +220,20 @@ body.splash {
         drop-shadow(0 1px 3px rgba(10, 13, 18, 0.1));
     opacity: 1;
 }
+
+.splash-header-stack > .uvic-logo {
+    @media (width >= $desktop-break) {
+        display: block;
+        inline-size: clamp(13rem, 18vw, 17rem);
+        margin-block-end: 1rem;
+
+        img {
+            inline-size: 100%;
+            block-size: auto;
+        }
+    }
+}
+
 .splash-header-stack {
     gap: 0.75rem;
     display: flex;
@@ -262,7 +292,8 @@ body.splash {
         font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
     }
     & .date {
-        font-size: clamp(1rem, 0.9rem + 1vw, 1.25rem);
+        font-size: clamp(1.75rem, 1.25rem + 1.5vw, 2.25rem);
+        font-weight: 700;
     }
 
     > br {
@@ -271,6 +302,75 @@ body.splash {
 
     > h2 {
         margin-block-start: 1rem;
+    }
+
+    > .cfp-heading {
+        margin-block-start: 1.75rem;
+        font-family: var(--font-sans-heading);
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1.3;
+    }
+
+    > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    & .landing-page-link {
+        display: inline-block;
+        padding-block: 0.625rem;
+        padding-inline: 0.75rem;
+        font-family: var(--font-sans-heading);
+        font-size: 1.375rem;
+        line-height: 1.4;
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 0.06em;
+    }
+
+    & .conference-date {
+        display: block;
+        color: #fff;
+        font-family: var(--font-sans-heading);
+        font-size: 1.3rem;
+        line-height: 1.4;
+    }
+
+    // Keep the title prominent while grouping the date and paper calls beneath it.
+    @media (width >= $desktop-break) {
+        gap: 1rem;
+
+        > .site-title {
+            max-inline-size: 22ch;
+            max-width: 100%;
+            font-size: clamp(3rem, 4.5vw, 4.25rem);
+            line-height: 1.1;
+        }
+
+        > .date {
+            margin-block-start: 0.25rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        > .date,
+        > .cfp-heading {
+            font-size: clamp(1.375rem, 1.75vw, 1.75rem);
+        }
+
+        & .landing-page-link {
+            font-size: clamp(1.375rem, 1.5vw, 1.5rem);
+        }
+
+        > ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            column-gap: 1.5rem;
+        }
     }
 
     & .contact-us {
@@ -567,9 +667,16 @@ header {
     }
 }
 
+//CFP heading
+.cfp-heading {
+    color: #fff;
+}
+
+
 //Links on landing page
 .landing-page-link {
     color: #fff;
+    font-weight: 700;
 }
 
 //spans that are affiliation of speakers on their individual pages:

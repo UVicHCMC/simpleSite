@@ -44,13 +44,15 @@
       <main id="content">
         <div class="top-logo-container-splash">
           <header class="splash-header-stack">
+            <?uvic-logo?>
             <h1 class="site-title"><?siteTitle?></h1>
             <!--<h2 class="pre-title"><?preTitle?></h2>-->
-            <h3 class="sub-title">Conference for <?organizationName?></h3>
-            <p class="location-one"><?place?></p>
-            <p class="date"><?date?></p>
+            <!--<h3 class="sub-title">Conference for <?organizationName?></h3>-->
+            <!--<p class="location-one"><?place?></p>-->
+            <!--<p class="date"><?date?></p>-->
             <br/>
-            <h2><a class="landing-page-link" href="cfp.html">Call for Papers</a></h2>
+            <h2 class="cfp-heading">Calls for Papers</h2>
+            <?conference-cfps?>
           </header>
         </div>
       </main>

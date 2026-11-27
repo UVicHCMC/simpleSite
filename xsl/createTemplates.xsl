@@ -448,18 +448,40 @@
   <!-- Navigation menu -->
   <xsl:template name="build-navigation">
     <xsl:for-each select="$properties/navigation/item">
-      <li>
-        <a class="item" href="{@href}">
-          <xsl:choose>
-            <xsl:when test="*[local-name() = $lang]">
-              <xsl:value-of select="*[local-name() = $lang]"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="text()"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </a>
-      </li>
+      <xsl:choose>
+        <xsl:when test="item">
+          <li class="nav-dropdown">
+            <details>
+              <summary class="item">
+                <xsl:value-of select="*[local-name() = $lang][1]"/>
+              </summary>
+              <ul class="nav-dropdown-menu">
+                <xsl:for-each select="item">
+                  <li>
+                    <a class="item" href="{@href}">
+                      <xsl:value-of select="*[local-name() = $lang][1]"/>
+                    </a>
+                  </li>
+                </xsl:for-each>
+              </ul>
+            </details>
+          </li>
+        </xsl:when>
+        <xsl:otherwise>
+          <li>
+            <a class="item" href="{@href}">
+              <xsl:choose>
+                <xsl:when test="*[local-name() = $lang]">
+                  <xsl:value-of select="*[local-name() = $lang]"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="text()"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </a>
+          </li>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:for-each>
   </xsl:template>
   
